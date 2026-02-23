@@ -6,7 +6,7 @@ Interactive visualization and analysis of Vietnam's informal employment patterns
 
 **https://mielwewerka.github.io/vietnam-informal-economy/**
 
-## 📊 Features
+## Features
 
 - **4 Interactive Maps**
   - Informal Employment Rate by Province
