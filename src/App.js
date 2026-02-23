@@ -63,6 +63,19 @@ const mapConfigs = {
       { threshold: 4, color: '#f97316', label: '2-4%' },
       { threshold: 100, color: '#c2410c', label: '≥4%' }
     ]
+  },
+  urbanization: {
+    title: "Urbanization Rate",
+    dataKey: "urban_pct_gso_2024",
+    unit: "%",
+    description: "Urban population percentage (GSO 2024)",
+    colorScale: [
+      { threshold: 20, color: '#fef3c7', label: '<20%' },
+      { threshold: 40, color: '#fde047', label: '20-40%' },
+      { threshold: 60, color: '#facc15', label: '40-60%' },
+      { threshold: 80, color: '#eab308', label: '60-80%' },
+      { threshold: 100, color: '#a16207', label: '≥80%' }
+    ]
   }
 };
 
