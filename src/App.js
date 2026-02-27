@@ -332,6 +332,7 @@ function InteractiveMaps({ onBack }) {
   const [selectedProvince, setSelectedProvince] = useState(null);
   const [hoveredProvince, setHoveredProvince] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [urbanFilter, setUrbanFilter] = useState('all');
 
   const currentConfig = mapConfigs[activeTab];
 
@@ -371,7 +372,15 @@ function InteractiveMaps({ onBack }) {
     return null;
   };
 
-  const stats = useMemo(() => {
+  const isUrbanFiltered = (provinceName) => {
+  if (urbanFilter === 'all') return true;
+  const data = getProvinceData(provinceName);
+  const urbanPct = data?.urban_pct_gso_2024;
+  if (urbanPct === null || urbanPct === undefined) return false;
+  return urbanPct >= parseInt(urbanFilter);
+};
+
+const stats = useMemo(() => {
     const values = Object.values(completeMapData)
       .map(p => p[currentConfig.dataKey])
       .filter(v => v !== null && v !== undefined && !isNaN(v));
@@ -485,7 +494,10 @@ function InteractiveMaps({ onBack }) {
         <div style={{ padding: '16px 24px', borderTop: '1px solid #e0e0e0', background: '#fafafa', fontSize: '11px', color: '#999' }}>Data: GSO Labor Force Survey 2023</div>
       </div>
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: '#f5f5f5', position: 'relative' }}>
-        <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 1000, background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '14px', fontWeight: '500', color: '#666', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>{sidebarOpen ? '◀ Hide' : '▶ Show'} Panel</button>
+        <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 1000, background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '14px', fontWeight: '500', color: '#666', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>{sidebarOpen ? '◀ Hide' : '▶ Show'} Panel</button> <button onClick={() => setUrbanFilter(urbanFilter === 'all' ? '50' : urbanFilter === '50' ? '70' : 'all')} style={{ background: urbanFilter !== 'all' ? '#00bfa5' : 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', color: urbanFilter !== 'all' ? 'white' : '#666', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', whiteSpace: 'nowrap' }}>
+    {urbanFilter === 'all' ? '🏙 Urban Filter: Off' : urbanFilter === '50' ? '🏙 Urban >50%' : '🏙 Urban >70%'}
+  </button>
+</div>
         <div style={{ position: 'absolute', bottom: '20px', right: '20px', background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', zIndex: 1000, minWidth: '200px' }}>
           <div style={{ fontSize: '12px', fontWeight: '600', color: '#333', marginBottom: '12px' }}>{currentConfig.title}</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>{currentConfig.colorScale.map(({ color, label }) => (<div key={label} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><div style={{ width: '24px', height: '16px', backgroundColor: color, borderRadius: '2px' }}></div><span style={{ fontSize: '11px', color: '#666' }}>{label}</span></div>))}</div>
@@ -499,7 +511,7 @@ function InteractiveMaps({ onBack }) {
               const isSelected = selectedProvince === provinceName;
               const isHovered = hoveredProvince === provinceName;
               const pathData = geoToSVGPath(feature.geometry.coordinates, project);
-              return (<path key={idx} d={pathData} fill={fillColor} stroke={isSelected ? '#00bfa5' : isHovered ? '#00bfa5' : 'white'} strokeWidth={isSelected ? 3 : isHovered ? 2 : 0.5} style={{ cursor: 'pointer', transition: 'all 0.2s', filter: isHovered ? 'brightness(1.1)' : 'none' }} onClick={() => setSelectedProvince(provinceName)} onMouseEnter={() => setHoveredProvince(provinceName)} onMouseLeave={() => setHoveredProvince(null)}><title>{`${provinceName}: ${formatValue(value)}`}</title></path>);
+              return (<path key={idx} d={pathData} fill={fillColor} stroke={isSelected ? '#00bfa5' : isHovered ? '#00bfa5' : 'white'} strokeWidth={isSelected ? 3 : isHovered ? 2 : 0.5} style={{ cursor: 'pointer', transition: 'all 0.2s', filter: isHovered ? 'brightness(1.1)' : 'none', opacity: isUrbanFiltered(provinceName) ? 1 : 0.15 }} onClick={() => setSelectedProvince(provinceName)} onMouseEnter={() => setHoveredProvince(provinceName)} onMouseLeave={() => setHoveredProvince(null)}><title>{`${provinceName}: ${formatValue(value)}`}</title></path>);
             })}
           </svg>
           {hoveredProvince && !selectedProvince && (<div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', border: '2px solid #00bfa5', borderRadius: '4px', padding: '16px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)', pointerEvents: 'none', zIndex: 1001 }}><div style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '4px' }}>{hoveredProvince}</div><div style={{ fontSize: '24px', fontWeight: '700', color: '#00bfa5' }}>{formatValue(getProvinceValue(hoveredProvince))}</div><div style={{ fontSize: '11px', color: '#999', marginTop: '4px' }}>Click to view details</div></div>)}
