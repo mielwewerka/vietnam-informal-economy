@@ -26,34 +26,73 @@ function InteractiveMaps({ onBack }) {
   };
 
   const getProvinceValue = (provinceName) => {
+    let provinceData = null;
+    
     if (completeMapData[provinceName]) {
-      return completeMapData[provinceName][currentConfig.dataKey];
-    }
-    for (const [key, value] of Object.entries(completeMapData)) {
-      if (key.toLowerCase().includes(provinceName.toLowerCase()) ||
-          provinceName.toLowerCase().includes(key.toLowerCase())) {
-        return value[currentConfig.dataKey];
+      provinceData = completeMapData[provinceName];
+    } else {
+      // Fuzzy match
+      for (const [key, value] of Object.entries(completeMapData)) {
+        if (key.toLowerCase().includes(provinceName.toLowerCase()) ||
+            provinceName.toLowerCase().includes(key.toLowerCase())) {
+          provinceData = value;
+          break;
+        }
       }
     }
-    return null;
+    
+    if (!provinceData) return null;
+    
+    // Calculate derived metrics on the fly
+    if (currentConfig.dataKey === 'non_ag_informal_pct') {
+      return provinceData.informal_pct - provinceData.agricultural_pct;
+    }
+    
+    if (currentConfig.dataKey === 'rural_pct') {
+      return 100 - provinceData.urban_pct_gso_2024;
+    }
+    
+    // Return normal value
+    return provinceData[currentConfig.dataKey];
   };
 
   const getProvinceData = (provinceName) => {
+    let provinceData = null;
+    
     if (completeMapData[provinceName]) {
-      return completeMapData[provinceName];
-    }
-    for (const [key, value] of Object.entries(completeMapData)) {
-      if (key.toLowerCase().includes(provinceName.toLowerCase()) ||
-          provinceName.toLowerCase().includes(key.toLowerCase())) {
-        return value;
+      provinceData = completeMapData[provinceName];
+    } else {
+      for (const [key, value] of Object.entries(completeMapData)) {
+        if (key.toLowerCase().includes(provinceName.toLowerCase()) ||
+            provinceName.toLowerCase().includes(key.toLowerCase())) {
+          provinceData = value;
+          break;
+        }
       }
     }
-    return null;
+    
+    if (!provinceData) return null;
+    
+    // Add calculated fields
+    return {
+      ...provinceData,
+      non_ag_informal_pct: provinceData.informal_pct - provinceData.agricultural_pct,
+      rural_pct: 100 - provinceData.urban_pct_gso_2024
+    };
   };
 
   const stats = useMemo(() => {
     const values = Object.values(completeMapData)
-      .map(p => p[currentConfig.dataKey])
+      .map(p => {
+        // Calculate derived values for stats
+        if (currentConfig.dataKey === 'non_ag_informal_pct') {
+          return p.informal_pct - p.agricultural_pct;
+        }
+        if (currentConfig.dataKey === 'rural_pct') {
+          return 100 - p.urban_pct_gso_2024;
+        }
+        return p[currentConfig.dataKey];
+      })
       .filter(v => v !== null && v !== undefined && !isNaN(v));
     
     if (values.length === 0) return { max: 'N/A', min: 'N/A', avg: 'N/A' };
