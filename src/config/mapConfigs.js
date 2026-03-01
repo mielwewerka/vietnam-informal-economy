@@ -1,8 +1,7 @@
 // ========================================
 // MAP CONFIGURATIONS
 // ========================================
-// Shared settings for all 4 map types
-
+// Shared settings for all 7 map types
 export const mapConfigs = {
   informal: {
     title: "Informal Employment",
@@ -69,8 +68,7 @@ export const mapConfigs = {
       { threshold: 80, color: '#eab308', label: '60-80%' },
       { threshold: 100, color: '#a16207', label: '≥80%' }
     ]
-  }
-},
+  },
   nonAgInformal: {
     title: "Non-Agricultural Informal",
     dataKey: "non_ag_informal_pct",
@@ -97,5 +95,4 @@ export const mapConfigs = {
       { threshold: 100, color: '#1e3a8a', label: '≥80%' }
     ]
   }
-};  
 };
