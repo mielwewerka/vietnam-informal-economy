@@ -70,4 +70,32 @@ export const mapConfigs = {
       { threshold: 100, color: '#a16207', label: '≥80%' }
     ]
   }
+},
+  nonAgInformal: {
+    title: "Non-Agricultural Informal",
+    dataKey: "non_ag_informal_pct",
+    unit: "%",
+    description: "Informal employment excluding agriculture (urban informal economy)",
+    colorScale: [
+      { threshold: 10, color: '#dcfce7', label: '<10%' },
+      { threshold: 20, color: '#86efac', label: '10-20%' },
+      { threshold: 30, color: '#22c55e', label: '20-30%' },
+      { threshold: 40, color: '#15803d', label: '30-40%' },
+      { threshold: 100, color: '#14532d', label: '≥40%' }
+    ]
+  },
+  ruralPopulation: {
+    title: "Rural Population",
+    dataKey: "rural_pct",
+    unit: "%",
+    description: "Percentage of population living in rural areas",
+    colorScale: [
+      { threshold: 20, color: '#dbeafe', label: '<20%' },
+      { threshold: 40, color: '#93c5fd', label: '20-40%' },
+      { threshold: 60, color: '#3b82f6', label: '40-60%' },
+      { threshold: 80, color: '#1e40af', label: '60-80%' },
+      { threshold: 100, color: '#1e3a8a', label: '≥80%' }
+    ]
+  }
+};  
 };
