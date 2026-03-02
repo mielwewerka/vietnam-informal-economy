@@ -125,7 +125,7 @@ function LandingPage({ onNavigate }) {
   const navVisible = scrollY > heroHeight * 0.8;
 
   return (
-    <div style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif' }}>
+    <div style={{ fontFamily: '"Cormorant Garamond", "Georgia", "Times New Roman", serif' }}>
 
       {/* STICKY NAV - appears after scrolling past hero */}
       <div style={{
