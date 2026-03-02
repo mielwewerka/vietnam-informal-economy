@@ -164,7 +164,7 @@ function LandingPage({ onNavigate }) {
 
       {/* HERO — image + deeper teal overlay + scroll effects */}
       <div style={{
-        minHeight: '100vh',
+        minHeight: '70vh',
         position: 'relative',
         overflow: 'hidden',
         opacity: heroOpacity,
