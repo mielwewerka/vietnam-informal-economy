@@ -3,7 +3,7 @@
 // Professional Academic Style
 // ========================================
 //Yay!
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import vietnamGeoData from './data/vietnamGeoData.json';
 import completeMapData from './data/completeMapData.json';
 
