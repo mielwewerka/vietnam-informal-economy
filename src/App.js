@@ -177,7 +177,7 @@ function LandingPage({ onNavigate }) {
           <h1 style={{ fontSize: '52px', fontWeight: '800', color: 'white', margin: '0 0 16px 0', lineHeight: '1.1', letterSpacing: '-1.5px' }}>
             Vietnam's Informal Workforce
           </h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', margin: '0 0 28px 0', lineHeight: '1.6' }}>
+          <p style={{ fontSize: '18px', fontStyle: 'italic', color: 'rgba(255,255,255,0.9)', margin: '0 0 28px 0', lineHeight: '1.6' }}>
             65% of Vietnamese workers exist outside the formal economy — and it's shaping the country's fiscal path.
           </p>
           <button onClick={() => onNavigate('maps')} style={{
