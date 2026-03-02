@@ -83,13 +83,18 @@ const mapConfigs = {
 // LANDING PAGE COMPONENT
 // ========================================
 function LandingPage({ onNavigate }) {
-  const [scrolled, setScrolled] = React.useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
-  React.useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.5);
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const heroHeight = window.innerHeight * 0.5;
+  const heroOpacity = Math.max(0, 1 - (scrollY / (heroHeight * 0.6)));
+  const heroTranslate = scrollY * 0.4;
+  const navVisible = scrollY > heroHeight * 0.8;
 
   return (
     <div style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif' }}>
@@ -100,7 +105,7 @@ function LandingPage({ onNavigate }) {
         background: 'white', borderBottom: '1px solid #e0e0e0',
         padding: '14px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-        transform: scrolled ? 'translateY(0)' : 'translateY(-100%)',
+        transform: navVisible ? 'translateY(0)' : 'translateY(-100%)',
         transition: 'transform 0.3s ease'
       }}>
         <div style={{ fontSize: '15px', fontWeight: '700', color: '#00897b' }}>Vietnam Informal Economy</div>
@@ -113,20 +118,29 @@ function LandingPage({ onNavigate }) {
 
       {/* HERO - half screen, teal overlay on image */}
       <div style={{
-        height: '50vh', position: 'relative', overflow: 'hidden',
-        display: 'flex', alignItems: 'center', justifyContent: 'center'
-      }}>
-        {/* Background image */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: 'url(https://i.imgur.com/mT4qqfA.jpeg)',
-          backgroundSize: 'cover', backgroundPosition: 'center'
-        }} />
-        {/* Teal overlay */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(135deg, rgba(0,191,165,0.72) 0%, rgba(0,137,123,0.80) 100%)'
-        }} />
+  height: '50vh',
+  position: 'relative',
+  overflow: 'hidden',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  opacity: heroOpacity,
+  transform: `translateY(-${heroTranslate}px)`,
+  transition: 'none'
+}}>
+       {/* Background image */}
+<div style={{
+  position: 'absolute', inset: 0,
+  backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/main/vietnam-street.jpg)',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center'
+}} />
+
+{/* Teal overlay on top of image */}
+<div style={{
+  position: 'absolute', inset: 0,
+  background: 'linear-gradient(135deg, rgba(0,191,165,0.72) 0%, rgba(0,137,123,0.80) 100%)'
+}} />
         {/* Hero text */}
         <div style={{ position: 'relative', textAlign: 'center', padding: '0 40px', maxWidth: '800px' }}>
           <div style={{ fontSize: '12px', fontWeight: '700', color: 'rgba(255,255,255,0.8)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '16px' }}>
@@ -155,15 +169,15 @@ function LandingPage({ onNavigate }) {
         <div style={{ background: 'white', borderBottom: '1px solid #e0e0e0', padding: '32px 40px' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
             {[
-              ['64.5%', 'of workers are informally employed', '#dc2626'],
-              ['~1M', 'people work in the sidewalk economy alone', '#f97316'],
-              ['2045', 'Vietnam\'s target year to reach high-income status', '#00897b'],
-            ].map(([stat, label, color]) => (
-              <div key={stat} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '42px', fontWeight: '800', color, marginBottom: '8px' }}>{stat}</div>
-                <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>{label}</div>
-              </div>
-            ))}
+  ['64.5%', 'of workers are informally employed'],
+  ['~1M', 'people work in the sidewalk economy alone'],
+  ['2045', "Vietnam's target year to reach high-income status"],
+].map(([stat, label]) => (
+  <div key={stat} style={{ textAlign: 'center' }}>
+    <div style={{ fontSize: '42px', fontWeight: '800', color: '#00897b', marginBottom: '8px' }}>{stat}</div>
+    <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>{label}</div>
+  </div>
+))}
           </div>
         </div>
 
@@ -217,7 +231,7 @@ function LandingPage({ onNavigate }) {
         {/* Footer */}
         <div style={{ borderTop: '1px solid #e0e0e0', padding: '32px 40px', textAlign: 'center' }}>
           <p style={{ fontSize: '13px', color: '#999', margin: 0 }}>
-            ECON 62 — Development Economics · Winter 2026 · Data: GSO Labor Force Survey 2023, World Bank, ILO
+            ECON 62 — Topics in Macroeconomics · Winter 2026 · Data: GSO Labor Force Survey 2023, World Bank, ILO
           </p>
         </div>
 
