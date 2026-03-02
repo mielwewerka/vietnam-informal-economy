@@ -522,7 +522,7 @@ export default function InformalExplainer({ onBack }) {
                 {
                   title: 'Female migrant workers',
                   pct: '65%',
-                  body: 'Women's informality rate is slightly lower than men's (65% vs 71.6%), but women dominate the most vulnerable categories: domestic workers, street vendors, and garment workers without contracts.',
+                  body: "Women's informality rate is slightly lower than men's (65% vs 71.6%), but women dominate the most vulnerable categories: domestic workers, street vendors, and garment workers without contracts.",,
                   color: '#9333ea'
                 },
                 {
