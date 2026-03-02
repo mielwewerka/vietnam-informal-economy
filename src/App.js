@@ -147,10 +147,10 @@ function LandingPage({ onNavigate }) {
             ECON 62 — Topics in Macroeconomics
           </div>
           <h1 style={{ fontSize: '52px', fontWeight: '800', color: 'white', margin: '0 0 16px 0', lineHeight: '1.1', letterSpacing: '-1.5px' }}>
-            Vietnam's Invisible Workforce
+            Vietnam's Informal Workforce
           </h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', margin: '0 0 28px 0', lineHeight: '1.6' }}>
-            65% of Vietnamese workers exist outside the formal economy — and it's reshaping the country's path to 2045.
+            65% of Vietnamese workers exist outside the formal economy — and it's shaping the country's fiscal path.
           </p>
           <button onClick={() => onNavigate('maps')} style={{
             background: 'white', color: '#00897b', border: 'none',
@@ -169,8 +169,8 @@ function LandingPage({ onNavigate }) {
         <div style={{ background: 'white', borderBottom: '1px solid #e0e0e0', padding: '32px 40px' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
             {[
-  ['64.5%', 'of workers are informally employed'],
-  ['~1M', 'people work in the sidewalk economy alone'],
+  ['64.5%', 'Of workers are informally employed'],
+  ['~1M', 'People work in the sidewalk economy alone'],
   ['2045', "Vietnam's target year to reach high-income status"],
 ].map(([stat, label]) => (
   <div key={stat} style={{ textAlign: 'center' }}>
