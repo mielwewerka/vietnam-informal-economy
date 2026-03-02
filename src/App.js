@@ -110,6 +110,10 @@ ruralPopulation: {
 // ========================================
 // LANDING PAGE COMPONENT
 // ========================================
+// ========================================
+// LANDING PAGE COMPONENT — paste this in App.js
+// replacing the existing LandingPage function
+// ========================================
 function LandingPage({ onNavigate }) {
   const [scrollY, setScrollY] = useState(0);
 
@@ -125,140 +129,271 @@ function LandingPage({ onNavigate }) {
   const navVisible = scrollY > heroHeight * 0.8;
 
   return (
-    <div style={{ fontFamily: '"Cormorant Garamond", "Georgia", "Times New Roman", serif' }}>
+    <div style={{ fontFamily: '"Cormorant Garamond", "Georgia", serif' }}>
 
-      {/* STICKY NAV - appears after scrolling past hero */}
+      {/* STICKY NAV */}
       <div style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-        background: 'white', borderBottom: '1px solid #e0e0e0',
+        background: '#1a1a1a', borderBottom: '1px solid #2a2a2a',
         padding: '14px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+        boxShadow: '0 2px 12px rgba(0,0,0,0.3)',
         transform: navVisible ? 'translateY(0)' : 'translateY(-100%)',
         transition: 'transform 0.3s ease'
       }}>
-        <div style={{ fontSize: '15px', fontWeight: '700', color: '#00897b' }}>Vietnam Informal Economy</div>
-        <div style={{ display: 'flex', gap: '20px' }}>
-          {[['maps','Data & Maps'],['vietnam2045','Vietnam 2045'],['informal-explainer','Informal Economy']].map(([page, label]) => (
-            <button key={page} onClick={() => onNavigate(page)} style={{ background: 'none', border: 'none', color: '#555', fontSize: '14px', fontWeight: '500', cursor: 'pointer' }}>{label}</button>
+        <div style={{
+          fontSize: '15px', fontWeight: '600', color: 'white',
+          letterSpacing: '0.3px', fontFamily: '"Cormorant Garamond", serif'
+        }}>
+          Vietnam Informal Employment
+        </div>
+        <div style={{ display: 'flex', gap: '28px', fontFamily: '"Inter", sans-serif' }}>
+          {[
+            { label: 'Data & Maps', page: 'maps' },
+            { label: 'Vietnam 2045', page: 'vietnam2045' },
+            { label: 'Informal Economy', page: 'informal-explainer' },
+          ].map(({ label, page }) => (
+            <button key={page} onClick={() => onNavigate(page)} style={{
+              background: 'transparent', border: 'none',
+              color: 'rgba(255,255,255,0.65)', fontSize: '13px',
+              fontWeight: '500', cursor: 'pointer', letterSpacing: '0.2px',
+              transition: 'color 0.2s'
+            }}>{label}</button>
           ))}
         </div>
       </div>
 
-      {/* HERO - half screen, teal overlay on image */}
+      {/* HERO — image + deeper teal overlay + scroll effects */}
       <div style={{
-  height: '50vh',
-  position: 'relative',
-  overflow: 'hidden',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  opacity: heroOpacity,
-  transform: `translateY(-${heroTranslate}px)`,
-  transition: 'none'
-}}>
-       {/* Background image */}
-<div style={{
-  position: 'absolute', inset: 0,
-  backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/main/vietnam-street.jpg)',
-  backgroundSize: 'cover',
-  backgroundPosition: 'center'
-}} />
-
-{/* Teal overlay on top of image */}
-<div style={{
-  position: 'absolute', inset: 0,
-  background: 'linear-gradient(135deg, rgba(0,191,165,0.85) 0%, rgba(0,137,123,0.92) 100%)'
-}} />
-        {/* Hero text */}
-        <div style={{ position: 'relative', textAlign: 'center', padding: '0 40px', maxWidth: '800px' }}>
-          <div style={{ fontSize: '12px', fontWeight: '700', color: 'rgba(255,255,255,0.8)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '16px' }}>
-            ECON 62 — Topics in Macroeconomics
+        height: '50vh',
+        position: 'relative',
+        overflow: 'hidden',
+        opacity: heroOpacity,
+        transform: `translateY(-${heroTranslate}px)`
+      }}>
+        {/* Background image */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: `url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/main/vietnam-street.jpg)`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }} />
+        {/* Deeper teal overlay */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(135deg, rgba(0,191,165,0.88) 0%, rgba(0,105,92,0.94) 100%)'
+        }} />
+        {/* Top accent line */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0,
+          height: '3px',
+          background: 'linear-gradient(90deg, rgba(255,255,255,0.6), rgba(255,255,255,0.1))'
+        }} />
+        {/* Hero content */}
+        <div style={{
+          position: 'relative', height: '100%',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          padding: '40px', textAlign: 'center'
+        }}>
+          <div style={{ maxWidth: '820px' }}>
+            <div style={{
+              fontSize: '11px', fontWeight: '700', color: 'rgba(255,255,255,0.7)',
+              letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '20px',
+              fontFamily: '"Inter", sans-serif'
+            }}>
+              ECON 62 · Topics in Macroeconomics · Winter 2026
+            </div>
+            <h1 style={{
+              fontSize: 'clamp(40px, 6vw, 72px)',
+              fontWeight: '300',
+              color: 'white',
+              margin: '0 0 20px 0',
+              letterSpacing: '-1px',
+              lineHeight: '1.05',
+              fontFamily: '"Cormorant Garamond", serif'
+            }}>
+              "Vietnam's Invisible Workforce"
+            </h1>
+            <p style={{
+              fontSize: 'clamp(17px, 2vw, 22px)',
+              color: 'rgba(255,255,255,0.82)',
+              margin: '0 0 32px 0',
+              lineHeight: '1.5',
+              fontStyle: 'italic',
+              fontFamily: '"Cormorant Garamond", serif',
+              fontWeight: '300'
+            }}>
+              65% of Vietnamese workers exist outside the formal economy — and it's shaping the country's fiscal path.
+            </p>
+            <button onClick={() => onNavigate('maps')} style={{
+              background: 'white', color: '#00695c', border: 'none',
+              padding: '13px 32px', fontSize: '14px', fontWeight: '700',
+              borderRadius: '3px', cursor: 'pointer', letterSpacing: '0.5px',
+              fontFamily: '"Inter", sans-serif',
+              boxShadow: '0 4px 16px rgba(0,0,0,0.2)'
+            }}>
+              Explore the Data →
+            </button>
           </div>
-          <h1 style={{ fontSize: '52px', fontWeight: '800', color: 'white', margin: '0 0 16px 0', lineHeight: '1.1', letterSpacing: '-1.5px' }}>
-            Vietnam's Informal Workforce
-          </h1>
-          <p style={{ fontSize: '18px', fontStyle: 'italic', color: 'rgba(255,255,255,0.9)', margin: '0 0 28px 0', lineHeight: '1.6' }}>
-            65% of Vietnamese workers exist outside the formal economy — and it's shaping the country's fiscal path.
-          </p>
-          <button onClick={() => onNavigate('maps')} style={{
-            background: 'white', color: '#00897b', border: 'none',
-            padding: '14px 32px', fontSize: '15px', fontWeight: '700',
-            borderRadius: '4px', cursor: 'pointer', letterSpacing: '0.3px'
-          }}>
-            Explore the Data →
-          </button>
         </div>
       </div>
 
       {/* CONTENT BELOW HERO */}
-      <div style={{ background: '#fafafa' }}>
+      <div>
 
-        {/* Key stat strip */}
-        <div style={{ background: 'white', borderBottom: '1px solid #e0e0e0', padding: '32px 40px' }}>
-          <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+        {/* Key stats strip — dark */}
+        <div style={{
+          background: '#1a1a1a',
+          borderBottom: '1px solid #2a2a2a',
+          padding: '40px'
+        }}>
+          <div style={{
+            maxWidth: '1100px', margin: '0 auto',
+            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '1px', background: '#2a2a2a'
+          }}>
             {[
-  ['64.5%', 'Of workers are informally employed'],
-  ['~1M', 'People work in the sidewalk economy alone'],
-  ['2045', "Vietnam's target year to reach high-income status"],
-].map(([stat, label]) => (
-  <div key={stat} style={{ textAlign: 'center' }}>
-    <div style={{ fontSize: '42px', fontWeight: '800', color: '#00897b', marginBottom: '8px' }}>{stat}</div>
-    <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>{label}</div>
-  </div>
-))}
+              ['64.5%', 'Of workers are informally employed'],
+              ['~1M', 'People work in the sidewalk economy alone'],
+              ['2045', "Vietnam's target year for high-income status"],
+            ].map(([stat, label]) => (
+              <div key={stat} style={{ background: '#1a1a1a', padding: '32px 40px', textAlign: 'center' }}>
+                <div style={{
+                  fontSize: '48px', fontWeight: '300', color: '#4dd0c4',
+                  marginBottom: '10px', letterSpacing: '-1px',
+                  fontFamily: '"Cormorant Garamond", serif', lineHeight: 1
+                }}>{stat}</div>
+                <div style={{
+                  fontSize: '13px', color: 'rgba(255,255,255,0.55)',
+                  lineHeight: '1.5', fontFamily: '"Inter", sans-serif'
+                }}>{label}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* About section */}
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 40px' }}>
-          <div style={{ fontSize: '12px', fontWeight: '700', color: '#00897b', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>About This Project</div>
-          <h2 style={{ fontSize: '36px', fontWeight: '700', color: '#1a1a1a', margin: '0 0 24px 0', lineHeight: '1.2' }}>
-            A country racing toward prosperity — with most of its economy invisible to the state.
-          </h2>
-          <p style={{ fontSize: '17px', color: '#555', lineHeight: '1.8', marginBottom: '20px' }}>
-            Vietnam has achieved extraordinary growth since Doi Moi. But beneath the headline numbers lies a structural challenge: the majority of Vietnamese workers operate outside the formal economy — unprotected, untaxed, and uncounted. This project maps that reality province by province, and asks what it means for Vietnam's ambition to become a high-income country by 2045.
-          </p>
-          <p style={{ fontSize: '17px', color: '#555', lineHeight: '1.8' }}>
-            Built from GSO Labor Force Survey data, ILO research, and World Bank analysis, this is meant as an interactive replacement for a traditional paper — a way to explore the data, understand the stakes, and follow the argument as it unfolds.
-          </p>
+        {/* About section — light with dark undertone */}
+        <div style={{ background: '#f5f3f0' }}>
+          <div style={{ maxWidth: '820px', margin: '0 auto', padding: '72px 40px' }}>
+            <div style={{
+              fontSize: '11px', fontWeight: '700', color: '#00897b',
+              letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '20px',
+              fontFamily: '"Inter", sans-serif'
+            }}>About This Project</div>
+            <h2 style={{
+              fontSize: 'clamp(28px, 3.5vw, 40px)',
+              fontWeight: '400', color: '#1a1a1a',
+              margin: '0 0 28px 0', lineHeight: '1.2',
+              letterSpacing: '-0.5px'
+            }}>
+              A country racing toward prosperity — with most of its economy invisible to the state.
+            </h2>
+            <p style={{
+              fontSize: '18px', color: '#444', lineHeight: '1.85',
+              marginBottom: '20px', fontWeight: '400'
+            }}>
+              Vietnam has achieved extraordinary growth since Doi Moi. But beneath the headline numbers lies a structural challenge: the majority of Vietnamese workers operate outside the formal economy — unprotected, untaxed, and uncounted. This project maps that reality province by province, and asks what it means for Vietnam's ambition to become a high-income country by 2045.
+            </p>
+            <p style={{
+              fontSize: '17px', color: '#666', lineHeight: '1.85',
+              fontStyle: 'italic'
+            }}>
+              Built from GSO Labor Force Survey data, ILO research, and World Bank analysis — an interactive replacement for a traditional paper.
+            </p>
+          </div>
         </div>
 
-        {/* Navigation cards */}
-        <div style={{ background: 'white', borderTop: '1px solid #e0e0e0', padding: '72px 40px' }}>
+        {/* Navigation cards — white on slightly warm background */}
+        <div style={{ background: 'white', borderTop: '1px solid #e8e4e0', padding: '72px 40px' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-            <div style={{ fontSize: '12px', fontWeight: '700', color: '#00897b', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Explore</div>
-            <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1a1a1a', margin: '0 0 40px 0' }}>Project Sections</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
+            <div style={{
+              fontSize: '11px', fontWeight: '700', color: '#00897b',
+              letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '12px',
+              fontFamily: '"Inter", sans-serif'
+            }}>Explore</div>
+            <h2 style={{
+              fontSize: 'clamp(24px, 3vw, 34px)', fontWeight: '400',
+              color: '#1a1a1a', margin: '0 0 40px 0', letterSpacing: '-0.3px'
+            }}>Project Sections</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '20px' }}>
               {[
-                { page: 'maps', label: 'Interactive Maps', tag: 'Available', desc: 'Explore 7 provincial-level indicators — from informal employment rates to the sidewalk economy — across all 63 provinces.', color: '#00bfa5' },
-                { page: 'vietnam2045', label: 'Vietnam 2045', tag: 'Available', desc: 'How does informality threaten Vietnam\'s ambitious goal of high-income status by its centennial?', color: '#00bfa5' },
-                { page: 'informal-explainer', label: 'What is the Informal Economy?', tag: 'Available', desc: 'From street vendors to agricultural day laborers — unpacking what informality means and why it persists.', color: '#00bfa5' },
-                { page: null, label: 'Narrative Analysis', tag: 'Coming Soon', desc: 'The human story behind the statistics — migration, the sidewalk ban, and everyday survival in Hanoi.', color: '#999' },
+                {
+                  page: 'maps',
+                  label: 'Interactive Maps',
+                  tag: 'Available',
+                  desc: 'Explore 7 provincial-level indicators — from informal employment rates to the sidewalk economy — across all 63 provinces.',
+                  color: '#00897b'
+                },
+                {
+                  page: 'vietnam2045',
+                  label: 'Vietnam 2045',
+                  tag: 'Available',
+                  desc: "How does informality threaten Vietnam's ambitious goal of high-income status by its centennial?",
+                  color: '#00897b'
+                },
+                {
+                  page: 'informal-explainer',
+                  label: 'What is the Informal Economy?',
+                  tag: 'Available',
+                  desc: 'From street vendors to agricultural day laborers — unpacking what informality means and why it persists.',
+                  color: '#00897b'
+                },
+                {
+                  page: null,
+                  label: 'Narrative Analysis',
+                  tag: 'Coming Soon',
+                  desc: 'The human story behind the statistics — migration, the sidewalk ban, and everyday survival in Hanoi.',
+                  color: '#999'
+                },
               ].map(({ page, label, tag, desc, color }) => (
                 <div
                   key={label}
                   onClick={() => page && onNavigate(page)}
                   style={{
-                    border: page ? '2px solid #00bfa5' : '1px solid #e0e0e0',
-                    borderRadius: '6px', padding: '32px',
+                    background: page ? 'white' : '#fafafa',
+                    border: page ? '1px solid #d4d0cb' : '1px solid #e8e4e0',
+                    borderTop: page ? `3px solid ${color}` : '3px solid #ddd',
+                    borderRadius: '3px', padding: '32px',
                     cursor: page ? 'pointer' : 'default',
-                    opacity: page ? 1 : 0.6,
-                    transition: 'all 0.2s', background: 'white'
+                    opacity: page ? 1 : 0.55,
+                    transition: 'all 0.2s',
+                    boxShadow: page ? '0 1px 4px rgba(0,0,0,0.05)' : 'none'
                   }}
                 >
-                  <div style={{ fontSize: '11px', fontWeight: '700', color, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px' }}>{tag}</div>
-                  <h3 style={{ fontSize: '20px', fontWeight: '700', color: '#1a1a1a', margin: '0 0 12px 0' }}>{label}</h3>
-                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>{desc}</p>
-                  {page && <div style={{ marginTop: '16px', fontSize: '14px', fontWeight: '600', color: '#00897b' }}>Explore →</div>}
+                  <div style={{
+                    fontSize: '11px', fontWeight: '700', color,
+                    textTransform: 'uppercase', letterSpacing: '1.5px',
+                    marginBottom: '10px', fontFamily: '"Inter", sans-serif'
+                  }}>{tag}</div>
+                  <h3 style={{
+                    fontSize: '22px', fontWeight: '400', color: '#1a1a1a',
+                    margin: '0 0 12px 0', letterSpacing: '-0.2px'
+                  }}>{label}</h3>
+                  <p style={{
+                    fontSize: '14px', color: '#777', lineHeight: '1.65',
+                    margin: 0, fontFamily: '"Inter", sans-serif'
+                  }}>{desc}</p>
+                  {page && (
+                    <div style={{
+                      marginTop: '20px', fontSize: '13px', fontWeight: '600',
+                      color: '#00897b', fontFamily: '"Inter", sans-serif',
+                      letterSpacing: '0.3px'
+                    }}>Explore →</div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Footer */}
-        <div style={{ borderTop: '1px solid #e0e0e0', padding: '32px 40px', textAlign: 'center' }}>
-          <p style={{ fontSize: '13px', color: '#999', margin: 0 }}>
+        {/* Footer — dark */}
+        <div style={{
+          background: '#1a1a1a', borderTop: '1px solid #2a2a2a',
+          padding: '28px 40px', textAlign: 'center'
+        }}>
+          <p style={{
+            fontSize: '12px', color: 'rgba(255,255,255,0.3)',
+            margin: 0, fontFamily: '"Inter", sans-serif', letterSpacing: '0.3px'
+          }}>
             ECON 62 — Topics in Macroeconomics · Winter 2026 · Data: GSO Labor Force Survey 2023, World Bank, ILO
           </p>
         </div>
@@ -267,7 +402,6 @@ function LandingPage({ onNavigate }) {
     </div>
   );
 }
-
 // ========================================
 // PLACEHOLDER COMPONENTS
 // ========================================
