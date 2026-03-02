@@ -6,6 +6,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import vietnamGeoData from './data/vietnamGeoData.json';
 import completeMapData from './data/completeMapData.json';
+import InformalExplainer from './components/InformalExplainer';
 
 // ========================================
 // MAP CONFIGURATIONS
@@ -567,6 +568,8 @@ function App() {
           description="Interactive modeling tool to examine the potential fiscal and employment effects of various policy interventions including tax reform, social insurance expansion, and formalization incentives." 
           onBack={() => setCurrentPage('landing')} 
         />;
+      case 'informal-explainer':
+        return <InformalExplainer onBack={() => setCurrentPage('landing')} />;
       default:
         return <LandingPage onNavigate={setCurrentPage} />;
     }
