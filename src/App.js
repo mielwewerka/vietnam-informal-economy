@@ -493,7 +493,7 @@ const stats = useMemo(() => {
           {hoveredProvince && !selectedProvince && (<div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', border: '2px solid #00bfa5', borderRadius: '4px', padding: '16px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)', pointerEvents: 'none', zIndex: 1001 }}><div style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '4px' }}>{hoveredProvince}</div><div style={{ fontSize: '24px', fontWeight: '700', color: '#00bfa5' }}>{formatValue(getProvinceValue(hoveredProvince))}</div><div style={{ fontSize: '11px', color: '#999', marginTop: '4px' }}>Click to view details</div></div>)}
         </div>
       </div>
-            {showIntro && (
+      {showIntro && (
   <div style={{
     position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)',
     zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center'
@@ -533,6 +533,7 @@ const stats = useMemo(() => {
     </div>
   </div>
 )}
+    </div>
   );
 }
 
