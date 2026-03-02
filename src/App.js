@@ -141,10 +141,10 @@ function LandingPage({ onNavigate }) {
         transition: 'transform 0.3s ease'
       }}>
         <div style={{
-          fontSize: '15px', fontWeight: '600', color: 'white',
-          letterSpacing: '0.3px', fontFamily: '"Cormorant Garamond", serif'
+          fontSize: '15px', fontWeight: '500', color: 'white',
+          letterSpacing: '0.32px', fontFamily: '"Cormorant Garamond", serif'
         }}>
-          Vietnam Informal Employment
+          Vietnam's Informal Employment
         </div>
         <div style={{ display: 'flex', gap: '28px', fontFamily: '"Inter", sans-serif' }}>
           {[
@@ -164,7 +164,7 @@ function LandingPage({ onNavigate }) {
 
       {/* HERO — image + deeper teal overlay + scroll effects */}
       <div style={{
-        height: '50vh',
+        minHeight: '100vh',
         position: 'relative',
         overflow: 'hidden',
         opacity: heroOpacity,
@@ -211,7 +211,7 @@ function LandingPage({ onNavigate }) {
               lineHeight: '1.05',
               fontFamily: '"Cormorant Garamond", serif'
             }}>
-              "Vietnam's Invisible Workforce"
+              Vietnam's Invisible Workforce
             </h1>
             <p style={{
               fontSize: 'clamp(17px, 2vw, 22px)',
