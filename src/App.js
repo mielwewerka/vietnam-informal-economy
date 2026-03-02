@@ -76,7 +76,33 @@ const mapConfigs = {
       { threshold: 80, color: '#eab308', label: '60-80%' },
       { threshold: 100, color: '#a16207', label: '≥80%' }
     ]
-  }
+  },
+  nonAgInformal: {
+  title: "Non-Agricultural Informal",
+  dataKey: "non_ag_informal_pct",
+  unit: "%",
+  description: "Informal employment outside of agriculture — captures the urban informal economy. Derived from GSO LFS 2023.",
+  colorScale: [
+    { threshold: 20, color: '#dcfce7', label: '<20%' },
+    { threshold: 30, color: '#86efac', label: '20-30%' },
+    { threshold: 40, color: '#22c55e', label: '30-40%' },
+    { threshold: 50, color: '#15803d', label: '40-50%' },
+    { threshold: 100, color: '#14532d', label: '≥50%' }
+  ]
+},
+ruralPopulation: {
+  title: "Rural Population",
+  dataKey: "rural_pct",
+  unit: "%",
+  description: "Share of provincial population living in rural areas. Source: GSO Population Statistics 2023.",
+  colorScale: [
+    { threshold: 20, color: '#dbeafe', label: '<20%' },
+    { threshold: 40, color: '#93c5fd', label: '20-40%' },
+    { threshold: 60, color: '#3b82f6', label: '40-60%' },
+    { threshold: 80, color: '#1e40af', label: '60-80%' },
+    { threshold: 100, color: '#1e3a8a', label: '≥80%' }
+  ]
+},
 };
 
 // ========================================
@@ -291,16 +317,21 @@ function InteractiveMaps({ onBack }) {
   };
 
   const getProvinceValue = (provinceName) => {
-    if (completeMapData[provinceName]) {
-      return completeMapData[provinceName][currentConfig.dataKey];
-    }
-    for (const [key, value] of Object.entries(completeMapData)) {
-      if (key.toLowerCase().includes(provinceName.toLowerCase()) ||
-          provinceName.toLowerCase().includes(key.toLowerCase())) {
-        return value[currentConfig.dataKey];
+    let pdata = completeMapData[provinceName];
+    if (!pdata) {
+      for (const [key, value] of Object.entries(completeMapData)) {
+        if (key.toLowerCase().includes(provinceName.toLowerCase()) ||
+            provinceName.toLowerCase().includes(key.toLowerCase())) {
+          pdata = value; break;
+        }
       }
     }
-    return null;
+    if (!pdata) return null;
+    if (currentConfig.dataKey === 'non_ag_informal_pct')
+      return Math.max(0, pdata.informal_pct - pdata.agricultural_pct);
+    if (currentConfig.dataKey === 'rural_pct')
+      return 100 - pdata.urban_pct_gso_2024;
+    return pdata[currentConfig.dataKey];
   };
 
   const getProvinceData = (provinceName) => {
@@ -440,7 +471,7 @@ const stats = useMemo(() => {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: '#f5f5f5', position: 'relative' }}>
         <div style={{ position: 'absolute', top: '20px', left: '20px', zIndex: 1000, display: 'flex', gap: '8px' }}>
           <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '14px', fontWeight: '500', color: '#666', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>{sidebarOpen ? '◀ Hide' : '▶ Show'} Panel</button>
-          <button onClick={() => setUrbanFilter(urbanFilter === 'all' ? '50' : urbanFilter === '50' ? '70' : 'all')} style={{ background: urbanFilter !== 'all' ? '#00bfa5' : 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', color: urbanFilter !== 'all' ? 'white' : '#666', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', whiteSpace: 'nowrap' }}>{urbanFilter === 'all' ? '🏙 Urban Filter: Off' : urbanFilter === '50' ? '🏙 Urban >50%' : '🏙 Urban >70%'}</button>
+          <button onClick={() => setUrbanFilter(urbanFilter === 'all' ? '50' : urbanFilter === '50' ? '70' : 'all')} style={{ background: urbanFilter !== 'all' ? '#00bfa5' : 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '8px 12px', cursor: 'pointer', fontSize: '13px', fontWeight: '500', color: urbanFilter !== 'all' ? 'white' : '#666', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', whiteSpace: 'nowrap' }}>{urbanFilter === 'all' ? ' Urban Filter: Off' : urbanFilter === '50' ? ' Urban >50%' : ' Urban >70%'}</button>
         </div>
         <div style={{ position: 'absolute', bottom: '20px', right: '20px', background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '16px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', zIndex: 1000, minWidth: '200px' }}>
           <div style={{ fontSize: '12px', fontWeight: '600', color: '#333', marginBottom: '12px' }}>{currentConfig.title}</div>
