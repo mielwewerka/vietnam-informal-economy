@@ -298,6 +298,7 @@ function PlaceholderPage({ title, description, onBack }) {
 // INTERACTIVE MAPS COMPONENT
 // ========================================
 function InteractiveMaps({ onBack }) {
+  const [showIntro, setShowIntro] = useState(true);
   const [activeTab, setActiveTab] = useState('informal');
   const [selectedProvince, setSelectedProvince] = useState(null);
   const [hoveredProvince, setHoveredProvince] = useState(null);
@@ -492,7 +493,46 @@ const stats = useMemo(() => {
           {hoveredProvince && !selectedProvince && (<div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', background: 'white', border: '2px solid #00bfa5', borderRadius: '4px', padding: '16px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)', pointerEvents: 'none', zIndex: 1001 }}><div style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '4px' }}>{hoveredProvince}</div><div style={{ fontSize: '24px', fontWeight: '700', color: '#00bfa5' }}>{formatValue(getProvinceValue(hoveredProvince))}</div><div style={{ fontSize: '11px', color: '#999', marginTop: '4px' }}>Click to view details</div></div>)}
         </div>
       </div>
+            {showIntro && (
+  <div style={{
+    position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)',
+    zIndex: 2000, display: 'flex', alignItems: 'center', justifyContent: 'center'
+  }}>
+    <div style={{
+      background: 'white', borderRadius: '8px', padding: '48px',
+      maxWidth: '560px', width: '90%', boxShadow: '0 20px 60px rgba(0,0,0,0.3)'
+    }}>
+      <div style={{ fontSize: '11px', fontWeight: '700', color: '#00897b', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>
+        Interactive Geographic Data
+      </div>
+      <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1a1a1a', margin: '0 0 16px 0', lineHeight: '1.2' }}>
+        Mapping Vietnam's Informal Economy
+      </h2>
+      <p style={{ fontSize: '15px', color: '#555', lineHeight: '1.7', marginBottom: '16px' }}>
+        This tool visualizes 7 provincial-level indicators across all 63 provinces of Vietnam, from informal employment rates to rural population share and the sidewalk economy.
+      </p>
+      <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '6px', padding: '16px', marginBottom: '24px' }}>
+        <div style={{ fontSize: '13px', fontWeight: '600', color: '#166534', marginBottom: '8px' }}>How to use</div>
+        <div style={{ fontSize: '13px', color: '#166534', lineHeight: '1.8' }}>
+          • Select an indicator from the left panel<br/>
+          • Click any province to see all its data<br/>
+          • Use the Urban Filter to focus on urbanized provinces<br/>
+          • Toggle the panel with the Hide/Show button
+        </div>
+      </div>
+      <button
+        onClick={() => setShowIntro(false)}
+        style={{
+          width: '100%', padding: '14px', background: '#00897b',
+          color: 'white', border: 'none', borderRadius: '6px',
+          fontSize: '15px', fontWeight: '700', cursor: 'pointer'
+        }}
+      >
+        Start Exploring →
+      </button>
     </div>
+  </div>
+)}
   );
 }
 
