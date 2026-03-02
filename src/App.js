@@ -83,211 +83,141 @@ const mapConfigs = {
 // LANDING PAGE COMPONENT
 // ========================================
 function LandingPage({ onNavigate }) {
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.5);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div style={{ minHeight: '100vh', background: '#fafafa', fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif' }}>
-      {/* Header */}
-      <div style={{ background: 'white', borderBottom: '1px solid #e0e0e0', padding: '24px 40px' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div>
-            <h1 style={{ margin: 0, fontSize: '24px', fontWeight: '600', color: '#333', letterSpacing: '-0.5px' }}>
-              Vietnam Informal Employment
-            </h1>
-            <p style={{ margin: '4px 0 0 0', fontSize: '14px', color: '#666' }}>
-              Economic Analysis & Policy Implications
-            </p>
-          </div>
-          <div style={{ fontSize: '13px', color: '#999' }}>
-            ECON 62 • Winter 2026
-          </div>
+    <div style={{ fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif' }}>
+
+      {/* STICKY NAV - appears after scrolling past hero */}
+      <div style={{
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+        background: 'white', borderBottom: '1px solid #e0e0e0',
+        padding: '14px 40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+        transform: scrolled ? 'translateY(0)' : 'translateY(-100%)',
+        transition: 'transform 0.3s ease'
+      }}>
+        <div style={{ fontSize: '15px', fontWeight: '700', color: '#00897b' }}>Vietnam Informal Economy</div>
+        <div style={{ display: 'flex', gap: '20px' }}>
+          {[['maps','Data & Maps'],['vietnam2045','Vietnam 2045'],['informal-explainer','Informal Economy']].map(([page, label]) => (
+            <button key={page} onClick={() => onNavigate(page)} style={{ background: 'none', border: 'none', color: '#555', fontSize: '14px', fontWeight: '500', cursor: 'pointer' }}>{label}</button>
+          ))}
         </div>
       </div>
 
-      {/* Main Content */}
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '60px 40px' }}>
-        
-        {/* Hero Section */}
-        <div style={{ marginBottom: '60px' }}>
-          <div style={{ maxWidth: '800px' }}>
-            <h2 style={{ fontSize: '42px', fontWeight: '700', color: '#1a1a1a', lineHeight: '1.2', marginBottom: '24px', letterSpacing: '-1px' }}>
-              Understanding Fiscal Challenges in Vietnam's Informal Economy
-            </h2>
-            <p style={{ fontSize: '20px', color: '#555', lineHeight: '1.6', marginBottom: '32px' }}>
-              This research examines how Vietnam's high rate of informal employment affects fiscal revenue and explores evidence-based policy interventions to address this challenge.
-            </p>
+      {/* HERO - half screen, teal overlay on image */}
+      <div style={{
+        height: '50vh', position: 'relative', overflow: 'hidden',
+        display: 'flex', alignItems: 'center', justifyContent: 'center'
+      }}>
+        {/* Background image */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'url(https://i.imgur.com/mT4qqfA.jpeg)',
+          backgroundSize: 'cover', backgroundPosition: 'center'
+        }} />
+        {/* Teal overlay */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(135deg, rgba(0,191,165,0.72) 0%, rgba(0,137,123,0.80) 100%)'
+        }} />
+        {/* Hero text */}
+        <div style={{ position: 'relative', textAlign: 'center', padding: '0 40px', maxWidth: '800px' }}>
+          <div style={{ fontSize: '12px', fontWeight: '700', color: 'rgba(255,255,255,0.8)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '16px' }}>
+            ECON 62 — Development Economics
           </div>
-        </div>
-
-        {/* Key Statistics */}
-        <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '40px', marginBottom: '60px' }}>
-          <div style={{ fontSize: '12px', fontWeight: '600', color: '#666', marginBottom: '24px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-            Key Findings
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
-            <div>
-              <div style={{ fontSize: '48px', fontWeight: '700', color: '#00bfa5', marginBottom: '8px' }}>64.5%</div>
-              <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>
-                of Vietnam's workforce operates in the informal sector as of 2024
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: '48px', fontWeight: '700', color: '#00bfa5', marginBottom: '8px' }}>63</div>
-              <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>
-                provinces analyzed with detailed employment pattern variations
-              </div>
-            </div>
-            <div>
-              <div style={{ fontSize: '48px', fontWeight: '700', color: '#00bfa5', marginBottom: '8px' }}>85.9%</div>
-              <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>
-                highest provincial informal employment rate (Hà Giang)
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Research Overview */}
-        <div style={{ marginBottom: '60px' }}>
-          <h3 style={{ fontSize: '28px', fontWeight: '600', color: '#333', marginBottom: '24px' }}>
-            Research Overview
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-            <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '32px' }}>
-              <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '12px' }}>
-                Research Question
-              </h4>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                How does Vietnam's high informal employment rate affect fiscal revenue capacity, and what evidence-based policy interventions can effectively address this structural challenge while promoting economic formalization?
-              </p>
-            </div>
-            <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '32px' }}>
-              <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '12px' }}>
-                Methodology
-              </h4>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                Analysis of General Statistics Office Labor Force Survey 2023 data, combined with provincial-level employment patterns, fiscal revenue data, and comparative policy research from similar middle-income economies.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Findings */}
-        <div style={{ marginBottom: '60px' }}>
-          <h3 style={{ fontSize: '28px', fontWeight: '600', color: '#333', marginBottom: '24px' }}>
-            Principal Findings
-          </h3>
-          <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '32px' }}>
-            <div style={{ marginBottom: '24px', paddingBottom: '24px', borderBottom: '1px solid #f0f0f0' }}>
-              <div style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '8px' }}>
-                Geographic Variation
-              </div>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                Informal employment rates vary significantly across provinces, from 43.1% in Hải Phòng to 85.9% in Hà Giang, correlating strongly with urbanization levels and agricultural dependency.
-              </p>
-            </div>
-            <div style={{ marginBottom: '24px', paddingBottom: '24px', borderBottom: '1px solid #f0f0f0' }}>
-              <div style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '8px' }}>
-                Fiscal Implications
-              </div>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                High informal employment rates constrain tax revenue collection, limit social insurance coverage, and create challenges for effective public service provision and fiscal sustainability.
-              </p>
-            </div>
-            <div>
-              <div style={{ fontSize: '14px', fontWeight: '600', color: '#333', marginBottom: '8px' }}>
-                Sectoral Patterns
-              </div>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                Agriculture sector shows nearly universal informality (97.9%), while urban services and manufacturing sectors demonstrate more formalization, particularly in major metropolitan areas.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Navigation Sections */}
-        <div style={{ marginBottom: '40px' }}>
-          <h3 style={{ fontSize: '28px', fontWeight: '600', color: '#333', marginBottom: '24px' }}>
-            Project Components
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-            
-            {/* Interactive Data */}
-            <button
-              onClick={() => onNavigate('maps')}
-              style={{ 
-                background: 'white', 
-                border: '2px solid #00bfa5', 
-                borderRadius: '4px', 
-                padding: '32px', 
-                cursor: 'pointer',
-                textAlign: 'left',
-                transition: 'all 0.2s'
-              }}
-            >
-              <div style={{ fontSize: '12px', fontWeight: '600', color: '#00bfa5', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                Available Now
-              </div>
-              <h4 style={{ fontSize: '20px', fontWeight: '600', color: '#333', marginBottom: '12px' }}>
-                Interactive Geographic Data
-              </h4>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                Explore provincial-level employment patterns across four key dimensions: informal employment, agricultural workers, total employment, and the sidewalk economy.
-              </p>
-              <div style={{ marginTop: '16px', fontSize: '14px', fontWeight: '600', color: '#00bfa5' }}>
-                View Data →
-              </div>
-            </button>
-
-            {/* Narrative Analysis */}
-            <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '32px', opacity: 0.6 }}>
-              <div style={{ fontSize: '12px', fontWeight: '600', color: '#999', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                In Development
-              </div>
-              <h4 style={{ fontSize: '20px', fontWeight: '600', color: '#333', marginBottom: '12px' }}>
-                Narrative Analysis
-              </h4>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                A detailed examination of Vietnam's informal economy evolution, structural patterns, and the human stories behind the statistics.
-              </p>
-            </div>
-
-            {/* Sector Analysis */}
-            <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '32px', opacity: 0.6 }}>
-              <div style={{ fontSize: '12px', fontWeight: '600', color: '#999', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                In Development
-              </div>
-              <h4 style={{ fontSize: '20px', fontWeight: '600', color: '#333', marginBottom: '12px' }}>
-                Sectoral Deep Dive
-              </h4>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                Comprehensive analysis of informal employment patterns across economic sectors with interactive comparisons and trend analysis.
-              </p>
-            </div>
-
-            {/* Policy Tools */}
-            <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '32px', opacity: 0.6 }}>
-              <div style={{ fontSize: '12px', fontWeight: '600', color: '#999', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                In Development
-              </div>
-              <h4 style={{ fontSize: '20px', fontWeight: '600', color: '#333', marginBottom: '12px' }}>
-                Policy Impact Analysis
-              </h4>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>
-                Interactive tool to model the fiscal and employment effects of various policy interventions and formalization strategies.
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Data Sources */}
-        <div style={{ background: 'white', border: '1px solid #e0e0e0', borderRadius: '4px', padding: '32px' }}>
-          <h4 style={{ fontSize: '16px', fontWeight: '600', color: '#333', marginBottom: '16px' }}>
-            Data Sources & Acknowledgments
-          </h4>
-          <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.6', marginBottom: '12px' }}>
-            Primary data from the General Statistics Office of Vietnam Labor Force Survey 2023. Provincial boundary data from GADM (Database of Global Administrative Areas). Additional analysis incorporates World Bank development indicators and ILO informal economy research.
+          <h1 style={{ fontSize: '52px', fontWeight: '800', color: 'white', margin: '0 0 16px 0', lineHeight: '1.1', letterSpacing: '-1.5px' }}>
+            Vietnam's Invisible Workforce
+          </h1>
+          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.9)', margin: '0 0 28px 0', lineHeight: '1.6' }}>
+            65% of Vietnamese workers exist outside the formal economy — and it's reshaping the country's path to 2045.
           </p>
-          <p style={{ fontSize: '13px', color: '#999', lineHeight: '1.6', margin: 0 }}>
-            Project developed for ECON 62: Development Economics, Winter 2026
+          <button onClick={() => onNavigate('maps')} style={{
+            background: 'white', color: '#00897b', border: 'none',
+            padding: '14px 32px', fontSize: '15px', fontWeight: '700',
+            borderRadius: '4px', cursor: 'pointer', letterSpacing: '0.3px'
+          }}>
+            Explore the Data →
+          </button>
+        </div>
+      </div>
+
+      {/* CONTENT BELOW HERO */}
+      <div style={{ background: '#fafafa' }}>
+
+        {/* Key stat strip */}
+        <div style={{ background: 'white', borderBottom: '1px solid #e0e0e0', padding: '32px 40px' }}>
+          <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '40px' }}>
+            {[
+              ['64.5%', 'of workers are informally employed', '#dc2626'],
+              ['~1M', 'people work in the sidewalk economy alone', '#f97316'],
+              ['2045', 'Vietnam\'s target year to reach high-income status', '#00897b'],
+            ].map(([stat, label, color]) => (
+              <div key={stat} style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '42px', fontWeight: '800', color, marginBottom: '8px' }}>{stat}</div>
+                <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.5' }}>{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* About section */}
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '72px 40px' }}>
+          <div style={{ fontSize: '12px', fontWeight: '700', color: '#00897b', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '16px' }}>About This Project</div>
+          <h2 style={{ fontSize: '36px', fontWeight: '700', color: '#1a1a1a', margin: '0 0 24px 0', lineHeight: '1.2' }}>
+            A country racing toward prosperity — with most of its economy invisible to the state.
+          </h2>
+          <p style={{ fontSize: '17px', color: '#555', lineHeight: '1.8', marginBottom: '20px' }}>
+            Vietnam has achieved extraordinary growth since Doi Moi. But beneath the headline numbers lies a structural challenge: the majority of Vietnamese workers operate outside the formal economy — unprotected, untaxed, and uncounted. This project maps that reality province by province, and asks what it means for Vietnam's ambition to become a high-income country by 2045.
+          </p>
+          <p style={{ fontSize: '17px', color: '#555', lineHeight: '1.8' }}>
+            Built from GSO Labor Force Survey data, ILO research, and World Bank analysis, this is meant as an interactive replacement for a traditional paper — a way to explore the data, understand the stakes, and follow the argument as it unfolds.
+          </p>
+        </div>
+
+        {/* Navigation cards */}
+        <div style={{ background: 'white', borderTop: '1px solid #e0e0e0', padding: '72px 40px' }}>
+          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+            <div style={{ fontSize: '12px', fontWeight: '700', color: '#00897b', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Explore</div>
+            <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#1a1a1a', margin: '0 0 40px 0' }}>Project Sections</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }}>
+              {[
+                { page: 'maps', label: 'Interactive Maps', tag: 'Available', desc: 'Explore 7 provincial-level indicators — from informal employment rates to the sidewalk economy — across all 63 provinces.', color: '#00bfa5' },
+                { page: 'vietnam2045', label: 'Vietnam 2045', tag: 'Available', desc: 'How does informality threaten Vietnam\'s ambitious goal of high-income status by its centennial?', color: '#00bfa5' },
+                { page: 'informal-explainer', label: 'What is the Informal Economy?', tag: 'Available', desc: 'From street vendors to agricultural day laborers — unpacking what informality means and why it persists.', color: '#00bfa5' },
+                { page: null, label: 'Narrative Analysis', tag: 'Coming Soon', desc: 'The human story behind the statistics — migration, the sidewalk ban, and everyday survival in Hanoi.', color: '#999' },
+              ].map(({ page, label, tag, desc, color }) => (
+                <div
+                  key={label}
+                  onClick={() => page && onNavigate(page)}
+                  style={{
+                    border: page ? '2px solid #00bfa5' : '1px solid #e0e0e0',
+                    borderRadius: '6px', padding: '32px',
+                    cursor: page ? 'pointer' : 'default',
+                    opacity: page ? 1 : 0.6,
+                    transition: 'all 0.2s', background: 'white'
+                  }}
+                >
+                  <div style={{ fontSize: '11px', fontWeight: '700', color, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px' }}>{tag}</div>
+                  <h3 style={{ fontSize: '20px', fontWeight: '700', color: '#1a1a1a', margin: '0 0 12px 0' }}>{label}</h3>
+                  <p style={{ fontSize: '14px', color: '#666', lineHeight: '1.6', margin: 0 }}>{desc}</p>
+                  {page && <div style={{ marginTop: '16px', fontSize: '14px', fontWeight: '600', color: '#00897b' }}>Explore →</div>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div style={{ borderTop: '1px solid #e0e0e0', padding: '32px 40px', textAlign: 'center' }}>
+          <p style={{ fontSize: '13px', color: '#999', margin: 0 }}>
+            ECON 62 — Development Economics · Winter 2026 · Data: GSO Labor Force Survey 2023, World Bank, ILO
           </p>
         </div>
 
