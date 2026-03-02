@@ -604,7 +604,7 @@ export default function InformalExplainer({ onBack }) {
               A country cannot become high-income with two-thirds of its workforce invisible to the state.
             </h2>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.85', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif' }}>
-              Vietnam's 2045 goal — high-income status by the centennial of the Socialist Republic — requires sustained growth, expanding public investment, and a strong social insurance system. All three depend on a formal economy that currently represents only one-third of the workforce.
+              "Vietnam's 2045 goal — high-income status by the centennial of the Socialist Republic — requires sustained growth, expanding public investment, and a strong social insurance system. All three depend on a formal economy that currently represents only one-third of the workforce."
             </p>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.85', margin: '0', fontFamily: '"Inter", sans-serif' }}>
               Informal workers pay no income tax or social insurance contributions. Their employers — if they have them — often avoid payroll taxes. The fiscal gap is structural. Closing it requires not just enforcement, but the structural transformation of the economy itself: urbanization, education, and the continued shift from agriculture to manufacturing and services.
@@ -625,7 +625,7 @@ export default function InformalExplainer({ onBack }) {
                 'Huynh, T.N.Q. (2023). Street Vendors in Vietnam: Short Cultural and Economic Insight. International Journal of Culture and Education.',
                 'Turner, S. & Schoenberger, L. (2012). Street Vendor Livelihoods and Everyday Politics in Hanoi, Vietnam. Urban Studies, 49(5).',
                 'Lincoln, M. (2008). Report from the Field: Street Vendors and the Informal Sector in Hanoi. Dialectical Anthropology.',
-                'IMF. (2020). Vietnam's Development Success Story and the Unfinished SDG Agenda. Working Paper WP/20/31.',
+                'IMF. (2020). Vietnam Development Success Story and the Unfinished SDG Agenda. Working Paper WP/20/31.',
                 'World Bank. (2023). Vietnam Country Profile. Open Development Vietnam / World Bank Data.',
                 'GSO. (2024). Labor Force Survey 2023. General Statistics Office of Vietnam.',
               ].map((source) => (
