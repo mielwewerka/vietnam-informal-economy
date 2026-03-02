@@ -7,7 +7,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import vietnamGeoData from './data/vietnamGeoData.json';
 import completeMapData from './data/completeMapData.json';
 import InformalExplainer from './components/InformalExplainer';
-import React, { useState, useEffect, useMemo } from 'react';
+
 
 // ========================================
 // MAP CONFIGURATIONS
@@ -167,7 +167,7 @@ function LandingPage({ onNavigate }) {
 {/* Teal overlay on top of image */}
 <div style={{
   position: 'absolute', inset: 0,
-  background: 'linear-gradient(135deg, rgba(0,191,165,0.72) 0%, rgba(0,137,123,0.80) 100%)'
+  background: 'linear-gradient(135deg, rgba(0,191,165,0.85) 0%, rgba(0,137,123,0.92) 100%)'
 }} />
         {/* Hero text */}
         <div style={{ position: 'relative', textAlign: 'center', padding: '0 40px', maxWidth: '800px' }}>
