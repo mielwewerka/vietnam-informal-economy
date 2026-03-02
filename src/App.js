@@ -144,7 +144,7 @@ function LandingPage({ onNavigate }) {
         {/* Hero text */}
         <div style={{ position: 'relative', textAlign: 'center', padding: '0 40px', maxWidth: '800px' }}>
           <div style={{ fontSize: '12px', fontWeight: '700', color: 'rgba(255,255,255,0.8)', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '16px' }}>
-            ECON 62 — Development Economics
+            ECON 62 — Topics in Macroeconomics
           </div>
           <h1 style={{ fontSize: '52px', fontWeight: '800', color: 'white', margin: '0 0 16px 0', lineHeight: '1.1', letterSpacing: '-1.5px' }}>
             Vietnam's Invisible Workforce
