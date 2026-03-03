@@ -191,7 +191,7 @@ function CaseCard({ country }) {
   );
 }
 
-export default function CaseStudies() {
+export default function CaseStudies({ onBack }) {
   const KOREA = {
     name: 'South Korea', period: '1963 – 1995', color: '#1565c0',
     photo: 'https://images.unsplash.com/photo-1538669715315-155098f0fb1d?w=900&q=80',
@@ -239,12 +239,19 @@ export default function CaseStudies() {
   return (
     <div style={{ background: '#f5f3f0', minHeight: '100vh', fontFamily: '"Cormorant Garamond", "Georgia", serif' }}>
       <div style={{ background: '#1a1a1a', padding: '44px 40px 36px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <div style={{ fontSize: '10px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif', marginBottom: '14px' }}>Comparative Case Studies</div>
-          <h2 style={{ fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: '300', color: 'white', margin: '0 0 14px 0', letterSpacing: '-0.5px', lineHeight: 1.15 }}>Two countries that made the transition</h2>
-          <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', fontFamily: '"Inter", sans-serif', margin: 0, maxWidth: '660px', lineHeight: '1.7' }}>South Korea and Chile both crossed the high-income threshold within a generation — starting from informality rates comparable to Vietnam today. Their mechanisms were different. What they share is instructive.</p>
-        </div>
-      </div>
+  <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+    <button onClick={onBack} style={{
+      background: 'transparent', border: '1px solid rgba(255,255,255,0.2)',
+      color: 'rgba(255,255,255,0.6)', padding: '6px 14px',
+      fontSize: '12px', fontWeight: '600', cursor: 'pointer',
+      fontFamily: '"Inter", sans-serif', letterSpacing: '0.5px',
+      marginBottom: '20px', borderRadius: '3px'
+    }}>← Back to Overview</button>
+    <div style={{ fontSize: '10px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif', marginBottom: '14px' }}>Comparative Case Studies</div>
+    <h2 style={{ fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: '300', color: 'white', margin: '0 0 14px 0', letterSpacing: '-0.5px', lineHeight: 1.15 }}>Two countries that made the transition</h2>
+    <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', fontFamily: '"Inter", sans-serif', margin: 0, maxWidth: '660px', lineHeight: '1.7' }}>South Korea and Chile both crossed the high-income threshold within a generation — starting from informality rates comparable to Vietnam today. Their mechanisms were different. What they share is instructive.</p>
+  </div>
+</div>
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '44px 40px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px', marginBottom: '44px' }}>
           <CaseCard country={KOREA} />
