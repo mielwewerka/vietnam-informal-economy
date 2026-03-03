@@ -39,6 +39,9 @@ function AnimatedStat({ value, suffix = '', duration = 1800 }) {
     requestAnimationFrame(step);
   }, [visible, value, duration]);
   return <span ref={ref}>{display}{suffix}</span>;
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 }
 
 // ─── Section fade wrapper ──────────────────────────────────────────────────
