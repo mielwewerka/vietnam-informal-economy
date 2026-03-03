@@ -319,23 +319,23 @@ function LandingPage({ onNavigate }) {
               {[
                 {
                   page: 'maps',
-                  label: 'Interactive Maps',
+                  label: 'Interactive Maps and Case Studies',
                   tag: 'Available',
-                  desc: 'Explore 7 provincial-level indicators — from informal employment rates to the sidewalk economy — across all 63 provinces.',
+                  desc: 'Explore 7 provincial-level indicatorsacross all 63 provinces, and 2 case studies into informal economies.',
                   color: '#00897b'
                 },
                 {
                   page: 'vietnam2045',
                   label: 'Vietnam 2045',
                   tag: 'Available',
-                  desc: "How does informality threaten Vietnam's ambitious goal of high-income status by its centennial?",
+                  desc: "How does informality impact Vietnam's ambitious goal of high-income status by its centennial?",
                   color: '#00897b'
                 },
                 {
                   page: 'informal-explainer',
                   label: 'What is the Informal Economy?',
                   tag: 'Available',
-                  desc: 'From street vendors to agricultural day laborers — unpacking what informality means and why it persists.',
+                  desc: 'From street vendors to agricultural day laborers — unpacking what informality means.',
                   color: '#00897b'
                 },
                 {
