@@ -53,6 +53,9 @@ function Divider() {
 // ── Main component ─────────────────────────────────────────────────────────
 function Vietnam2045({ onBack }) {
   const [activeInstitution, setActiveInstitution] = useState(null);
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 
   const institutions = [
     {
