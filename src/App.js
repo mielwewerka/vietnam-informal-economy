@@ -694,8 +694,7 @@ const stats = useMemo(() => {
 // MAIN APP COMPONENT
 // ========================================
 function App() {
-  const [currentPage, setCurrentPage] = useState('landing');
-
+  const [currentPage, setCurrentPage] = useState('landing'/>;
   const renderPage = () => {
     switch (currentPage) {
       case 'landing':
