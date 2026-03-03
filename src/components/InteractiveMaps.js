@@ -154,20 +154,17 @@ function InteractiveMaps({ onBack }) {
       </div>
 
       {/* CASE STUDIES TAB */}
-      {activeSection === "cases" && <CaseStudies />}
+      {activeSection === 'cases' && <CaseStudies onBack={onBack} />}
 
       {/* MAPS TAB */}
       {activeSection === "maps" && (
         <div style={{ display: "flex", flex: 1, background: "#f5f5f5", overflow: "hidden" }}>
           {/* SIDEBAR */}
-          <div style={{ width: sidebarOpen ? "380px" : "0", background: "white", borderRight: "1px solid #e0e0e0", overflow: "hidden", transition: "width 0.3s", display: "flex", flexDirection: "column", flexShrink: 0 }}>
-            <div style={{ background: "#00bfa5", color: "white", padding: "20px 24px", borderBottom: "3px solid #00897b" }}>
-              <button onClick={onBack} style={{ background: "rgba(255,255,255,0.2)", color: "white", padding: "6px 12px", fontSize: "12px", fontWeight: "600", border: "none", borderRadius: "4px", cursor: "pointer", marginBottom: "12px" }}>
-                ← Back to Overview
-              </button>
-              <h1 style={{ margin: 0, fontSize: "20px", fontWeight: "600", letterSpacing: "0.5px" }}>Geographic Data</h1>
-              <p style={{ margin: "8px 0 0 0", fontSize: "13px", opacity: 0.9 }}>Provincial employment patterns</p>
-            </div>
+          <div style={{ background: '#1a1a1a', color: 'white', padding: '20px 24px', borderBottom: '1px solid #2a2a2a' }}>
+  <button onClick={onBack} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.6)', padding: '6px 14px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', fontFamily: '"Inter", sans-serif', letterSpacing: '0.5px', marginBottom: '14px', borderRadius: '3px' }}>← Back to Overview</button>
+  <div style={{ fontSize: '10px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '2px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif', marginBottom: '6px' }}>Geographic Data</div>
+  <h1 style={{ margin: 0, fontSize: '18px', fontWeight: '300', color: 'white', fontFamily: '"Cormorant Garamond", serif', letterSpacing: '-0.3px' }}>Provincial employment patterns</h1>
+</div>
             <div style={{ background: "#fafafa", borderBottom: "1px solid #e0e0e0", padding: "12px 16px" }}>
               <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", marginBottom: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>Select Indicator</div>
               {Object.entries(mapConfigs).map(([key, config]) => (
