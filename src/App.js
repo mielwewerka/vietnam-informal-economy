@@ -441,6 +441,7 @@ function InteractiveMaps({ onBack }) {
   const [hoveredProvince, setHoveredProvince] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [urbanFilter, setUrbanFilter] = useState('all');
+  const [activeSection, setActiveSection] = useState('maps');
 
   const currentConfig = mapConfigs[activeTab];
 
@@ -551,7 +552,22 @@ const stats = useMemo(() => {
     return value.toFixed(2);
   };
 
-  return (
+   return (
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', fontFamily: '"Inter", -apple-system, sans-serif' }}>
+
+      {/* TAB BAR */}
+      <div style={{ background: '#1a1a1a', padding: '0 24px', display: 'flex', borderBottom: '1px solid #2a2a2a', flexShrink: 0 }}>
+        {[{ id: 'maps', label: 'Provincial Maps' }, { id: 'cases', label: 'Case Studies' }].map(tab => (
+          <button key={tab.id} onClick={() => setActiveSection(tab.id)} style={{
+            background: 'none', border: 'none', cursor: 'pointer',
+            padding: '14px 20px', fontSize: '13px', fontWeight: '600',
+            fontFamily: '"Inter", sans-serif',
+            color: activeSection === tab.id ? '#4dd0c4' : 'rgba(255,255,255,0.45)',
+            borderBottom: activeSection === tab.id ? '2px solid #4dd0c4' : '2px solid transparent',
+            transition: 'color 0.2s'
+          }}>{tab.label}</button>
+        ))}
+      </div>
     <div style={{ display: 'flex', height: '100vh', fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif', background: '#f5f5f5' }}>
       <div style={{ width: sidebarOpen ? '380px' : '0', background: 'white', borderRight: '1px solid #e0e0e0', overflow: 'hidden', transition: 'width 0.3s', display: 'flex', flexDirection: 'column' }}>
         <div style={{ background: '#00bfa5', color: 'white', padding: '20px 24px', borderBottom: '3px solid #00897b' }}>
