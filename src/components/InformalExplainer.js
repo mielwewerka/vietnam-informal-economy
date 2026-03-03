@@ -139,7 +139,8 @@ function TimelineItem({ year, title, body, isLast }) {
 export default function InformalExplainer({ onBack }) {
 
   useEffect(() => {
-  window.scrollTo(0, 0);
+    window.scrollTo(0, 0);
+  }, []);
 
   const TEAL = '#00897b';
   const TEAL_LIGHT = '#e0f7f4';
@@ -653,7 +654,6 @@ export default function InformalExplainer({ onBack }) {
         </div>
       </div>
 
-    </div>
+   </div>
   );
 }
-export default InformalExplainer;
