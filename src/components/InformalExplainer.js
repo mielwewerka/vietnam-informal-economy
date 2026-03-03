@@ -656,3 +656,4 @@ export default function InformalExplainer({ onBack }) {
     </div>
   );
 }
+export default InformalExplainer;
