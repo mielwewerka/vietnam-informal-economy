@@ -707,6 +707,9 @@ function App() {
         return <InformalExplainer onBack={() => setCurrentPage('landing')} />;
       default:
         return <LandingPage onNavigate={setCurrentPage} />;
+        case 'vietnam2045':
+  return <Vietnam2045 onBack={() => setCurrentPage('landing')}  
+        />;
     }
   };
 
