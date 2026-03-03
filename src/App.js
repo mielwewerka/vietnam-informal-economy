@@ -391,8 +391,8 @@ function InteractiveMaps({ onBack }) {
               <div style={{ fontSize: '11px', fontWeight: '700', color: '#4dd0c4', marginBottom: '12px', letterSpacing: '1px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>{currentConfig.title}</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>{currentConfig.colorScale.map(({ color, label }) => (<div key={label} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><div style={{ width: '24px', height: '16px', backgroundColor: color, borderRadius: '2px' }}></div><span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.6)', fontFamily: '"Inter", sans-serif' }}>{label}</span></div>))}</div>
             </div>
-            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px', position: 'relative' }}>
-              <svg viewBox="0 0 500 900" style={{ width: '100%', height: '100%', maxWidth: '600px', maxHeight: '900px', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }}>
+           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px 40px', position: 'relative', overflow: 'hidden' }}>
+  <svg viewBox="0 0 500 900" style={{ width: 'auto', height: '100%', maxWidth: '100%', maxHeight: '100%', filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }}>
                 {vietnamGeoData.features.map((feature, idx) => {
                   const provinceName = feature.properties.NAME_1;
                   const value = getProvinceValue(provinceName);
