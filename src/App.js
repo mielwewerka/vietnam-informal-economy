@@ -703,7 +703,6 @@ function InteractiveMaps({ onBack }) {
           }}>{tab.label}</button>
         ))}
       </div>
-    <div style={{ display: 'flex', height: '100vh', fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif', background: '#f5f5f5' }}>
       <div style={{ width: sidebarOpen ? '380px' : '0', background: 'white', borderRight: '1px solid #e0e0e0', overflow: 'hidden', transition: 'width 0.3s', display: 'flex', flexDirection: 'column' }}>
         <div style={{ background: '#00bfa5', color: 'white', padding: '20px 24px', borderBottom: '3px solid #00897b' }}>
           <button onClick={onBack} style={{ background: 'rgba(255,255,255,0.2)', color: 'white', padding: '6px 12px', fontSize: '12px', fontWeight: '600', border: 'none', borderRadius: '4px', cursor: 'pointer', marginBottom: '12px' }}>
