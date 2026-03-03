@@ -7,7 +7,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import vietnamGeoData from './data/vietnamGeoData.json';
 import completeMapData from './data/completeMapData.json';
 import InformalExplainer from './components/InformalExplainer';
-
+import Vietnam2045 from './components/Vietnam2045';
 
 // ========================================
 // MAP CONFIGURATIONS
