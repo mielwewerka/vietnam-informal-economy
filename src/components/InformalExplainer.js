@@ -39,9 +39,6 @@ function AnimatedStat({ value, suffix = '', duration = 1800 }) {
     requestAnimationFrame(step);
   }, [visible, value, duration]);
   return <span ref={ref}>{display}{suffix}</span>;
-  useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
 }
 
 // ─── Section fade wrapper ──────────────────────────────────────────────────
@@ -140,6 +137,9 @@ function TimelineItem({ year, title, body, isLast }) {
 
 // ─── Main component ────────────────────────────────────────────────────────
 export default function InformalExplainer({ onBack }) {
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
 
   const TEAL = '#00897b';
   const TEAL_LIGHT = '#e0f7f4';
