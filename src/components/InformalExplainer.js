@@ -337,7 +337,7 @@ export default function InformalExplainer({ onBack }) {
       <div style={{ background: '#111' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <PhotoBlock
-            src="https://github.com/mielwewerka/vietnam-informal-economy/blob/main/market2.jpeg?raw=true"
+            src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/market2.avif"
             caption="Street vendors in Hội An navigate the line between earning a living and avoiding enforcement. Most have operated at the same spot for years — yet hold no license, pay no tax, and receive no social protection."
             credit="Unsplash"
             height="520px"
@@ -489,7 +489,7 @@ export default function InformalExplainer({ onBack }) {
       <div style={{ background: '#111', padding: '0' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <PhotoBlock
-            src="https://github.com/mielwewerka/vietnam-informal-economy/blob/main/farm.jpeg?raw=true"
+            src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/farm.avif"
             caption="Agriculture remains one of the most informal sectors in Vietnam, with a 97.9% informality rate. Most agricultural workers have no contract, no social insurance, and no safety net beyond the land itself."
             credit="Unsplash"
             height="440px"
