@@ -9,6 +9,7 @@ import InformalExplainer from './components/InformalExplainer';
 import Vietnam2045 from './components/Vietnam2045';
 import CaseStudies from './components/CaseStudies';
 import FiscalCalculator from './components/FiscalCalculator';
+import ExecutiveSummary from './components/ExecutiveSummary';
 
 // ========================================
 // MAP CONFIGURATIONS
@@ -232,14 +233,25 @@ function LandingPage({ onNavigate }) {
             the political will, and the manufacturing base. What it doesn't have is a tax
             base — because 64.5% of its workers are invisible to the state.
           </p>
-          <button onClick={() => onNavigate('informal-explainer')} style={{
-            background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none',
-            padding: '14px 32px', fontSize: '13px', fontWeight: '700',
-            cursor: 'pointer', letterSpacing: '0.8px', textTransform: 'uppercase',
-            fontFamily: '"Inter", sans-serif',
-          }}>
-            Begin Reading →
-          </button>
+          <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <button onClick={() => onNavigate('informal-explainer')} style={{
+              background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none',
+              padding: '14px 32px', fontSize: '13px', fontWeight: '700',
+              cursor: 'pointer', letterSpacing: '0.8px', textTransform: 'uppercase',
+              fontFamily: '"Inter", sans-serif',
+            }}>
+              Begin Reading →
+            </button>
+            <button onClick={() => onNavigate('exec-summary')} style={{
+              background: 'transparent', color: 'rgba(255,255,255,0.55)',
+              border: '1px solid rgba(255,255,255,0.2)',
+              padding: '13px 24px', fontSize: '12px', fontWeight: '600',
+              cursor: 'pointer', letterSpacing: '0.8px', textTransform: 'uppercase',
+              fontFamily: '"Inter", sans-serif',
+            }}>
+              Executive Summary
+            </button>
+          </div>
         </div>
       </div>
 
@@ -608,6 +620,8 @@ function App() {
         return <PlaceholderPage title="Policy Impact Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
       case 'informal-explainer':
         return <InformalExplainer onBack={() => setCurrentPage('landing')} />;
+      case 'exec-summary':
+        return <ExecutiveSummary onBack={() => setCurrentPage('landing')} onNavigate={setCurrentPage} />;
       case 'fiscal':
         return <FiscalCalculator onBack={() => setCurrentPage('landing')} />;
       case 'vietnam2045':
