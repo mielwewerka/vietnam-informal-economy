@@ -130,31 +130,31 @@ function LandingPage({ onNavigate }) {
     {
       num: 'I',
       page: 'informal-explainer',
-      title: 'The Story',
-      subtitle: 'Who works outside the economy — and why',
+      title: 'What is the Informal Economy',
+      subtitle: 'Who works outside the economy and why',
       body: 'From the 1986 Doi Moi reforms to the 2008 Hanoi street vendor ban, the history of how Vietnam\'s informal economy was created, who it employs, and why it has proved so hard to escape.',
       color: TEAL,
     },
     {
       num: 'II',
       page: 'maps',
-      title: 'The Map',
-      subtitle: 'Where informality is concentrated, province by province',
-      body: 'Seven provincial indicators across all 63 provinces — informal employment, agricultural share, urbanization, and the sidewalk economy. Geography determines who escapes informality and who doesn\'t.',
+      title: 'Interactive Maps and Case Studies',
+      subtitle: 'Concentration of Informality and 2 Case Studies',
+      body: 'Seven provincial indicators across all 63 provinces, and a look into the fiscal paths of Chile and Korea.',
       color: '#1e6fa8',
     },
     {
       num: 'III',
       page: 'vietnam2045',
-      title: 'The Stakes',
-      subtitle: 'Vietnam\'s 2045 ambition and the fiscal gap it faces',
-      body: 'Vietnam is racing toward high-income status by its centennial. What it needs to get there — sustained tax revenue, social insurance, public investment — all depend on a formal economy that currently represents barely a third of the workforce.',
+      title: 'Vietnam 2045',
+      subtitle: 'Vietnam\'s fiscal ambition and gap',
+      body: 'Vietnam is pushing toward high-income status by its centennial. What it needs to get there — sustained tax revenue, social insurance, public investment — all depend on an  economy that currently represents barely a third of the workforce.',
       color: '#7c3aed',
     },
     {
       num: 'IV',
       page: 'fiscal',
-      title: 'The Model',
+      title: 'Policy Model',
       subtitle: 'What formalization would actually mean for the tax base',
       body: 'An interactive fiscal model: adjust the formalization rate, see the projected revenue from social insurance, income tax, and VAT. The numbers behind the policy argument.',
       color: '#c2410c',
@@ -174,7 +174,7 @@ function LandingPage({ onNavigate }) {
         transition: 'transform 0.35s ease',
       }}>
         <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Inter", sans-serif', letterSpacing: '0.3px' }}>
-          Vietnam's Invisible Workforce
+          Vietnam's Informal Workforce
         </span>
         <div style={{ display: 'flex', gap: '32px' }}>
           {chapters.map(c => (
@@ -229,9 +229,8 @@ function LandingPage({ onNavigate }) {
             lineHeight: '1.65', margin: '0 0 40px 0',
             maxWidth: '580px', fontStyle: 'italic', fontWeight: '400',
           }}>
-            Vietnam is racing toward high-income status by 2045. It has the growth rate,
-            the political will, and the manufacturing base. What it doesn't have is a tax
-            base — because 64.5% of its workers are invisible to the state.
+            Vietnam is racing toward high-income status by 2045. It has the strong growth ratea,
+            the political will, and the manufacturing base. Yet the country faces the dillema of an estimated 64.5% of its workers being invisible to the state.
           </p>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
             <button onClick={() => onNavigate('informal-explainer')} style={{
@@ -259,9 +258,9 @@ function LandingPage({ onNavigate }) {
       <div style={{ background: '#111', borderTop: '1px solid #1e1e1e', borderBottom: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#1e1e1e' }}>
           {[
-            ['64.5%', 'of workers are informally employed', 'GSO Labor Force Survey 2023'],
-            ['35M+', 'workers outside the formal economy', 'ILO estimate, 2021'],
-            ['18–19%', 'tax-to-GDP ratio — low by regional standards', 'World Bank, 2023'],
+            ['64.5%', 'Of workers are informally employed', 'GSO Labor Force Survey 2023'],
+            ['35M+', 'Workers outside the formal economy', 'ILO estimate, 2021'],
+            ['18–19%', 'Tax-to-GDP ratio — low by regional standards', 'World Bank, 2023'],
             ['2045', "Vietnam's target year for high-income status", 'Resolution 29/NQ-TW'],
           ].map(([stat, label, source]) => (
             <div key={stat} style={{ background: '#111', padding: '36px 32px' }}>
@@ -287,10 +286,10 @@ function LandingPage({ onNavigate }) {
           </h2>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif', fontWeight: '400' }}>
             64.5% — that's the share of workers the state cannot see, cannot tax, and cannot protect.
-            It is the number that could derail everything else. Informal workers pay no income tax,
-            contribute no social insurance, and generate no VAT. Their employers, if they have them,
+            It is the number that could imapct everything else. Informal workers do not pay income tax,
+            contribute to social insurance, or generate VAT. Their employers, if they have them,
             often avoid payroll taxes entirely. The fiscal gap this creates is not incidental to
-            Vietnam's development challenge. It is the challenge.
+            Vietnam's development challenge.
           </p>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', margin: 0, fontFamily: '"Inter", sans-serif', fontWeight: '400' }}>
             This project maps that reality province by province, quantifies its fiscal consequences,
