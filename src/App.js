@@ -624,7 +624,7 @@ function App() {
       case 'fiscal':
         return <FiscalCalculator onBack={() => setCurrentPage('landing')} />;
       case 'vietnam2045':
-        return <Vietnam2045 onBack={() => setCurrentPage('landing')} />;
+  return <Vietnam2045 onBack={() => setCurrentPage('landing')} onNavigate={setCurrentPage} />;
       default:
         return <LandingPage onNavigate={setCurrentPage} />;
     }
