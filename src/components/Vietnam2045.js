@@ -9,7 +9,7 @@
 // ========================================
 
 import React, { useState, useEffect, useRef } from 'react';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Cell } from 'recharts';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Cell, ComposedChart, Area } from 'recharts';
 
 function useInView(threshold = 0.12) {
   const ref = useRef(null);
@@ -124,33 +124,106 @@ export default function Vietnam2045({ onBack, onNavigate }) {
       {/* ── HERO ────────────────────────────────── */}
       <header style={{
         background: '#1a1a1a', color: 'white',
-        padding: '80px 48px 72px', position: 'relative', overflow: 'hidden',
+        padding: '64px 48px 56px', position: 'relative', overflow: 'hidden',
       }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: `linear-gradient(90deg, ${TEAL}, #26a69a)` }} />
-        <div style={{ maxWidth: '820px' }}>
-          <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px', fontFamily: '"Inter", sans-serif' }}>
-            Chapter III · Policy Overview
+
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '64px', alignItems: 'center' }}>
+
+          {/* Left: text */}
+          <div>
+            <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px', fontFamily: '"Inter", sans-serif' }}>
+              Part III · Policy Overview
+            </div>
+            <h1 style={{ fontSize: 'clamp(28px, 3.5vw, 48px)', fontWeight: '400', lineHeight: '1.1', margin: '0 0 20px 0', letterSpacing: '-1.5px' }}>
+              The Stakes:<br />Vietnam 2045 and the<br />Formalization Imperative
+            </h1>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.75', margin: '0 0 28px 0', fontFamily: '"Inter", sans-serif' }}>
+              Vietnam's high-income ambition is credible but not inevitable. This section examines the structural problems blocking it, the government's current response, what adjustments the evidence suggests, and an honest assessment of what could go right and what could go wrong.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: '#2a2a2a', maxWidth: '480px' }}>
+              {[
+                ['2045', 'Target year for high-income status'],
+                ['7–8%', 'Required annual GDP growth rate'],
+                ['$14,000', 'GNI per capita high-income threshold'],
+                ['$4,300', 'Vietnam\'s GNI per capita today'],
+              ].map(([n, l]) => (
+                <div key={n} style={{ background: '#1a1a1a', padding: '16px 18px' }}>
+                  <div style={{ fontSize: '20px', fontWeight: '400', color: TEAL, letterSpacing: '-0.5px', marginBottom: '4px' }}>{n}</div>
+                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', fontFamily: '"Inter", sans-serif', lineHeight: '1.4' }}>{l}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          <h1 style={{ fontSize: 'clamp(32px, 5vw, 58px)', fontWeight: '400', lineHeight: '1.1', margin: '0 0 24px 0', letterSpacing: '-1.5px' }}>
-            The Stakes:<br />Vietnam 2045 and the<br />Formalization Imperative
-          </h1>
-          <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.75', margin: '0 0 32px 0', maxWidth: '640px', fontFamily: '"Inter", sans-serif' }}>
-            Vietnam's high-income ambition is credible but not inevitable. This section examines the structural problems blocking it, the government's current response, what adjustments the evidence suggests, and an honest assessment of what could go right , and wrong.
-          </p>
-          {/* Quick stat row */}
-          <div style={{ display: 'flex', gap: '1px', background: '#2a2a2a', maxWidth: '680px' }}>
-            {[
-              ['2045', 'Target year for high-income status'],
-              ['7–8%', 'Required annual GDP growth rate'],
-              ['7.3%', 'GDP share needed in public investment annually'],
-              ['60%', 'Social insurance coverage target by 2030'],
-            ].map(([n, l]) => (
-              <div key={n} style={{ background: '#1a1a1a', padding: '20px 20px', flex: 1 }}>
-                <div style={{ fontSize: '22px', fontWeight: '400', color: TEAL, letterSpacing: '-0.5px', marginBottom: '4px' }}>{n}</div>
-                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', fontFamily: '"Inter", sans-serif', lineHeight: '1.4' }}>{l}</div>
-              </div>
-            ))}
+
+          {/* Right: income trajectory chart */}
+          <div>
+            <div style={{ marginBottom: '12px' }}>
+              <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '4px', fontFamily: '"Inter", sans-serif' }}>GNI Per Capita — Vietnam's Required Trajectory</div>
+              <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)', fontFamily: '"Inter", sans-serif' }}>USD, current prices. World Bank high-income threshold: $14,005</div>
+            </div>
+            <ResponsiveContainer width="100%" height={260}>
+              <ComposedChart data={[
+                {year:1990,actual:98},
+                {year:1995,actual:228},
+                {year:2000,actual:402},
+                {year:2005,actual:700},
+                {year:2010,actual:1334},
+                {year:2015,actual:2109},
+                {year:2020,actual:3526},
+                {year:2024,actual:4300},
+                {year:2025,required:4900,current:4600},
+                {year:2028,required:6200,current:5400},
+                {year:2031,required:8000,current:6200},
+                {year:2034,required:9900,current:7000},
+                {year:2037,required:11200,current:7900},
+                {year:2040,required:12400,current:8800},
+                {year:2043,required:13600,current:9700},
+                {year:2045,required:14005,current:10400},
+              ]} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.4)', fontFamily: 'Inter,sans-serif' }} />
+                <YAxis tickFormatter={v => '$' + (v >= 1000 ? (v/1000).toFixed(0) + 'k' : v)} tick={{ fontSize: 11, fill: 'rgba(255,255,255,0.4)', fontFamily: 'Inter,sans-serif' }} domain={[0, 15000]} />
+                <Tooltip
+                  formatter={(v, name) => ['$' + v.toLocaleString(), name === 'actual' ? 'Historical GNI/capita' : name === 'required' ? 'Required for 2045 goal' : 'Current pace projection']}
+                  contentStyle={{ background: '#1a1a1a', border: '1px solid #2a2a2a', borderRadius: 0, fontSize: 12, fontFamily: 'Inter,sans-serif' }}
+                  labelStyle={{ color: 'rgba(255,255,255,0.6)' }}
+                />
+                {/* Shaded gap between required and current */}
+                <Area dataKey="required" fill={TEAL} fillOpacity={0.08} stroke="none" />
+                {/* High-income threshold line */}
+                <ReferenceLine y={14005} stroke={TEAL} strokeDasharray="4 3" strokeOpacity={0.5}
+                  label={{ value: 'High-income threshold', position: 'insideTopRight', fill: TEAL, fontSize: 10, fontFamily: 'Inter,sans-serif' }} />
+                {/* Actual historical */}
+                <Line type="monotone" dataKey="actual" stroke="#ffffff" strokeWidth={2.5} dot={false} name="actual" connectNulls={false} />
+                {/* Required trajectory */}
+                <Line type="monotone" dataKey="required" stroke={TEAL} strokeWidth={2} strokeDasharray="6 3" dot={false} name="required" connectNulls={false} />
+                {/* Current pace */}
+                <Line type="monotone" dataKey="current" stroke="#f97316" strokeWidth={2} strokeDasharray="4 4" dot={false} name="current" connectNulls={false} />
+              </ComposedChart>
+            </ResponsiveContainer>
+            {/* Legend */}
+            <div style={{ display: 'flex', gap: '20px', marginTop: '10px', flexWrap: 'wrap' }}>
+              {[
+                { color: '#ffffff', dash: false, label: 'Historical (World Bank)' },
+                { color: TEAL, dash: true, label: 'Required for 2045 goal' },
+                { color: '#f97316', dash: true, label: 'Current pace projection' },
+              ].map(({ color, dash, label }) => (
+                <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <svg width="24" height="10">
+                    <line x1="0" y1="5" x2="24" y2="5" stroke={color} strokeWidth="2"
+                      strokeDasharray={dash ? '5 3' : 'none'} />
+                  </svg>
+                  <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', fontFamily: '"Inter",sans-serif' }}>{label}</span>
+                </div>
+              ))}
+            </div>
+            <div style={{ marginTop: '14px', padding: '10px 14px', background: 'rgba(249,115,22,0.1)', borderLeft: '3px solid #f97316', fontFamily: '"Inter",sans-serif' }}>
+              <span style={{ fontSize: '12px', fontWeight: '700', color: '#f97316' }}>The gap: </span>
+              <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>At the current formalization rate and fiscal trajectory, Vietnam is projected to reach roughly $10,400 GNI per capita by 2045, about $3,600 short of the high-income threshold.</span>
+            </div>
           </div>
+
         </div>
       </header>
 
@@ -170,7 +243,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                   In 2021, Vietnam's Communist Party formally adopted Resolution 29/NQ-TW, a long-term development strategy targeting high-income status by 2045, the 100th anniversary of the Socialist Republic of Vietnam. The ambition is real: Vietnam needs to roughly triple its GDP per capita from around $4,300 today to the World Bank's high-income threshold of approximately $14,000.
                 </p>
                 <p style={{ fontSize: '16px', color: '#444', lineHeight: '1.85', margin: 0 }}>
-                  The strategy rests on five pillars: sustained 7 to 8% annual GDP growth, large-scale public infrastructure investment (7.3% of GDP annually), institutional modernization, human capital development, and expanded social protection. Each pillar requires fiscal capacity , tax revenue , that Vietnam's current informal economy structurally limits.
+                  The strategy rests on five pillars: sustained 7 to 8% annual GDP growth, large-scale public infrastructure investment (7.3% of GDP annually), institutional modernization, human capital development, and expanded social protection. Each pillar requires fiscal capacity (tax revenue) that Vietnam's current informal economy structurally limits.
                 </p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0', background: '#fafafa', border: '1px solid #e8e4e0' }}>
@@ -275,10 +348,10 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '64px', marginBottom: '48px' }}>
               <div>
                 <p style={{ fontSize: '17px', color: '#333', lineHeight: '1.85', margin: '0 0 20px 0' }}>
-                  Vietnam's informal economy is not a residual of underdevelopment waiting to dissolve as incomes rise. It is structurally reproduced by the same forces driving growth. The core problem is a low formal wage premium: in 2021, the median formal wage was only 18% above the median informal wage, after controlling for observable characteristics. That gap is too small to make the costs of formalization , social insurance contributions, compliance obligations, registration fees , worth bearing for most workers or small firms.
+                  Vietnam's informal economy is not a residual of underdevelopment waiting to dissolve as incomes rise. It is structurally reproduced by the same forces driving growth. The core problem is a low formal wage premium: in 2021, the median formal wage was only 18% above the median informal wage, after controlling for observable characteristics. That gap is too small to make the costs of formalization (social insurance contributions, compliance obligations, registration fees) worth bearing for most workers or small firms.
                 </p>
                 <p style={{ fontSize: '17px', color: '#333', lineHeight: '1.85', margin: '0 0 20px 0' }}>
-                  This creates a fiscal trap with three reinforcing mechanisms. First, a narrow tax base: 64.5% of workers contribute nothing to income tax or social insurance, holding Vietnam's tax-to-GDP ratio at 18–19% , roughly four percentage points below the regional average and well below the 25%+ common among high-income OECD countries. Second, underfunded social protection: the social insurance system covers only ~38% of workers, leaving the majority without pensions or unemployment insurance, which in turn weakens the incentive to formalize. Third, an investment gap: insufficient revenue constrains public investment to below the 7.3% of GDP the World Bank estimates is needed to sustain high growth to 2045.
+                  This creates a fiscal trap with three reinforcing mechanisms. First, a narrow tax base: 64.5% of workers contribute nothing to income tax or social insurance, holding Vietnam's tax-to-GDP ratio at 18 to 19%, roughly four percentage points below the regional average and well below the 25%+ common among high-income OECD countries. Second, underfunded social protection: the social insurance system covers only ~38% of workers, leaving the majority without pensions or unemployment insurance, which in turn weakens the incentive to formalize. Third, an investment gap: insufficient revenue constrains public investment to below the 7.3% of GDP the World Bank estimates is needed to sustain high growth to 2045.
                 </p>
                 <p style={{ fontSize: '17px', color: '#333', lineHeight: '1.85', margin: 0 }}>
                   The geography matters too. Provincial data reveals extreme concentration: the Mekong Delta and Central Highlands have informality rates above 80%, driven by agricultural dominance. Urban centers like Hanoi and HCMC show lower rates (~45–50%) but face a different challenge , growing service-sector informality as migration outpaces formal job creation. These are structurally distinct problems that require different policy responses.
@@ -287,7 +360,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', paddingTop: '4px' }}>
                 {[
                   { label: 'The contribution burden problem', body: 'Combined employer + employee social insurance contributions total 32% of wages, one of the highest rates in Southeast Asia. For small firms operating on thin margins, this is often the decisive reason to stay informal.' },
-                  { label: 'The benefit perception problem', body: 'Only 5% of informal workers voluntarily enroll in social insurance even when eligible. Most do not believe the benefits , especially pensions 20–30 years away , justify current contributions.' },
+                  { label: 'The benefit perception problem', body: 'Only 5% of informal workers voluntarily enroll in social insurance, even when eligible. Most do not believe the benefits , especially pensions 20–30 years away , justify current contributions.' },
                   { label: 'The enforcement problem', body: 'Vietnam\'s labor inspectorate has roughly one inspector per 50,000 workers. Enforcement-led formalization is not feasible at this staffing level, particularly in rural and agricultural areas.' },
                 ].map(({ label, body }) => (
                   <div key={label} style={{ borderLeft: '3px solid #c2410c', paddingLeft: '18px' }}>
@@ -431,14 +504,14 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 tag: 'Intergovernmental Fiscal Reform',
                 color: '#7c3aed',
                 title: 'Revising VAT, CIT, and PIT sharing formulas',
-                body: 'The 2045 plan calls for reforming fiscal sharing arrangements between central and provincial governments , adjusting VAT, corporate income tax, and personal income tax allocations to better match where economic activity and population growth are occurring, particularly in fast-growing metros. New own-source revenue instruments are under discussion, including property taxes and PIT surtaxes at the subnational level.',
+                body: 'The 2045 plan calls for reforming fiscal sharing arrangements between central and provincial governments and adjusting VAT, corporate income tax, and personal income tax allocations to better match where economic activity and population growth are occurring, particularly in fast-growing metros. New own-source revenue instruments are under discussion, including property taxes and PIT surtaxes at the subnational level.',
                 source: 'Viet Nam 2045: Breaking Through, Chapter 4',
               },
               {
                 tag: 'Public Administration',
                 color: '#c2410c',
                 title: 'Streamlining government and civil service reform',
-                body: 'Beginning in August 2024, Vietnam launched the most significant administrative restructuring since Doi Moi , consolidating ministries, reducing the number of provincial units, and trimming the civil service by approximately 20%. The goal is to reduce bureaucratic overhead and improve the efficiency of public investment implementation, which has consistently disbursed below annual targets. Civil servant salaries rose 30% in July 2024.',
+                body: 'Beginning in August 2024, Vietnam launched the most significant administrative restructuring since Doi Moi, consolidating ministries, reducing the number of provincial units, and trimming the civil service by approximately 20%. The goal is to reduce bureaucratic overhead and improve the efficiency of public investment implementation, which has consistently disbursed below annual targets. Civil servant salaries rose 30% in July 2024.',
                 source: 'Resolution 18-NQ/TW; World Bank 2045 Report',
               },
             ].map(({ tag, color, title, body, source }) => (
@@ -453,7 +526,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             ))}
           </div>
 
-          {/* Comparative context , dark callout */}
+          {/* Comparative context - dark callout */}
           <Fade>
             <div style={{ background: '#1a1a1a', padding: '48px' }}>
               <SectionLabel color="#4dd0c4">Comparative Context</SectionLabel>
@@ -467,13 +540,13 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                     years: '1970s–1990s',
                     income: 'Lower-middle → high-income',
                     mechanism: 'Formalization followed rapid industrialization and rising formal wages, not enforcement. The formal wage premium rose as manufacturing productivity increased, making formality self-selecting. Social insurance expansion tracked wage growth rather than leading it.',
-                    lesson: 'The formal wage premium is the lever. When formal work pays significantly more than informal work: not just marginally more , workers and firms choose it without coercion.',
+                    lesson: 'The formal wage premium is the lever. When formal work pays significantly more than informal work, not just marginally more , workers and firms choose it without coercion.',
                   },
                   {
                     country: 'Chile',
                     years: '1990s–2010s',
                     income: 'Middle → upper-middle income',
-                    mechanism: 'Chile combined simplified contribution systems with strong portability of social insurance benefits , workers could carry pension rights across jobs and sectors, raising the perceived value of contributing. Micro-enterprise simplified tax regimes brought small businesses into the formal system at low initial rates.',
+                    mechanism: 'Chile combined simplified contribution systems with strong portability of social insurance benefits and workers could carry pension rights across jobs and sectors, raising the perceived value of contributing. Micro-enterprise simplified tax regimes brought small businesses into the formal system at low initial rates.',
                     lesson: 'Portability and simplicity matter as much as rates. If contributing to social insurance feels irreversible and bureaucratically costly, rational workers avoid it. Making it easy and portable changes the calculus.',
                   },
                 ].map(({ country, years, income, mechanism, lesson }) => (
@@ -594,7 +667,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 {[
                   {
                     title: 'Institutional focus is well-placed',
-                    body: 'The 2045 framework correctly identifies institutional quality , not just investment volume, as the binding constraint. Evidence from comparable transitions supports this: South Korea and Chile both required institutional reform before fiscal capacity improved durably.',
+                    body: 'The 2045 framework correctly identifies institutional quality (not just investment volume) as the binding constraint. Evidence from comparable transitions supports this: South Korea and Chile both required institutional reform before fiscal capacity improved durably.',
                   },
                   {
                     title: 'The 2024 Social Insurance Law is a genuine advance',
@@ -671,7 +744,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                   cursor: 'pointer', letterSpacing: '0.8px', textTransform: 'uppercase',
                   fontFamily: '"Inter", sans-serif',
                 }}>
-                  See the Fiscal Model → Chapter IV
+                  See the Fiscal Model → Part IV
                 </button>
               )}
             </div>
@@ -710,7 +783,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
         </p>
         {onNavigate && (
           <button onClick={() => onNavigate('fiscal')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', fontWeight: '600', color: TEAL, fontFamily: '"Inter", sans-serif' }}>
-            Chapter IV: The Model →
+            Part IV: The Model →
           </button>
         )}
       </div>
