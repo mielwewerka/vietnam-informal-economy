@@ -148,7 +148,7 @@ function LandingPage({ onNavigate }) {
       page: 'vietnam2045',
       title: 'Vietnam 2045',
       subtitle: 'Vietnam\'s fiscal ambition and gap',
-      body: 'Vietnam is pushing toward high-income status by its centennial. What it needs to get there — sustained tax revenue, social insurance, public investment — all depend on an  economy that currently represents barely a third of the workforce.',
+      body: 'Vietnam is pushing toward high-income status by its centennial. What it needs to get there — sustained tax revenue, social insurance, public investment — all depend on an economy that currently represents barely a third of the workforce.',
       color: '#7c3aed',
     },
     {
@@ -174,7 +174,7 @@ function LandingPage({ onNavigate }) {
         transition: 'transform 0.35s ease',
       }}>
         <span style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Inter", sans-serif', letterSpacing: '0.3px' }}>
-          Vietnam's Informal Workforce
+          Vietnam's Invisible Workforce
         </span>
         <div style={{ display: 'flex', gap: '32px' }}>
           {chapters.map(c => (
@@ -184,7 +184,7 @@ function LandingPage({ onNavigate }) {
               fontFamily: '"Inter", sans-serif', letterSpacing: '0.3px',
               transition: 'color 0.2s',
             }}>
-              {c.num}. {c.title}
+              Part {c.num}: {c.title}
             </button>
           ))}
         </div>
@@ -229,8 +229,9 @@ function LandingPage({ onNavigate }) {
             lineHeight: '1.65', margin: '0 0 40px 0',
             maxWidth: '580px', fontStyle: 'italic', fontWeight: '400',
           }}>
-            Vietnam is pushing toward high-income status by 2045. It has a strong growth rate,
-            political will, the manufacturing base. Yet the country faces the dillema of an estimated 64.5% of its workers being invisible to the state.
+            Vietnam is racing toward high-income status by 2045. It has the growth rate,
+            the political will, and the manufacturing base. What it doesn't have is a tax
+            base — because 64.5% of its workers are invisible to the state.
           </p>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
             <button onClick={() => onNavigate('informal-explainer')} style={{
@@ -252,15 +253,29 @@ function LandingPage({ onNavigate }) {
             </button>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <div style={{
+          position: 'absolute', bottom: '28px', left: '50%', transform: 'translateX(-50%)',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px',
+        }}>
+          <span style={{ fontSize: '10px', fontWeight: '600', color: 'rgba(255,255,255,0.3)', letterSpacing: '2px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>Scroll</span>
+          <div style={{ animation: 'bounce 1.8s infinite' }}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M3 6l6 6 6-6" stroke="rgba(255,255,255,0.35)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <style>{`@keyframes bounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(5px)} }`}</style>
       </div>
 
       {/* ── STAT STRIP ─────────────────────────────── */}
       <div style={{ background: '#111', borderTop: '1px solid #1e1e1e', borderBottom: '1px solid #1e1e1e' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: '#1e1e1e' }}>
           {[
-            ['64.5%', 'Of workers are informally employed', 'GSO Labor Force Survey 2023'],
-            ['35M+', 'Workers outside the formal economy', 'ILO estimate, 2021'],
-            ['18–19%', 'Tax-to-GDP ratio — low by regional standards', 'World Bank, 2023'],
+            ['64.5%', 'of workers are informally employed', 'GSO Labor Force Survey 2023'],
+            ['35M+', 'workers outside the formal economy', 'ILO estimate, 2021'],
+            ['18–19%', 'tax-to-GDP ratio — low by regional standards', 'World Bank, 2023'],
             ['2045', "Vietnam's target year for high-income status", 'Resolution 29/NQ-TW'],
           ].map(([stat, label, source]) => (
             <div key={stat} style={{ background: '#111', padding: '36px 32px' }}>
@@ -271,25 +286,26 @@ function LandingPage({ onNavigate }) {
           ))}
         </div>
       </div>
-{/* ── CONTEXT BLURB ── */}
-<div style={{ background: '#0f0f0f', padding: '56px 48px 0' }}>
-  <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '48px', borderBottom: '1px solid #1a1a1a', paddingBottom: '56px' }}>
-    <div>
-      <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
-      <h2 style={{ fontSize: '22px', fontWeight: '400', color: 'white', margin: 0, lineHeight: '1.3', letterSpacing: '-0.3px' }}>
-        An interactive fiscal policy analysis for ECON 62 — Topics in Macroeconomics
-      </h2>
-    </div>
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
-      <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-        This project examines Vietnam's informal economy — the 64.5% of workers who operate outside formal employment — and what it means for the country's ability to fund its own development. It is structured as a four-chapter argument: from the historical origins of informality, through provincial-level geographic evidence, to a policy analysis and fiscal model.
-      </p>
-      <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-        Vietnam has set an ambitious goal: high-income status by 2045. Achieving it requires sustained public investment in infrastructure, education, and social protection — all of which depend on a tax base that informal employment structurally constrains. The central question: <em style={{ color: 'rgba(255,255,255,0.75)' }}>can Vietnam afford 2045 with two-thirds of its workforce off the books?</em>
-      </p>
-    </div>
-  </div>
-</div>
+
+      {/* ── CONTEXT BLURB ───────────────────────────── */}
+      <div style={{ background: '#0f0f0f', padding: '56px 48px 0' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '48px', alignItems: 'start', borderBottom: '1px solid #1a1a1a', paddingBottom: '56px' }}>
+          <div>
+            <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
+            <h2 style={{ fontSize: '22px', fontWeight: '400', color: 'white', margin: 0, lineHeight: '1.3', letterSpacing: '-0.3px' }}>
+              An interactive fiscal policy analysis for ECON 62 — Topics in Macroeconomics
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
+              This project examines Vietnam's informal economy — the 64.5% of workers who operate outside formal employment — and what it means for the country's ability to fund its own development. It is structured as a four-chapter argument: from the historical origins of informality, through provincial-level geographic evidence, to a policy analysis and fiscal model.
+            </p>
+            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
+              Vietnam has set an ambitious goal: high-income status by 2045. Achieving it requires sustained public investment in infrastructure, education, and social protection — all of which depend on a tax base that informal employment structurally constrains. The central question this project asks is simple: <em style={{ color: 'rgba(255,255,255,0.75)' }}>can Vietnam afford 2045 with two-thirds of its workforce off the books?</em>
+            </p>
+          </div>
+        </div>
+      </div>
 
       {/* ── THESIS ─────────────────────────────────── */}
       <div style={{ background: '#0f0f0f', padding: '100px 48px' }}>
@@ -305,10 +321,10 @@ function LandingPage({ onNavigate }) {
           </h2>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif', fontWeight: '400' }}>
             64.5% — that's the share of workers the state cannot see, cannot tax, and cannot protect.
-            It is the number that could imapct everything else. Informal workers do not pay income tax,
-            contribute to social insurance, or generate VAT. Their employers, if they have them,
+            It is the number that could derail everything else. Informal workers pay no income tax,
+            contribute no social insurance, and generate no VAT. Their employers, if they have them,
             often avoid payroll taxes entirely. The fiscal gap this creates is not incidental to
-            Vietnam's development challenge.
+            Vietnam's development challenge. It is the challenge.
           </p>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', margin: 0, fontFamily: '"Inter", sans-serif', fontWeight: '400' }}>
             This project maps that reality province by province, quantifies its fiscal consequences,
@@ -317,12 +333,12 @@ function LandingPage({ onNavigate }) {
         </div>
       </div>
 
-      {/* ── CHAPTER CARDS ──────────────────────────── */}
-      <div style={{ background: '#0a0a0a', borderTop: '1px solid #1a1a1a', padding: '80px 48px' }}>
+      {/* ── PART CARDS ──────────────────────────── */}
+      <div style={{ background: '#0a0a0a', borderTop: '1px solid #1a1a1a', padding: '56px 48px 64px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px', marginBottom: '56px' }}>
-            <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>The Argument</div>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px', marginBottom: '36px' }}>
+            <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>The Argument in Four Parts</div>
             <div style={{ flex: 1, height: '1px', background: '#1e1e1e' }} />
           </div>
 
@@ -332,21 +348,33 @@ function LandingPage({ onNavigate }) {
                 key={c.num}
                 onClick={() => onNavigate(c.page)}
                 style={{
-                  background: '#0f0f0f', padding: '48px 44px',
+                  background: '#0f0f0f', padding: '32px 36px',
                   cursor: 'pointer', borderTop: `3px solid ${c.color}`,
                   transition: 'background 0.2s',
+                  display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
                 }}
                 onMouseEnter={e => e.currentTarget.style.background = '#141414'}
                 onMouseLeave={e => e.currentTarget.style.background = '#0f0f0f'}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '20px' }}>
-                  <span style={{ fontSize: '11px', fontWeight: '700', color: c.color, fontFamily: '"Inter", sans-serif', letterSpacing: '1.5px' }}>CHAPTER {c.num}</span>
+                <div>
+                  <span style={{ fontSize: '11px', fontWeight: '700', color: c.color, fontFamily: '"Inter", sans-serif', letterSpacing: '1.5px' }}>PART {c.num}</span>
+                  <h3 style={{ fontSize: '24px', fontWeight: '400', color: 'white', margin: '10px 0 6px', letterSpacing: '-0.3px', lineHeight: '1.2' }}>{c.title}</h3>
+                  <p style={{ fontSize: '13px', color: c.color, fontFamily: '"Inter", sans-serif', fontWeight: '500', margin: '0 0 16px 0' }}>{c.subtitle}</p>
+                  <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.7', margin: '0 0 24px 0', fontFamily: '"Inter", sans-serif' }}>{c.body}</p>
                 </div>
-                <h3 style={{ fontSize: '28px', fontWeight: '400', color: 'white', margin: '0 0 8px 0', letterSpacing: '-0.3px' }}>{c.title}</h3>
-                <p style={{ fontSize: '13px', color: c.color, fontFamily: '"Inter", sans-serif', fontWeight: '500', margin: '0 0 20px 0', letterSpacing: '0.2px' }}>{c.subtitle}</p>
-                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.75', margin: '0 0 28px 0', fontFamily: '"Inter", sans-serif' }}>{c.body}</p>
-                <div style={{ fontSize: '12px', fontWeight: '700', color: c.color, fontFamily: '"Inter", sans-serif', letterSpacing: '1px', textTransform: 'uppercase' }}>
-                  Read Chapter {c.num} →
+                <div style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '8px',
+                  fontSize: '13px', fontWeight: '700', color: c.color,
+                  fontFamily: '"Inter", sans-serif', letterSpacing: '0.5px',
+                  borderTop: `1px solid rgba(255,255,255,0.07)`, paddingTop: '16px',
+                }}>
+                  <span style={{
+                    background: c.color, color: 'white',
+                    fontSize: '11px', fontWeight: '700', letterSpacing: '1px',
+                    padding: '5px 12px', textTransform: 'uppercase',
+                  }}>
+                    Read Part {c.num} →
+                  </span>
                 </div>
               </div>
             ))}
@@ -624,27 +652,28 @@ function InteractiveMaps({ onBack }) {
 function App() {
   const [currentPage, setCurrentPage] = useState('landing');
 
-  const navigate = (page) => {
-    setCurrentPage(page);
-    window.scrollTo(0, 0);
-  };
-
   const renderPage = () => {
     switch (currentPage) {
-    case 'landing':
-      return <LandingPage onNavigate={navigate} />;
-    case 'maps':
-      return <InteractiveMaps onBack={() => navigate('landing')} />;
-    case 'informal-explainer':
-      return <InformalExplainer onBack={() => navigate('landing')} />;
-    case 'exec-summary':
-      return <ExecutiveSummary onBack={() => navigate('landing')} onNavigate={navigate} />;
-    case 'fiscal':
-      return <FiscalCalculator onBack={() => navigate('landing')} />;
-    case 'vietnam2045':
-      return <Vietnam2045 onBack={() => navigate('landing')} onNavigate={navigate} />;
-    default:
-      return <LandingPage onNavigate={navigate} />;
+      case 'landing':
+        return <LandingPage onNavigate={setCurrentPage} />;
+      case 'maps':
+        return <InteractiveMaps onBack={() => setCurrentPage('landing')} />;
+      case 'scrollytelling':
+        return <PlaceholderPage title="Narrative Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
+      case 'sector':
+        return <PlaceholderPage title="Sectoral Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
+      case 'policy':
+        return <PlaceholderPage title="Policy Impact Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
+      case 'informal-explainer':
+        return <InformalExplainer onBack={() => setCurrentPage('landing')} />;
+      case 'exec-summary':
+        return <ExecutiveSummary onBack={() => setCurrentPage('landing')} onNavigate={setCurrentPage} />;
+      case 'fiscal':
+        return <FiscalCalculator onBack={() => setCurrentPage('landing')} />;
+      case 'vietnam2045':
+        return <Vietnam2045 onBack={() => setCurrentPage('landing')} onNavigate={setCurrentPage} />;
+      default:
+        return <LandingPage onNavigate={setCurrentPage} />;
     }
   };
 
