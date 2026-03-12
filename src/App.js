@@ -2,7 +2,7 @@
 // VIETNAM INFORMAL ECONOMY PROJECT
 // ========================================
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import vietnamGeoData from './data/vietnamGeoData.json';
 import completeMapData from './data/completeMapData.json';
 import InformalExplainer from './components/InformalExplainer';
@@ -148,7 +148,7 @@ function LandingPage({ onNavigate }) {
       page: 'vietnam2045',
       title: 'Vietnam 2045',
       subtitle: 'Vietnam\'s fiscal ambition and gap',
-      body: 'Vietnam is pushing toward high-income status by its centennial. What it needs to get there — sustained tax revenue, social insurance, public investment — all depend on an economy that currently represents barely a third of the workforce.',
+      body: 'Vietnam is pushing toward high-income status by its centennial. What it needs to get there: sustained tax revenue, social insurance, and public investment. All of it depends on an economy where most workers currently fall outside the formal system.',
       color: '#7c3aed',
     },
     {
@@ -231,7 +231,7 @@ function LandingPage({ onNavigate }) {
           }}>
             Vietnam is racing toward high-income status by 2045. It has the growth rate,
             the political will, and the manufacturing base. What it doesn't have is a tax
-            base — because 64.5% of its workers are invisible to the state.
+            base. Sixty-four and a half percent of its workers are unregistered, unprotected, and outside the fiscal system through no fault of their own.
           </p>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
             <button onClick={() => onNavigate('informal-explainer')} style={{
@@ -275,7 +275,7 @@ function LandingPage({ onNavigate }) {
           {[
             ['64.5%', 'of workers are informally employed', 'GSO Labor Force Survey 2023'],
             ['35M+', 'workers outside the formal economy', 'ILO estimate, 2021'],
-            ['18–19%', 'tax-to-GDP ratio — low by regional standards', 'World Bank, 2023'],
+            ['18–19%', 'tax-to-GDP ratio, well below the regional average', 'World Bank, 2023'],
             ['2045', "Vietnam's target year for high-income status", 'Resolution 29/NQ-TW'],
           ].map(([stat, label, source]) => (
             <div key={stat} style={{ background: '#111', padding: '36px 32px' }}>
@@ -295,20 +295,20 @@ function LandingPage({ onNavigate }) {
             <div style={{ background: '#0f0f0f', padding: '36px 40px' }}>
               <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '16px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
               <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif' }}>
-                This project examines Vietnam's informal economy — the 64.5% of workers who operate outside formal employment — and what it means for the country's ability to fund its 2045 development ambitions.
+                This project examines Vietnam's informal economy: the 64.5% of workers who operate outside formal employment, and what it means for the country's ability to fund its 2045 development ambitions.
               </p>
               <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-                It is structured as a four-part argument: from the historical origins of informality, through provincial-level geographic evidence, to a policy analysis and interactive fiscal model.
+                It is structured as a four-part argument: beginning with the historical origins of informality, moving through provincial-level geographic evidence, and arriving at a policy analysis and interactive fiscal model.
               </p>
             </div>
             {/* Right: the central question, styled as pull quote */}
             <div style={{ background: '#111', padding: '36px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: `4px solid ${TEAL}` }}>
               <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '20px', fontFamily: '"Inter", sans-serif' }}>The Central Question</div>
               <p style={{ fontSize: 'clamp(20px, 2.2vw, 26px)', color: 'white', lineHeight: '1.45', margin: '0 0 20px 0', letterSpacing: '-0.3px', fontStyle: 'italic', fontWeight: '400' }}>
-                Can Vietnam afford its 2045 ambitions with two-thirds of its workforce off the books?
+                Can Vietnam reach high-income status by 2045 when two-thirds of its workers fall outside the formal tax system?
               </p>
               <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', lineHeight: '1.7', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-                Achieving high-income status requires sustained public investment in infrastructure, education, and social protection — all of which depend on a tax base that informal employment structurally constrains.
+                Achieving high-income status requires sustained public investment in infrastructure, education, and social protection. All of it depends on a tax base that the current structure of informal employment makes very hard to build.
               </p>
             </div>
           </div>
@@ -328,15 +328,12 @@ function LandingPage({ onNavigate }) {
             This project tells it through the other number.
           </h2>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif', fontWeight: '400' }}>
-            64.5% — that's the share of workers the state cannot see, cannot tax, and cannot protect.
-            It is the number that could derail everything else. Informal workers pay no income tax,
-            contribute no social insurance, and generate no VAT. Their employers, if they have them,
-            often avoid payroll taxes entirely. The fiscal gap this creates is not incidental to
-            Vietnam's development challenge. It is the challenge.
+            64.5% is the share of workers who fall outside the formal system: uncounted in tax records, unprotected by labor law, and excluded from the social insurance they help fund through their economic activity.
+            These workers are not evading the system out of choice. They are street vendors and rice farmers and construction workers and domestic employees navigating an economy where formal employment is not always accessible, where contribution rates are high relative to incomes, and where the benefits of registration often do not reach them. The fiscal gap their exclusion creates is not incidental to Vietnam's development challenge. It shapes everything else.
           </p>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', margin: 0, fontFamily: '"Inter", sans-serif', fontWeight: '400' }}>
             This project maps that reality province by province, quantifies its fiscal consequences,
-            and asks what formalization would actually require — and cost — for workers and the state alike.
+            and asks what formalization would actually require, and what it would cost, for workers and the state alike.
           </p>
         </div>
       </div>
@@ -393,7 +390,7 @@ function LandingPage({ onNavigate }) {
       {/* ── FOOTER ─────────────────────────────────── */}
       <div style={{ background: '#080808', borderTop: '1px solid #161616', padding: '32px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.2)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-          ECON 62 — Topics in Macroeconomics · Winter 2026
+          ECON 62: Topics in Macroeconomics · Winter 2026
         </p>
         <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.15)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
           Data: GSO LFS 2023 · World Bank · ILO
@@ -440,37 +437,38 @@ function InteractiveMaps({ onBack }) {
 
   const mapInsights = {
     informal: [
-      { label: 'The rural-urban divide is stark', text: 'Northwestern provinces like Dien Bien and Lai Chau exceed 88% informality — nearly double the rate in Hanoi and Ho Chi Minh City. Geography is the single strongest predictor of whether a worker is visible to the state.' },
-      { label: 'Urban cores already near high-income norms', text: 'Ho Chi Minh City\'s Southeast region sits at ~36% informal employment — close to the 25-35% typical of high-income countries. The formalization challenge is concentrated in the periphery, not the center.' },
-      { label: 'Current pace is too slow for 2045', text: 'Vietnam reduced total informality from 80% to 69% between 2013–2023 — roughly 1.1 percentage points per year. At that rate, Vietnam will still be at ~55% by 2045, far above the high-income threshold.' },
+      { label: 'The rural-urban divide is stark', text: 'Northwestern provinces like Dien Bien and Lai Chau exceed 88% informality, nearly double the rate in Hanoi and Ho Chi Minh City. Geography is the single strongest predictor of whether a worker is visible to the state.' },
+      { label: 'Urban cores already near high-income norms', text: 'Ho Chi Minh City\'s Southeast region sits at ~36% informal employment, close to the 25–35% typical of high-income countries. The formalization challenge is concentrated in the periphery, not the center.' },
+      { label: 'Current pace is too slow for 2045', text: 'Vietnam reduced total informality from 80% to 69% between 2013 to 2023, roughly 1.1 percentage points per year. At that rate, Vietnam will still be above 55% by 2045, far above the high-income threshold.' },
     ],
     agricultural: [
-      { label: 'Agriculture is the core of informality', text: '97.9% of agricultural workers are informally employed. With agriculture still comprising ~26% of total employment, conventional formalization policy — designed for urban wage workers — cannot reach the largest informal sector.' },
+      { label: 'Agriculture is where most informal employment is concentrated', text: '97.9% of agricultural workers are informally employed. With agriculture still comprising ~26% of total employment, conventional formalization policy, which was designed for urban wage workers, cannot reach the largest informal sector.' },
       { label: 'Mekong Delta concentration is a fiscal dead zone', text: 'The Mekong Delta\'s rice-farming provinces combine extreme agricultural density with near-total informality. These workers generate economic output but contribute essentially zero to the formal tax base.' },
-      { label: 'The ILO counts 20M more informal workers than the GSO', text: 'Vietnam\'s own statistical definition excludes most agricultural workers from "informal" counts. The GSO reports ~40% informality; the ILO methodology puts it at ~75%. Which number you use determines the policy you design.' },
+      { label: 'The ILO counts 20M more informal workers than the GSO', text: 'Vietnam\'s own statistical definition excludes most agricultural workers from "informal" counts. The GSO reports ~40% informality; the ILO methodology puts it at ~75%. Which number you use determines which policy you design.' },
     ],
-    non_ag_informal: [
-      { label: 'Urban informality is a distinct problem', text: 'Non-agricultural informal work — street vending, construction, domestic work — is concentrated in cities and coastal zones. These workers operate in environments where formalization is physically feasible, unlike subsistence farmers.' },
-      { label: 'High non-ag informality in otherwise formal regions signals policy failure', text: 'Provinces with moderate overall informality but high non-agricultural informal rates suggest that formal sector growth alone isn\'t pulling workers across the threshold — there are active barriers to registration.' },
-      { label: 'This is the most policy-responsive category', text: 'Colombia\'s 2013 payroll tax reform reduced non-agricultural informality by 2-4 percentage points. Vietnam\'s equivalent intervention — cutting the 32% combined social security burden — would hit this category first.' },
+    nonAgInformal: [
+      { label: 'This is the most policy-responsive category', text: 'Colombia\'s 2013 payroll tax reform reduced non-agricultural informality by 2 to 4 percentage points. Vietnam\'s equivalent intervention, cutting the 32% combined social security burden, would hit this category first and fastest.' },
+      { label: 'High non-ag informality in formal regions signals active barriers', text: 'Provinces with moderate overall informality but high non-agricultural informal rates suggest formal sector growth alone isn\'t pulling workers across the threshold. Workers aren\'t registering even when formal employment is nearby.' },
+      { label: 'Urban informality is structurally distinct from agricultural', text: 'Non-agricultural informal work (street vending, construction, domestic work) operates in environments where formalization is physically feasible. The barrier is cost and enforcement, not geography.' },
     ],
-    urban: [
-      { label: 'Urbanization predicts formalization better than income', text: 'The correlation between urban share and low informality is near-perfect across provinces. This is structural: urban wage employment naturally generates taxable records; rural self-employment does not.' },
-      { label: 'Industrial zones are driving the transition', text: 'Provinces like Binh Duong and Dong Nai — with large export manufacturing zones — show both high urbanization and relatively low informality. Foreign direct investment in manufacturing is doing what policy alone cannot.' },
-      { label: 'The urbanization gap sets the 2045 ceiling', text: 'Vietnam would need to urbanize an additional 15-20 percentage points to bring the country\'s structural composition in line with high-income peers. That\'s a generational shift, not a policy cycle.' },
+    urbanization: [
+      { label: 'Urbanization predicts formalization better than income', text: 'The correlation between urban share and low informality is near-perfect across provinces. Urban wage employment naturally generates taxable payroll records; rural self-employment structurally does not.' },
+      { label: 'Industrial zones are driving the transition', text: 'Provinces like Binh Duong and Dong Nai, anchored by large export manufacturing zones, show both high urbanization and relatively low informality. Foreign direct investment in manufacturing is doing what administrative reform alone cannot.' },
+      { label: 'The urbanization gap sets a hard ceiling for 2045', text: 'Vietnam would need to urbanize an additional 15 to 20 percentage points to match the structural composition of high-income peers. That is a generational shift, one fiscal policy can support but not shortcut.' },
     ],
     sidewalk: [
-      { label: 'Street vendors contribute 11-13% of GDP', text: 'The sidewalk economy — concentrated in Hanoi, HCMC, and Da Nang — is economically significant but structurally resistant to formalization. Vendor bans (like Hanoi\'s 2008 crackdown) push workers to less visible locations rather than into the formal sector.' },
-      { label: 'This is the face of informality but not the core', text: 'Street vending is visible and politically salient, but it represents a small fraction of total informal employment. Policy attention disproportionate to its scale risks misallocating reform effort away from agriculture and non-ag informal wage work.' },
-      { label: 'Tourist corridor concentration creates local pressure', text: 'High sidewalk density along coastal tourist routes (Da Nang, Hoi An, Hue) reflects demand-driven informal services. Designated vending zones and simplified licensing have more traction here than in inland agricultural provinces.' },
+      { label: 'Street vendors contribute 11 to 13% of GDP', text: 'The sidewalk economy is economically significant but structurally resistant to formalization. Vendor bans like Hanoi\'s 2008 crackdown push workers to less visible locations rather than into the formal sector.' },
+      { label: 'This is the face of informality, not the core', text: 'Street vending is visible and politically salient but represents a small fraction of total informal employment. Policy attention disproportionate to its scale risks misallocating reform effort away from agriculture and non-ag wage work.' },
+      { label: 'Tourist corridors create local pressure for designated zones', text: 'High sidewalk density along coastal tourist routes (Da Nang, Hoi An, Hue) reflects demand-driven informal services. Simplified licensing and designated vending areas have more traction here than in inland agricultural provinces.' },
     ],
-    labor_productivity: [
-      { label: 'Productivity gap is the fiscal multiplier', text: 'Low-productivity informal workers produce less taxable output per capita AND are outside the tax net. Formalization without productivity growth captures workers on paper without meaningfully expanding the revenue base.' },
-      { label: 'Vietnam\'s productivity stagnation mirrors its informality plateau', text: 'Both labor productivity and formalization rates improved rapidly through the mid-2010s then plateaued. The two are structurally linked: productivity growth creates formal wage employment; stagnation preserves informal subsistence work.' },
+    totalEmployment: [
+      { label: 'Scale matters for fiscal math', text: 'Large-employment provinces like HCMC and Hanoi generate disproportionate tax revenue even at similar informality rates because their formal worker base is simply larger. Small gains in formalization here outweigh large gains in low-population provinces.' },
+      { label: 'HCMC and Hanoi carry the formal tax base', text: 'The two largest urban centers account for a majority of formal employment nationally. Vietnam\'s current tax revenue depends on a narrow geographic concentration of compliant employers and wage workers.' },
     ],
-    gdp_per_capita: [
-      { label: 'Income and formality are mutually reinforcing', text: 'Higher provincial GDP per capita strongly predicts lower informality. But causality runs both ways: more formal workers generate more tax revenue, funding the public investment that raises incomes.' },
-      { label: 'The central question is whether the loop can be broken externally', text: 'Vietnam\'s 2045 ambition requires breaking into the virtuous cycle from outside — using policy to shift the formalization rate faster than income growth alone would produce.' },
+    ruralPopulation: [
+      { label: 'Rural share and informality are nearly synonymous', text: 'Provinces with the highest rural population share almost universally have the highest informality rates. Rural residents are disproportionately agricultural workers, and 97.9% of agricultural workers are informally employed.' },
+      { label: 'Rural-urban migration is the natural formalization engine', text: 'As workers move to cities and enter wage employment, they automatically enter the formal system. Vietnam\'s rapid urbanization since Doi Moi explains much of the informality decline from 80% to 69% between 2013–2023.' },
+      { label: 'Place-based policy is needed for the most rural provinces', text: 'The Central Highlands and Northern Midlands provinces that combine high rurality with high informality cannot formalize through urban migration alone. Extending social protection to farmers where they are, without requiring formal registration, may be the only viable path.' },
     ],
   };
 
@@ -708,6 +706,7 @@ function InteractiveMaps({ onBack }) {
                   <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', fontFamily: '"Inter", sans-serif' }}>
                     • Select an indicator from the left panel<br/>
                     • Click any province to see all its data<br/>
+                    • Switch to the <strong style={{ color: '#4dd0c4' }}>Insights tab</strong> for analytical observations on each indicator<br/>
                     • Use the Urban Filter to focus on urbanized provinces<br/>
                     • Toggle the panel with the Hide/Show button
                   </div>
@@ -728,29 +727,42 @@ function InteractiveMaps({ onBack }) {
 // ========================================
 function App() {
   const [currentPage, setCurrentPage] = useState('landing');
+  const savedScrollY = useRef(0);
+
+  const navigate = (page) => {
+    if (page !== 'landing') {
+      savedScrollY.current = window.scrollY;
+    }
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const goBack = () => {
+    setCurrentPage('landing');
+    const saved = savedScrollY.current;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: saved, behavior: 'instant' });
+      });
+    });
+  };
 
   const renderPage = () => {
     switch (currentPage) {
       case 'landing':
-        return <LandingPage onNavigate={setCurrentPage} />;
+        return <LandingPage onNavigate={navigate} />;
       case 'maps':
-        return <InteractiveMaps onBack={() => setCurrentPage('landing')} />;
-      case 'scrollytelling':
-        return <PlaceholderPage title="Narrative Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
-      case 'sector':
-        return <PlaceholderPage title="Sectoral Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
-      case 'policy':
-        return <PlaceholderPage title="Policy Impact Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
+        return <InteractiveMaps onBack={goBack} />;
       case 'informal-explainer':
-        return <InformalExplainer onBack={() => setCurrentPage('landing')} />;
+        return <InformalExplainer onBack={goBack} />;
       case 'exec-summary':
-        return <ExecutiveSummary onBack={() => setCurrentPage('landing')} onNavigate={setCurrentPage} />;
+        return <ExecutiveSummary onBack={goBack} onNavigate={navigate} />;
       case 'fiscal':
-        return <FiscalCalculator onBack={() => setCurrentPage('landing')} />;
+        return <FiscalCalculator onBack={goBack} />;
       case 'vietnam2045':
-        return <Vietnam2045 onBack={() => setCurrentPage('landing')} onNavigate={setCurrentPage} />;
+        return <Vietnam2045 onBack={goBack} onNavigate={navigate} />;
       default:
-        return <LandingPage onNavigate={setCurrentPage} />;
+        return <LandingPage onNavigate={navigate} />;
     }
   };
 
