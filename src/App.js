@@ -229,8 +229,8 @@ function LandingPage({ onNavigate }) {
             lineHeight: '1.65', margin: '0 0 40px 0',
             maxWidth: '580px', fontStyle: 'italic', fontWeight: '400',
           }}>
-            Vietnam is racing toward high-income status by 2045. It has the strong growth ratea,
-            the political will, and the manufacturing base. Yet the country faces the dillema of an estimated 64.5% of its workers being invisible to the state.
+            Vietnam is pushing toward high-income status by 2045. It has a strong growth rate,
+            political will, the manufacturing base. Yet the country faces the dillema of an estimated 64.5% of its workers being invisible to the state.
           </p>
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
             <button onClick={() => onNavigate('informal-explainer')} style={{
@@ -271,6 +271,25 @@ function LandingPage({ onNavigate }) {
           ))}
         </div>
       </div>
+{/* ── CONTEXT BLURB ── */}
+<div style={{ background: '#0f0f0f', padding: '56px 48px 0' }}>
+  <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '48px', borderBottom: '1px solid #1a1a1a', paddingBottom: '56px' }}>
+    <div>
+      <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
+      <h2 style={{ fontSize: '22px', fontWeight: '400', color: 'white', margin: 0, lineHeight: '1.3', letterSpacing: '-0.3px' }}>
+        An interactive fiscal policy analysis for ECON 62 — Topics in Macroeconomics
+      </h2>
+    </div>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+      <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
+        This project examines Vietnam's informal economy — the 64.5% of workers who operate outside formal employment — and what it means for the country's ability to fund its own development. It is structured as a four-chapter argument: from the historical origins of informality, through provincial-level geographic evidence, to a policy analysis and fiscal model.
+      </p>
+      <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
+        Vietnam has set an ambitious goal: high-income status by 2045. Achieving it requires sustained public investment in infrastructure, education, and social protection — all of which depend on a tax base that informal employment structurally constrains. The central question: <em style={{ color: 'rgba(255,255,255,0.75)' }}>can Vietnam afford 2045 with two-thirds of its workforce off the books?</em>
+      </p>
+    </div>
+  </div>
+</div>
 
       {/* ── THESIS ─────────────────────────────────── */}
       <div style={{ background: '#0f0f0f', padding: '100px 48px' }}>
