@@ -243,8 +243,8 @@ function LandingPage({ onNavigate }) {
               Begin Reading →
             </button>
             <button onClick={() => onNavigate('exec-summary')} style={{
-              background: 'transparent', color: 'rgba(255,255,255,0.55)',
-              border: '1px solid rgba(255,255,255,0.2)',
+              background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)',
+              border: '1px solid rgba(255,255,255,0.35)',
               padding: '13px 24px', fontSize: '12px', fontWeight: '600',
               cursor: 'pointer', letterSpacing: '0.8px', textTransform: 'uppercase',
               fontFamily: '"Inter", sans-serif',
@@ -289,20 +289,28 @@ function LandingPage({ onNavigate }) {
 
       {/* ── CONTEXT BLURB ───────────────────────────── */}
       <div style={{ background: '#0f0f0f', padding: '56px 48px 0' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '48px', alignItems: 'start', borderBottom: '1px solid #1a1a1a', paddingBottom: '56px' }}>
-          <div>
-            <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
-            <h2 style={{ fontSize: '22px', fontWeight: '400', color: 'white', margin: 0, lineHeight: '1.3', letterSpacing: '-0.3px' }}>
-              An interactive fiscal policy analysis for ECON 62 — Topics in Macroeconomics
-            </h2>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
-            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-              This project examines Vietnam's informal economy — the 64.5% of workers who operate outside formal employment — and what it means for the country's ability to fund its own development. It is structured as a four-chapter argument: from the historical origins of informality, through provincial-level geographic evidence, to a policy analysis and fiscal model.
-            </p>
-            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-              Vietnam has set an ambitious goal: high-income status by 2045. Achieving it requires sustained public investment in infrastructure, education, and social protection — all of which depend on a tax base that informal employment structurally constrains. The central question this project asks is simple: <em style={{ color: 'rgba(255,255,255,0.75)' }}>can Vietnam afford 2045 with two-thirds of its workforce off the books?</em>
-            </p>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', borderBottom: '1px solid #1a1a1a', paddingBottom: '56px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: '#1a1a1a' }}>
+            {/* Left: what this is */}
+            <div style={{ background: '#0f0f0f', padding: '36px 40px' }}>
+              <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '16px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
+              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif' }}>
+                This project examines Vietnam's informal economy — the 64.5% of workers who operate outside formal employment — and what it means for the country's ability to fund its 2045 development ambitions.
+              </p>
+              <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
+                It is structured as a four-part argument: from the historical origins of informality, through provincial-level geographic evidence, to a policy analysis and interactive fiscal model.
+              </p>
+            </div>
+            {/* Right: the central question, styled as pull quote */}
+            <div style={{ background: '#111', padding: '36px 40px', display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: `4px solid ${TEAL}` }}>
+              <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '20px', fontFamily: '"Inter", sans-serif' }}>The Central Question</div>
+              <p style={{ fontSize: 'clamp(20px, 2.2vw, 26px)', color: 'white', lineHeight: '1.45', margin: '0 0 20px 0', letterSpacing: '-0.3px', fontStyle: 'italic', fontWeight: '400' }}>
+                Can Vietnam afford its 2045 ambitions with two-thirds of its workforce off the books?
+              </p>
+              <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', lineHeight: '1.7', margin: 0, fontFamily: '"Inter", sans-serif' }}>
+                Achieving high-income status requires sustained public investment in infrastructure, education, and social protection — all of which depend on a tax base that informal employment structurally constrains.
+              </p>
+            </div>
           </div>
         </div>
       </div>
