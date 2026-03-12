@@ -436,6 +436,43 @@ function InteractiveMaps({ onBack }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [urbanFilter, setUrbanFilter] = useState('all');
   const [activeSection, setActiveSection] = useState('maps');
+  const [sidebarTab, setSidebarTab] = useState('facts');
+
+  const mapInsights = {
+    informal: [
+      { label: 'The rural-urban divide is stark', text: 'Northwestern provinces like Dien Bien and Lai Chau exceed 88% informality — nearly double the rate in Hanoi and Ho Chi Minh City. Geography is the single strongest predictor of whether a worker is visible to the state.' },
+      { label: 'Urban cores already near high-income norms', text: 'Ho Chi Minh City\'s Southeast region sits at ~36% informal employment — close to the 25-35% typical of high-income countries. The formalization challenge is concentrated in the periphery, not the center.' },
+      { label: 'Current pace is too slow for 2045', text: 'Vietnam reduced total informality from 80% to 69% between 2013–2023 — roughly 1.1 percentage points per year. At that rate, Vietnam will still be at ~55% by 2045, far above the high-income threshold.' },
+    ],
+    agricultural: [
+      { label: 'Agriculture is the core of informality', text: '97.9% of agricultural workers are informally employed. With agriculture still comprising ~26% of total employment, conventional formalization policy — designed for urban wage workers — cannot reach the largest informal sector.' },
+      { label: 'Mekong Delta concentration is a fiscal dead zone', text: 'The Mekong Delta\'s rice-farming provinces combine extreme agricultural density with near-total informality. These workers generate economic output but contribute essentially zero to the formal tax base.' },
+      { label: 'The ILO counts 20M more informal workers than the GSO', text: 'Vietnam\'s own statistical definition excludes most agricultural workers from "informal" counts. The GSO reports ~40% informality; the ILO methodology puts it at ~75%. Which number you use determines the policy you design.' },
+    ],
+    non_ag_informal: [
+      { label: 'Urban informality is a distinct problem', text: 'Non-agricultural informal work — street vending, construction, domestic work — is concentrated in cities and coastal zones. These workers operate in environments where formalization is physically feasible, unlike subsistence farmers.' },
+      { label: 'High non-ag informality in otherwise formal regions signals policy failure', text: 'Provinces with moderate overall informality but high non-agricultural informal rates suggest that formal sector growth alone isn\'t pulling workers across the threshold — there are active barriers to registration.' },
+      { label: 'This is the most policy-responsive category', text: 'Colombia\'s 2013 payroll tax reform reduced non-agricultural informality by 2-4 percentage points. Vietnam\'s equivalent intervention — cutting the 32% combined social security burden — would hit this category first.' },
+    ],
+    urban: [
+      { label: 'Urbanization predicts formalization better than income', text: 'The correlation between urban share and low informality is near-perfect across provinces. This is structural: urban wage employment naturally generates taxable records; rural self-employment does not.' },
+      { label: 'Industrial zones are driving the transition', text: 'Provinces like Binh Duong and Dong Nai — with large export manufacturing zones — show both high urbanization and relatively low informality. Foreign direct investment in manufacturing is doing what policy alone cannot.' },
+      { label: 'The urbanization gap sets the 2045 ceiling', text: 'Vietnam would need to urbanize an additional 15-20 percentage points to bring the country\'s structural composition in line with high-income peers. That\'s a generational shift, not a policy cycle.' },
+    ],
+    sidewalk: [
+      { label: 'Street vendors contribute 11-13% of GDP', text: 'The sidewalk economy — concentrated in Hanoi, HCMC, and Da Nang — is economically significant but structurally resistant to formalization. Vendor bans (like Hanoi\'s 2008 crackdown) push workers to less visible locations rather than into the formal sector.' },
+      { label: 'This is the face of informality but not the core', text: 'Street vending is visible and politically salient, but it represents a small fraction of total informal employment. Policy attention disproportionate to its scale risks misallocating reform effort away from agriculture and non-ag informal wage work.' },
+      { label: 'Tourist corridor concentration creates local pressure', text: 'High sidewalk density along coastal tourist routes (Da Nang, Hoi An, Hue) reflects demand-driven informal services. Designated vending zones and simplified licensing have more traction here than in inland agricultural provinces.' },
+    ],
+    labor_productivity: [
+      { label: 'Productivity gap is the fiscal multiplier', text: 'Low-productivity informal workers produce less taxable output per capita AND are outside the tax net. Formalization without productivity growth captures workers on paper without meaningfully expanding the revenue base.' },
+      { label: 'Vietnam\'s productivity stagnation mirrors its informality plateau', text: 'Both labor productivity and formalization rates improved rapidly through the mid-2010s then plateaued. The two are structurally linked: productivity growth creates formal wage employment; stagnation preserves informal subsistence work.' },
+    ],
+    gdp_per_capita: [
+      { label: 'Income and formality are mutually reinforcing', text: 'Higher provincial GDP per capita strongly predicts lower informality. But causality runs both ways: more formal workers generate more tax revenue, funding the public investment that raises incomes.' },
+      { label: 'The central question is whether the loop can be broken externally', text: 'Vietnam\'s 2045 ambition requires breaking into the virtuous cycle from outside — using policy to shift the formalization rate faster than income growth alone would produce.' },
+    ],
+  };
 
   const currentConfig = mapConfigs[activeTab];
 
@@ -540,7 +577,7 @@ function InteractiveMaps({ onBack }) {
             <div style={{ background: '#111', borderBottom: '1px solid #2a2a2a', padding: '12px 16px' }}>
               <div style={{ fontSize: '11px', fontWeight: '600', color: '#4dd0c4', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '1px', fontFamily: '"Inter", sans-serif' }}>Select Indicator</div>
               {Object.entries(mapConfigs).map(([key, config]) => (
-                <button key={key} onClick={() => { setActiveTab(key); setSelectedProvince(null); }} style={{ display: 'block', width: '100%', padding: '10px 12px', marginBottom: '6px', border: activeTab === key ? '1px solid #4dd0c4' : '1px solid #2a2a2a', background: activeTab === key ? 'rgba(77,208,196,0.1)' : 'transparent', color: activeTab === key ? '#4dd0c4' : 'rgba(255,255,255,0.55)', fontWeight: activeTab === key ? '600' : '400', fontSize: '13px', cursor: 'pointer', borderRadius: '3px', textAlign: 'left', transition: 'all 0.2s', fontFamily: '"Inter", sans-serif' }}>{config.title}</button>
+                <button key={key} onClick={() => { setActiveTab(key); setSelectedProvince(null); setSidebarTab('facts'); }} style={{ display: 'block', width: '100%', padding: '10px 12px', marginBottom: '6px', border: activeTab === key ? '1px solid #4dd0c4' : '1px solid #2a2a2a', background: activeTab === key ? 'rgba(77,208,196,0.1)' : 'transparent', color: activeTab === key ? '#4dd0c4' : 'rgba(255,255,255,0.55)', fontWeight: activeTab === key ? '600' : '400', fontSize: '13px', cursor: 'pointer', borderRadius: '3px', textAlign: 'left', transition: 'all 0.2s', fontFamily: '"Inter", sans-serif' }}>{config.title}</button>
               ))}
             </div>
 
@@ -569,16 +606,48 @@ function InteractiveMaps({ onBack }) {
                 </div>
               ) : (
                 <div>
-                  <div style={{ fontSize: '11px', fontWeight: '600', color: '#4dd0c4', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Current Indicator</div>
-                  <h2 style={{ margin: '0 0 16px 0', fontSize: '22px', fontWeight: '300', color: 'white', fontFamily: '"Cormorant Garamond", serif' }}>{currentConfig.title}</h2>
-                  <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.6', marginBottom: '20px' }}>{currentConfig.description}</p>
-                  <div style={{ fontSize: '11px', fontWeight: '600', color: '#4dd0c4', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Summary Statistics</div>
-                  <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', marginBottom: '12px', borderLeft: '1px solid #2a2a2a' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>Minimum</span><span style={{ fontSize: '16px', fontWeight: '600', color: '#22c55e' }}>{stats.min}</span></div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>Mean</span><span style={{ fontSize: '16px', fontWeight: '600', color: '#4dd0c4' }}>{stats.avg}</span></div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>Maximum</span><span style={{ fontSize: '16px', fontWeight: '600', color: '#dc2626' }}>{stats.max}</span></div>
+                  <h2 style={{ margin: '0 0 4px 0', fontSize: '18px', fontWeight: '300', color: 'white', fontFamily: '"Cormorant Garamond", serif' }}>{currentConfig.title}</h2>
+                  <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)', lineHeight: '1.5', margin: '0 0 16px 0', fontFamily: '"Inter", sans-serif' }}>{currentConfig.description}</p>
+
+                  {/* Sub-tabs */}
+                  <div style={{ display: 'flex', gap: '2px', marginBottom: '20px', background: '#111', padding: '3px' }}>
+                    {[['facts', 'Basic Facts'], ['insights', 'Insights']].map(([id, label]) => (
+                      <button key={id} onClick={() => setSidebarTab(id)} style={{
+                        flex: 1, padding: '8px 0', fontSize: '12px', fontWeight: '600',
+                        fontFamily: '"Inter", sans-serif', letterSpacing: '0.5px',
+                        border: 'none', cursor: 'pointer',
+                        background: sidebarTab === id ? '#4dd0c4' : 'transparent',
+                        color: sidebarTab === id ? '#111' : 'rgba(255,255,255,0.4)',
+                        transition: 'all 0.15s',
+                      }}>{label}</button>
+                    ))}
                   </div>
-                  <div style={{ background: 'rgba(77,208,196,0.08)', padding: '12px', borderLeft: '3px solid #4dd0c4', fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.5' }}>Click any province to view detailed statistics.</div>
+
+                  {sidebarTab === 'facts' && (
+                    <div>
+                      <div style={{ fontSize: '11px', fontWeight: '600', color: '#4dd0c4', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Summary Statistics</div>
+                      <div style={{ background: 'rgba(255,255,255,0.04)', padding: '16px', marginBottom: '16px', borderLeft: '1px solid #2a2a2a' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>Minimum</span><span style={{ fontSize: '16px', fontWeight: '600', color: '#22c55e' }}>{stats.min}</span></div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}><span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>Mean</span><span style={{ fontSize: '16px', fontWeight: '600', color: '#4dd0c4' }}>{stats.avg}</span></div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}><span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)' }}>Maximum</span><span style={{ fontSize: '16px', fontWeight: '600', color: '#dc2626' }}>{stats.max}</span></div>
+                      </div>
+                      <div style={{ background: 'rgba(77,208,196,0.08)', padding: '12px', borderLeft: '3px solid #4dd0c4', fontSize: '13px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.5' }}>
+                        Click any province on the map to view all its indicators.
+                      </div>
+                    </div>
+                  )}
+
+                  {sidebarTab === 'insights' && (
+                    <div>
+                      <div style={{ fontSize: '11px', fontWeight: '600', color: '#4dd0c4', marginBottom: '14px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>What This Map Shows</div>
+                      {(mapInsights[activeTab] || []).map((insight, i) => (
+                        <div key={i} style={{ marginBottom: '16px', paddingBottom: '16px', borderBottom: '1px solid #2a2a2a' }}>
+                          <div style={{ fontSize: '13px', fontWeight: '600', color: 'white', marginBottom: '6px', lineHeight: '1.3' }}>{insight.label}</div>
+                          <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.65', fontFamily: '"Inter", sans-serif' }}>{insight.text}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
