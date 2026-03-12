@@ -9,6 +9,7 @@
 // ========================================
 
 import React, { useState, useEffect, useRef } from 'react';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ReferenceLine, ResponsiveContainer, Cell } from 'recharts';
 
 function useInView(threshold = 0.12) {
   const ref = useRef(null);
@@ -203,6 +204,55 @@ export default function Vietnam2045({ onBack, onNavigate }) {
         </div>
       </div>
 
+
+      {/* ── EXHIBIT 2: Tax Revenue Trends ── */}
+      <div style={{ background: '#fafafa', borderTop: '1px solid #e0e0e0', borderBottom: '1px solid #e0e0e0' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '56px 48px' }}>
+          <Fade>
+            <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+              <div>
+                <div style={{ fontSize: '10px', fontWeight: '700', color: '#00897b', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontFamily: '"Inter", sans-serif' }}>Exhibit 2</div>
+                <h3 style={{ fontSize: '18px', fontWeight: '400', margin: 0, letterSpacing: '-0.3px' }}>
+                  Vietnam's tax revenue has remained steady at close to 20% for 20 years
+                </h3>
+                <p style={{ fontSize: '13px', color: '#888', fontFamily: '"Inter", sans-serif', margin: '6px 0 0 0' }}>General government revenue including social security contributions, % of GDP</p>
+              </div>
+              <div style={{ fontSize: '11px', color: '#bbb', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', flexShrink: 0, marginLeft: '24px' }}>Source: OECD Global Revenue Statistics Database</div>
+            </div>
+            <ResponsiveContainer width="100%" height={320}>
+              <LineChart data={[
+                {year:'2002',Vietnam:20.1,Indonesia:16.2,Malaysia:19.8,Philippines:14.0,Thailand:17.2},
+                {year:'2004',Vietnam:21.5,Indonesia:15.1,Malaysia:20.2,Philippines:13.5,Thailand:17.8},
+                {year:'2006',Vietnam:22.3,Indonesia:14.8,Malaysia:20.8,Philippines:14.2,Thailand:18.1},
+                {year:'2008',Vietnam:23.1,Indonesia:16.8,Malaysia:21.2,Philippines:14.8,Thailand:17.4},
+                {year:'2010',Vietnam:21.4,Indonesia:14.9,Malaysia:19.6,Philippines:13.9,Thailand:17.8},
+                {year:'2012',Vietnam:20.8,Indonesia:15.3,Malaysia:20.1,Philippines:14.6,Thailand:18.6},
+                {year:'2014',Vietnam:19.6,Indonesia:14.7,Malaysia:19.2,Philippines:15.1,Thailand:19.2},
+                {year:'2016',Vietnam:18.9,Indonesia:13.1,Malaysia:17.8,Philippines:15.8,Thailand:18.8},
+                {year:'2018',Vietnam:19.2,Indonesia:13.8,Malaysia:16.8,Philippines:16.2,Thailand:17.9},
+                {year:'2020',Vietnam:18.5,Indonesia:11.8,Malaysia:15.2,Philippines:15.1,Thailand:15.8},
+                {year:'2022',Vietnam:18.8,Indonesia:13.9,Malaysia:15.9,Philippines:15.6,Thailand:17.1},
+              ]}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e8e4e0" />
+                <XAxis dataKey="year" tick={{ fontSize: 11, fontFamily: 'Inter, sans-serif', fill: '#999' }} />
+                <YAxis domain={[9, 26]} tick={{ fontSize: 11, fontFamily: 'Inter, sans-serif', fill: '#999' }} tickFormatter={v => v + '%'} />
+                <Tooltip formatter={(v, name) => [v.toFixed(1) + '%', name]} contentStyle={{ fontFamily: 'Inter, sans-serif', fontSize: 12, border: '1px solid #e0e0e0', borderRadius: 0 }} />
+                <Legend wrapperStyle={{ fontSize: 12, fontFamily: 'Inter, sans-serif', paddingTop: 16 }} />
+                <Line type="monotone" dataKey="Vietnam" stroke="#c2410c" strokeWidth={3} dot={false} />
+                <Line type="monotone" dataKey="Indonesia" stroke="#333" strokeWidth={1.5} dot={false} strokeDasharray="4 2" />
+                <Line type="monotone" dataKey="Malaysia" stroke="#666" strokeWidth={1.5} dot={false} />
+                <Line type="monotone" dataKey="Philippines" stroke="#22c55e" strokeWidth={1.5} dot={false} />
+                <Line type="monotone" dataKey="Thailand" stroke="#888" strokeWidth={1.5} dot={false} strokeDasharray="6 3" />
+              </LineChart>
+            </ResponsiveContainer>
+            <div style={{ marginTop: '16px', padding: '14px 20px', background: '#fff8f0', borderLeft: '3px solid #c2410c', fontFamily: '"Inter", sans-serif' }}>
+              <span style={{ fontSize: '12px', fontWeight: '700', color: '#c2410c' }}>Key insight: </span>
+              <span style={{ fontSize: '12px', color: '#666' }}>Despite 9x GDP growth since 1990, Vietnam's tax-to-GDP ratio has actually declined from ~23% in 2006 to ~19% today — stagnating well below the OECD average of 33.9%. Rapid growth is not automatically building fiscal capacity.</span>
+            </div>
+          </Fade>
+        </div>
+      </div>
+
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 48px' }}>
 
         {/* ══════════════════════════════════════════
@@ -278,6 +328,64 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             </div>
           </Fade>
         </div>
+
+
+          {/* ── EXHIBIT 1: Social Security Contributions ── */}
+          <Fade>
+            <div style={{ background: '#1a1a1a', padding: '40px', marginTop: '2px' }}>
+              <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                <div>
+                  <div style={{ fontSize: '10px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontFamily: '"Inter", sans-serif' }}>Exhibit 1</div>
+                  <h3 style={{ fontSize: '18px', fontWeight: '400', color: 'white', margin: 0, letterSpacing: '-0.3px' }}>
+                    Reducing high social security contributions would encourage formal jobs
+                  </h3>
+                  <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)', fontFamily: '"Inter", sans-serif', margin: '6px 0 0 0' }}>Government revenues from social security contributions, % of GDP, 2022</p>
+                </div>
+                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', flexShrink: 0, marginLeft: '24px' }}>Source: OECD Comparative Revenue Statistics</div>
+              </div>
+              <ResponsiveContainer width="100%" height={280}>
+                <BarChart data={[
+                  {country:'Sri Lanka', value:0.2},
+                  {country:'Malaysia', value:0.3},
+                  {country:'Indonesia', value:0.5},
+                  {country:'Thailand', value:0.8},
+                  {country:'Armenia', value:1.2},
+                  {country:'Kazakhstan', value:2.9},
+                  {country:'Philippines', value:4.1},
+                  {country:'Azerbaijan', value:5.2},
+                  {country:'Mongolia', value:5.3},
+                  {country:'Viet Nam', value:5.5},
+                  {country:'China', value:6.3},
+                ]} margin={{ top: 10, right: 20, left: 0, bottom: 60 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#2a2a2a" vertical={false} />
+                  <XAxis dataKey="country" tick={{ fontSize: 11, fontFamily: 'Inter, sans-serif', fill: 'rgba(255,255,255,0.5)' }} angle={-35} textAnchor="end" interval={0} />
+                  <YAxis tick={{ fontSize: 11, fontFamily: 'Inter, sans-serif', fill: 'rgba(255,255,255,0.4)' }} tickFormatter={v => v + '%'} domain={[0, 7]} />
+                  <Tooltip formatter={(v) => [v + '% of GDP', 'Social Security Revenue']} contentStyle={{ fontFamily: 'Inter, sans-serif', fontSize: 12, background: '#1a1a1a', border: '1px solid #2a2a2a', borderRadius: 0, color: 'white' }} />
+                  <Bar dataKey="value" radius={[2,2,0,0]}>
+                    {[
+                      {country:'Sri Lanka', value:0.2},
+                      {country:'Malaysia', value:0.3},
+                      {country:'Indonesia', value:0.5},
+                      {country:'Thailand', value:0.8},
+                      {country:'Armenia', value:1.2},
+                      {country:'Kazakhstan', value:2.9},
+                      {country:'Philippines', value:4.1},
+                      {country:'Azerbaijan', value:5.2},
+                      {country:'Mongolia', value:5.3},
+                      {country:'Viet Nam', value:5.5},
+                      {country:'China', value:6.3},
+                    ].map((entry) => (
+                      <Cell key={entry.country} fill={entry.country === 'Viet Nam' ? '#c2410c' : '#4dd0c4'} fillOpacity={entry.country === 'Viet Nam' ? 1 : 0.5} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+              <div style={{ marginTop: '16px', padding: '12px 16px', background: 'rgba(194,65,12,0.15)', borderLeft: '3px solid #c2410c', fontFamily: '"Inter", sans-serif' }}>
+                <span style={{ fontSize: '12px', fontWeight: '700', color: '#c2410c' }}>The formalization paradox: </span>
+                <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>Vietnam has the second-highest social security contribution rate in the Asia-Pacific region — yet covers only 53% of workers. High rates intended to fund social protection are actively discouraging the formal employment that would fund it.</span>
+              </div>
+            </div>
+          </Fade>
 
         <div style={{ borderTop: '1px solid #e0e0e0', margin: '80px 0 0 0' }} />
 
