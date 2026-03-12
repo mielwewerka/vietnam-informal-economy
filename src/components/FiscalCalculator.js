@@ -125,7 +125,7 @@ export default function FiscalCalculator({ onBack }) {
             opacity: headerInView ? 1 : 0, transform: headerInView ? 'none' : 'translateY(12px)',
             transition: 'all 0.7s ease 0.2s'
           }}>
-            Vietnam's informal economy represents a structural gap in the tax base. This model estimates the additional fiscal revenue that would flow from progressive formalization — across social insurance, income tax, and VAT — based on GSO labor force data and World Bank wage estimates.
+            Vietnam's informal economy represents a structural gap in the tax base. This model estimates the additional fiscal revenue that would flow from progressive formalization, across social insurance, income tax, and VAT, based on GSO labor force data and World Bank wage estimates.
           </p>
         </div>
       </div>
@@ -296,17 +296,17 @@ export default function FiscalCalculator({ onBack }) {
             {[
               {
                 title: 'Social Insurance Reform',
-                body: 'Vietnam\'s social insurance system currently offers poor value to informal workers — low benefits, poor portability, high contribution rates. Chile\'s 1981 pension privatization worked because it made formalization personally beneficial. Vietnam needs a similar reorientation: better individual returns on contributions.',
+                body: 'Vietnam\'s social insurance system currently offers poor value to informal workers , low benefits, poor portability, high contribution rates. Chile\'s 1981 pension privatization worked because it made formalization personally beneficial. Vietnam needs a similar reorientation: better individual returns on contributions.',
                 color: '#4dd0c4'
               },
               {
                 title: 'Simplified Tax Compliance',
-                body: 'Compliance costs are regressive — they hit small informal operators hardest. South Korea\'s formalization push included simplified tax regimes for small businesses. Vietnam\'s e-tax and simplified filing reforms since 2020 are steps in the right direction, but coverage remains incomplete.',
+                body: 'Compliance costs are regressive: they hit small informal operators hardest. South Korea\'s formalization push included simplified tax regimes for small businesses. Vietnam\'s e-tax and simplified filing reforms since 2020 are steps in the right direction, but coverage remains incomplete.',
                 color: '#81d4fa'
               },
               {
                 title: 'The Incentive Problem',
-                body: 'The fiscal math only works if formalization is worth it for workers and firms. The lesson from Korea and Chile is that enforcement alone fails — the benefit side of the equation must improve first. For Vietnam\'s 35M informal workers, the question is: what does formality offer that informality doesn\'t?',
+                body: 'The fiscal math only works if formalization is worth it for workers and firms. The lesson from Korea and Chile is that enforcement alone fails , the benefit side of the equation must improve first. For Vietnam\'s 35M informal workers, the question is: what does formality offer that informality doesn\'t?',
                 color: '#b39ddb'
               },
             ].map(({ title, body, color }) => (
@@ -328,7 +328,7 @@ export default function FiscalCalculator({ onBack }) {
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ fontSize: '11px', fontWeight: '700', color: 'rgba(255,255,255,0.2)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '12px' }}>Model Assumptions & Limitations</div>
           <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.25)', lineHeight: '1.7', maxWidth: '860px', margin: 0 }}>
-            This model assumes uniform formalization across all informal workers and a static average wage. In practice, formalization would be uneven — urban manufacturing workers are more likely to formalize than rural agricultural workers. The model also assumes no behavioral response: in reality, some firms and workers would restructure to avoid formalization costs, reducing the fiscal yield. Estimates should be treated as upper-bound scenarios. Sources: GSO Labor Force Survey 2023, World Bank Vietnam Economic Update 2024, ILO Social Protection Report, IMF Vietnam Article IV Consultation 2023.
+            This model assumes uniform formalization across all informal workers and a static average wage. In practice, formalization would be uneven , urban manufacturing workers are more likely to formalize than rural agricultural workers. The model also assumes no behavioral response: in reality, some firms and workers would restructure to avoid formalization costs, reducing the fiscal yield. Estimates should be treated as upper-bound scenarios. Sources: GSO Labor Force Survey 2023, World Bank Vietnam Economic Update 2024, ILO Social Protection Report, IMF Vietnam Article IV Consultation 2023.
           </p>
         </div>
       </div>
