@@ -624,28 +624,27 @@ function InteractiveMaps({ onBack }) {
 function App() {
   const [currentPage, setCurrentPage] = useState('landing');
 
+  const navigate = (page) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
   const renderPage = () => {
     switch (currentPage) {
-      case 'landing':
-        return <LandingPage onNavigate={setCurrentPage} />;
-      case 'maps':
-        return <InteractiveMaps onBack={() => setCurrentPage('landing')} />;
-      case 'scrollytelling':
-        return <PlaceholderPage title="Narrative Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
-      case 'sector':
-        return <PlaceholderPage title="Sectoral Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
-      case 'policy':
-        return <PlaceholderPage title="Policy Impact Analysis" description="Coming soon." onBack={() => setCurrentPage('landing')} />;
-      case 'informal-explainer':
-        return <InformalExplainer onBack={() => setCurrentPage('landing')} />;
-      case 'exec-summary':
-        return <ExecutiveSummary onBack={() => setCurrentPage('landing')} onNavigate={setCurrentPage} />;
-      case 'fiscal':
-        return <FiscalCalculator onBack={() => setCurrentPage('landing')} />;
-      case 'vietnam2045':
-  return <Vietnam2045 onBack={() => setCurrentPage('landing')} onNavigate={setCurrentPage} />;
-      default:
-        return <LandingPage onNavigate={setCurrentPage} />;
+    case 'landing':
+      return <LandingPage onNavigate={navigate} />;
+    case 'maps':
+      return <InteractiveMaps onBack={() => navigate('landing')} />;
+    case 'informal-explainer':
+      return <InformalExplainer onBack={() => navigate('landing')} />;
+    case 'exec-summary':
+      return <ExecutiveSummary onBack={() => navigate('landing')} onNavigate={navigate} />;
+    case 'fiscal':
+      return <FiscalCalculator onBack={() => navigate('landing')} />;
+    case 'vietnam2045':
+      return <Vietnam2045 onBack={() => navigate('landing')} onNavigate={navigate} />;
+    default:
+      return <LandingPage onNavigate={navigate} />;
     }
   };
 
