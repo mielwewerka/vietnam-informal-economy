@@ -102,7 +102,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             }}>← Back</button>
             <span style={{ color: '#ddd' }}>|</span>
             <span style={{ fontSize: '13px', color: '#999', fontFamily: '"Inter", sans-serif' }}>
-              Chapter III — The Stakes
+              Part III: The Stakes
             </span>
           </div>
           {/* Section jump links */}
@@ -135,7 +135,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             The Stakes:<br />Vietnam 2045 and the<br />Formalization Imperative
           </h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.75', margin: '0 0 32px 0', maxWidth: '640px', fontFamily: '"Inter", sans-serif' }}>
-            Vietnam's high-income ambition is credible but not inevitable. This section examines the structural problems blocking it, the government's current response, what adjustments the evidence suggests, and an honest assessment of what could go right — and wrong.
+            Vietnam's high-income ambition is credible but not inevitable. This section examines the structural problems blocking it, the government's current response, what adjustments the evidence suggests, and an honest assessment of what could go right , and wrong.
           </p>
           {/* Quick stat row */}
           <div style={{ display: 'flex', gap: '1px', background: '#2a2a2a', maxWidth: '680px' }}>
@@ -167,10 +167,10 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                   Vietnam's plan to become a high-income country by the centennial of its founding
                 </h2>
                 <p style={{ fontSize: '16px', color: '#444', lineHeight: '1.85', margin: '0 0 18px 0' }}>
-                  In 2021, Vietnam's Communist Party formally adopted Resolution 29/NQ-TW — a long-term development strategy targeting high-income status by 2045, the 100th anniversary of the Socialist Republic of Vietnam. The ambition is real: Vietnam needs to roughly triple its GDP per capita from around $4,300 today to the World Bank's high-income threshold of approximately $14,000.
+                  In 2021, Vietnam's Communist Party formally adopted Resolution 29/NQ-TW, a long-term development strategy targeting high-income status by 2045, the 100th anniversary of the Socialist Republic of Vietnam. The ambition is real: Vietnam needs to roughly triple its GDP per capita from around $4,300 today to the World Bank's high-income threshold of approximately $14,000.
                 </p>
                 <p style={{ fontSize: '16px', color: '#444', lineHeight: '1.85', margin: 0 }}>
-                  The strategy rests on five pillars: sustained 7–8% annual GDP growth, large-scale public infrastructure investment (7.3% of GDP annually), institutional modernization, human capital development, and expanded social protection. Each pillar requires fiscal capacity — tax revenue — that Vietnam's current informal economy structurally limits.
+                  The strategy rests on five pillars: sustained 7 to 8% annual GDP growth, large-scale public infrastructure investment (7.3% of GDP annually), institutional modernization, human capital development, and expanded social protection. Each pillar requires fiscal capacity , tax revenue , that Vietnam's current informal economy structurally limits.
                 </p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0', background: '#fafafa', border: '1px solid #e8e4e0' }}>
@@ -195,7 +195,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 <div style={{ padding: '20px 28px', background: '#1a1a1a' }}>
                   <div style={{ fontSize: '11px', fontWeight: '700', color: '#4dd0c4', fontFamily: '"Inter", sans-serif', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '8px' }}>The Constraint</div>
                   <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-                    Every pillar depends on fiscal capacity. Vietnam's tax-to-GDP ratio of 18–19% is roughly four points below the regional average — a gap driven largely by the 64.5% of workers outside the formal tax base. This is the connection between informality and 2045.
+                    Every pillar depends on fiscal capacity. Vietnam's tax-to-GDP ratio of 18 to 19% is roughly four points below the regional average , a gap driven largely by the 64.5% of workers outside the formal tax base. This is the connection between informality and 2045.
                   </p>
                 </div>
               </div>
@@ -247,7 +247,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             </ResponsiveContainer>
             <div style={{ marginTop: '16px', padding: '14px 20px', background: '#fff8f0', borderLeft: '3px solid #c2410c', fontFamily: '"Inter", sans-serif' }}>
               <span style={{ fontSize: '12px', fontWeight: '700', color: '#c2410c' }}>Key insight: </span>
-              <span style={{ fontSize: '12px', color: '#666' }}>Despite 9x GDP growth since 1990, Vietnam's tax-to-GDP ratio has actually declined from ~23% in 2006 to ~19% today — stagnating well below the OECD average of 33.9%. Rapid growth is not automatically building fiscal capacity.</span>
+              <span style={{ fontSize: '12px', color: '#666' }}>Despite 9x GDP growth since 1990, Vietnam's tax-to-GDP ratio has actually declined from roughly 23% in 2006 to roughly 19% today, stagnating well below the OECD average of 33.9%. Rapid growth is not automatically building fiscal capacity.</span>
             </div>
           </Fade>
         </div>
@@ -265,7 +265,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
               <div>
                 <SectionLabel color="#c2410c">Problems &amp; Issues</SectionLabel>
                 <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: '400', margin: 0, letterSpacing: '-0.5px', lineHeight: '1.2' }}>
-                  Why informality persists — and why it matters fiscally
+                  Why informality persists, and why it matters fiscally
                 </h2>
               </div>
             </div>
@@ -275,19 +275,19 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '64px', marginBottom: '48px' }}>
               <div>
                 <p style={{ fontSize: '17px', color: '#333', lineHeight: '1.85', margin: '0 0 20px 0' }}>
-                  Vietnam's informal economy is not a residual of underdevelopment waiting to dissolve as incomes rise. It is structurally reproduced by the same forces driving growth. The core problem is a low formal wage premium: in 2021, the median formal wage was only 18% above the median informal wage, after controlling for observable characteristics. That gap is too small to make the costs of formalization — social insurance contributions, compliance obligations, registration fees — worth bearing for most workers or small firms.
+                  Vietnam's informal economy is not a residual of underdevelopment waiting to dissolve as incomes rise. It is structurally reproduced by the same forces driving growth. The core problem is a low formal wage premium: in 2021, the median formal wage was only 18% above the median informal wage, after controlling for observable characteristics. That gap is too small to make the costs of formalization , social insurance contributions, compliance obligations, registration fees , worth bearing for most workers or small firms.
                 </p>
                 <p style={{ fontSize: '17px', color: '#333', lineHeight: '1.85', margin: '0 0 20px 0' }}>
-                  This creates a fiscal trap with three reinforcing mechanisms. First, a narrow tax base: 64.5% of workers contribute nothing to income tax or social insurance, holding Vietnam's tax-to-GDP ratio at 18–19% — roughly four percentage points below the regional average and well below the 25%+ common among high-income OECD countries. Second, underfunded social protection: the social insurance system covers only ~38% of workers, leaving the majority without pensions or unemployment insurance, which in turn weakens the incentive to formalize. Third, an investment gap: insufficient revenue constrains public investment to below the 7.3% of GDP the World Bank estimates is needed to sustain high growth to 2045.
+                  This creates a fiscal trap with three reinforcing mechanisms. First, a narrow tax base: 64.5% of workers contribute nothing to income tax or social insurance, holding Vietnam's tax-to-GDP ratio at 18–19% , roughly four percentage points below the regional average and well below the 25%+ common among high-income OECD countries. Second, underfunded social protection: the social insurance system covers only ~38% of workers, leaving the majority without pensions or unemployment insurance, which in turn weakens the incentive to formalize. Third, an investment gap: insufficient revenue constrains public investment to below the 7.3% of GDP the World Bank estimates is needed to sustain high growth to 2045.
                 </p>
                 <p style={{ fontSize: '17px', color: '#333', lineHeight: '1.85', margin: 0 }}>
-                  The geography of the problem matters too. Provincial data reveals extreme concentration: the Mekong Delta and Central Highlands have informality rates above 80%, driven by agricultural dominance. Urban centers like Hanoi and HCMC show lower rates (~45–50%) but face a different challenge — growing service-sector informality as migration outpaces formal job creation. These are structurally distinct problems that require different policy responses.
+                  The geography matters too. Provincial data reveals extreme concentration: the Mekong Delta and Central Highlands have informality rates above 80%, driven by agricultural dominance. Urban centers like Hanoi and HCMC show lower rates (~45–50%) but face a different challenge , growing service-sector informality as migration outpaces formal job creation. These are structurally distinct problems that require different policy responses.
                 </p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', paddingTop: '4px' }}>
                 {[
-                  { label: 'The contribution burden problem', body: 'Combined employer + employee social insurance contributions total 32% of wages — one of the highest rates in Southeast Asia. For small firms operating on thin margins, this is often the decisive reason to stay informal.' },
-                  { label: 'The benefit perception problem', body: 'Only 5% of informal workers voluntarily enroll in social insurance even when eligible. Most do not believe the benefits — especially pensions 20–30 years away — justify current contributions.' },
+                  { label: 'The contribution burden problem', body: 'Combined employer + employee social insurance contributions total 32% of wages, one of the highest rates in Southeast Asia. For small firms operating on thin margins, this is often the decisive reason to stay informal.' },
+                  { label: 'The benefit perception problem', body: 'Only 5% of informal workers voluntarily enroll in social insurance even when eligible. Most do not believe the benefits , especially pensions 20–30 years away , justify current contributions.' },
                   { label: 'The enforcement problem', body: 'Vietnam\'s labor inspectorate has roughly one inspector per 50,000 workers. Enforcement-led formalization is not feasible at this staffing level, particularly in rural and agricultural areas.' },
                 ].map(({ label, body }) => (
                   <div key={label} style={{ borderLeft: '3px solid #c2410c', paddingLeft: '18px' }}>
@@ -310,12 +310,12 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 },
                 {
                   title: 'Agricultural lock-in',
-                  body: 'With 97.9% informality in agriculture, the 35% of workers still in farming are essentially beyond the reach of conventional formalization policy. Their transition to formal employment depends on structural change — urbanization and sectoral shift — not administrative reform.',
+                  body: 'With 97.9% informality in agriculture, the 35% of workers still in farming are essentially unreachable through conventional formalization policy. Their transition to formal employment depends on structural change , urbanization and sectoral shift , not administrative reform.',
                   icon: '⊠',
                 },
                 {
                   title: 'The middle-income trap risk',
-                  body: 'Vietnam risks joining the many countries that achieved lower-middle income but stalled before high-income status. The World Bank identifies institutional quality — including fiscal capacity — as the decisive variable separating those that break through from those that don\'t.',
+                  body: 'Vietnam risks joining the many countries that achieved lower-middle income but stalled before reaching high-income status. The World Bank identifies institutional quality, including fiscal capacity, as the decisive variable separating those that break through from those that don\'t.',
                   icon: '▲',
                 },
               ].map(({ title, body, icon }) => (
@@ -382,7 +382,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
               </ResponsiveContainer>
               <div style={{ marginTop: '16px', padding: '12px 16px', background: 'rgba(194,65,12,0.15)', borderLeft: '3px solid #c2410c', fontFamily: '"Inter", sans-serif' }}>
                 <span style={{ fontSize: '12px', fontWeight: '700', color: '#c2410c' }}>The formalization paradox: </span>
-                <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>Vietnam has the second-highest social security contribution rate in the Asia-Pacific region — yet covers only 53% of workers. High rates intended to fund social protection are actively discouraging the formal employment that would fund it.</span>
+                <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)' }}>Vietnam has the second-highest social security contribution rate in the Asia-Pacific region, yet covers only 53% of workers. High rates intended to fund social protection are actively discouraging the formal employment that would fund it.</span>
               </div>
             </div>
           </Fade>
@@ -417,28 +417,28 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 tag: 'Social Insurance Reform',
                 color: TEAL,
                 title: '60% social insurance coverage by 2030',
-                body: 'The 2024 Social Insurance Law significantly expanded mandatory enrollment — extending coverage to enterprise owners, household business operators, and part-time workers previously excluded. Voluntary enrollment mechanisms for the self-employed have been simplified. The government has set an explicit target of 60% workforce coverage by 2030, up from approximately 38% today. This is the single most direct formalization lever in current policy.',
+                body: 'The 2024 Social Insurance Law significantly expanded mandatory enrollment, extending coverage to enterprise owners, household business operators, and part-time workers previously excluded. Voluntary enrollment mechanisms for the self-employed have been simplified. The government has set an explicit target of 60% workforce coverage by 2030, up from approximately 38% today. This is the single most direct formalization lever in current policy.',
                 source: '2024 Social Insurance Law; Resolution 29/NQ-TW',
               },
               {
                 tag: 'Tax Administration',
                 color: '#1e6fa8',
                 title: 'Electronic tax filing, simplified business registration',
-                body: 'Vietnam has dramatically expanded e-tax filing, reducing compliance costs for registered businesses. The one-stop business registration portal has cut registration time significantly. Tax threshold reforms have been discussed to bring micro-enterprises into the tax net at low rates before requiring full compliance — a graduated formalization approach consistent with ILO Recommendation No. 204.',
+                body: 'Vietnam has dramatically expanded e-tax filing, reducing compliance costs for registered businesses. The one-stop business registration portal has cut registration time significantly. Tax threshold reforms have been discussed to bring micro-enterprises into the tax net at low rates before requiring full compliance , a graduated formalization approach consistent with ILO Recommendation No. 204.',
                 source: 'Vietnam General Tax Department; World Bank Doing Business',
               },
               {
                 tag: 'Intergovernmental Fiscal Reform',
                 color: '#7c3aed',
                 title: 'Revising VAT, CIT, and PIT sharing formulas',
-                body: 'The 2045 plan calls for reforming fiscal sharing arrangements between central and provincial governments — adjusting VAT, corporate income tax, and personal income tax allocations to better match where economic activity and population growth are occurring, particularly in fast-growing metros. New own-source revenue instruments are under discussion, including property taxes and PIT surtaxes at the subnational level.',
+                body: 'The 2045 plan calls for reforming fiscal sharing arrangements between central and provincial governments , adjusting VAT, corporate income tax, and personal income tax allocations to better match where economic activity and population growth are occurring, particularly in fast-growing metros. New own-source revenue instruments are under discussion, including property taxes and PIT surtaxes at the subnational level.',
                 source: 'Viet Nam 2045: Breaking Through, Chapter 4',
               },
               {
                 tag: 'Public Administration',
                 color: '#c2410c',
                 title: 'Streamlining government and civil service reform',
-                body: 'Beginning in August 2024, Vietnam launched the most significant administrative restructuring since Doi Moi — consolidating ministries, reducing the number of provincial units, and trimming the civil service by approximately 20%. The goal is to reduce bureaucratic overhead and improve the efficiency of public investment implementation, which has consistently disbursed below annual targets. Civil servant salaries rose 30% in July 2024.',
+                body: 'Beginning in August 2024, Vietnam launched the most significant administrative restructuring since Doi Moi , consolidating ministries, reducing the number of provincial units, and trimming the civil service by approximately 20%. The goal is to reduce bureaucratic overhead and improve the efficiency of public investment implementation, which has consistently disbursed below annual targets. Civil servant salaries rose 30% in July 2024.',
                 source: 'Resolution 18-NQ/TW; World Bank 2045 Report',
               },
             ].map(({ tag, color, title, body, source }) => (
@@ -453,7 +453,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             ))}
           </div>
 
-          {/* Comparative context — dark callout */}
+          {/* Comparative context , dark callout */}
           <Fade>
             <div style={{ background: '#1a1a1a', padding: '48px' }}>
               <SectionLabel color="#4dd0c4">Comparative Context</SectionLabel>
@@ -467,13 +467,13 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                     years: '1970s–1990s',
                     income: 'Lower-middle → high-income',
                     mechanism: 'Formalization followed rapid industrialization and rising formal wages, not enforcement. The formal wage premium rose as manufacturing productivity increased, making formality self-selecting. Social insurance expansion tracked wage growth rather than leading it.',
-                    lesson: 'The formal wage premium is the lever. When formal work pays significantly more than informal work — not just marginally more — workers and firms choose it without coercion.',
+                    lesson: 'The formal wage premium is the lever. When formal work pays significantly more than informal work: not just marginally more , workers and firms choose it without coercion.',
                   },
                   {
                     country: 'Chile',
                     years: '1990s–2010s',
                     income: 'Middle → upper-middle income',
-                    mechanism: 'Chile combined simplified contribution systems with strong portability of social insurance benefits — workers could carry pension rights across jobs and sectors, raising the perceived value of contributing. Micro-enterprise simplified tax regimes brought small businesses into the formal system at low initial rates.',
+                    mechanism: 'Chile combined simplified contribution systems with strong portability of social insurance benefits , workers could carry pension rights across jobs and sectors, raising the perceived value of contributing. Micro-enterprise simplified tax regimes brought small businesses into the formal system at low initial rates.',
                     lesson: 'Portability and simplicity matter as much as rates. If contributing to social insurance feels irreversible and bureaucratically costly, rational workers avoid it. Making it easy and portable changes the calculus.',
                   },
                 ].map(({ country, years, income, mechanism, lesson }) => (
@@ -512,7 +512,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
 
           <Fade>
             <p style={{ fontSize: '17px', color: '#333', lineHeight: '1.85', margin: '0 0 48px 0', maxWidth: '760px' }}>
-              Vietnam's current plan is directionally correct but the instruments are in some cases mismatched to the problem. Three adjustments stand out as high-evidence, low-disruption improvements — drawn from comparative experience and from the structural diagnosis in Section A.
+              Vietnam's current plan is directionally correct but the instruments are in some cases mismatched to the problem. Three adjustments stand out as high-evidence, low-disruption improvements , drawn from comparative experience and from the structural diagnosis in Section A.
             </p>
           </Fade>
 
@@ -529,14 +529,14 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 num: '02',
                 color: '#1e6fa8',
                 title: 'Introduce a simplified tax and registration regime for micro-enterprises',
-                body: 'Currently, the choice for a small informal business is binary: full formal registration with complex accounting requirements and high contribution rates, or informality. A tiered middle option — a simplified flat tax at 1–2% of estimated revenue, combined with basic legal status and access to business banking — would bring millions of household businesses into at least partial formality. This is the approach used in Brazil (Simples Nacional), Mexico (REPECO), and more recently Ghana. It generates revenue that currently produces zero, provides partial social protection, and creates an on-ramp to full formalization as businesses grow.',
+                body: 'Currently, the choice for a small informal business is binary: full formal registration with complex accounting requirements and high contribution rates, or informality. A tiered middle option , a simplified flat tax at 1–2% of estimated revenue, combined with basic legal status and access to business banking , would bring millions of household businesses into at least partial formality. This is the approach used in Brazil (Simples Nacional), Mexico (REPECO), and more recently Ghana. It generates revenue that currently produces zero, provides partial social protection, and creates an on-ramp to full formalization as businesses grow.',
                 evidence: 'Brazil Simples Nacional outcomes (World Bank 2019); Mexico IMSS-E simplified scheme; ILO R204 §11',
               },
               {
                 num: '03',
                 color: '#1e6fa8',
                 title: 'Make social insurance benefits portable and immediately valuable',
-                body: 'The weak voluntary enrollment rate (5% of eligible informal workers) reflects a rational calculation: contributions buy a pension benefit 20–30 years away, with no near-term payoff. Reforms that increase the near-term value of enrollment — health insurance access, access to maternity benefits, injury compensation — and that guarantee full portability of accumulated rights when workers change jobs or sectors would raise the perceived value of contributing. Vietnam\'s 2024 Social Insurance Law made progress on portability; the next step is increasing the salience of short-term benefits for workers considering enrollment.',
+                body: 'The weak voluntary enrollment rate (5% of eligible informal workers) reflects a rational calculation: contributions buy a pension benefit 20–30 years away, with no near-term payoff. Reforms that increase the near-term value of enrollment , health insurance access, access to maternity benefits, injury compensation , and that guarantee full portability of accumulated rights when workers change jobs or sectors would raise the perceived value of contributing. Vietnam\'s 2024 Social Insurance Law made progress on portability; the next step is increasing the salience of short-term benefits for workers considering enrollment.',
                 evidence: 'World Bank 2023 social insurance demand survey; Chile AFP portability reform; ILO R204 §18',
               },
             ].map(({ num, color, title, body, evidence }) => (
@@ -594,7 +594,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 {[
                   {
                     title: 'Institutional focus is well-placed',
-                    body: 'The 2045 framework correctly identifies institutional quality — not just investment volume — as the binding constraint. Evidence from comparable transitions supports this: South Korea and Chile both required institutional reform before fiscal capacity improved durably.',
+                    body: 'The 2045 framework correctly identifies institutional quality , not just investment volume, as the binding constraint. Evidence from comparable transitions supports this: South Korea and Chile both required institutional reform before fiscal capacity improved durably.',
                   },
                   {
                     title: 'The 2024 Social Insurance Law is a genuine advance',
@@ -635,7 +635,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                   },
                   {
                     title: 'Agricultural informality requires structural change, not policy',
-                    body: 'The 97.9% informality rate in agriculture is essentially irreducible through conventional formalization tools. These workers will formalize when — and only when — Vietnam\'s structural transformation moves them into manufacturing and services. Policy cannot accelerate this beyond the pace of capital accumulation and urbanization.',
+                    body: 'The 97.9% informality rate in agriculture is essentially unreachable through conventional formalization tools. These workers will formalize when , and only when , Vietnam\'s structural transformation moves them into manufacturing and services. Policy cannot accelerate this beyond the pace of capital accumulation and urbanization.',
                   },
                   {
                     title: 'Risk aversion from anticorruption campaigns slows implementation',
@@ -659,10 +659,10 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 Formalization is necessary but not sufficient. Vietnam needs both the policy and the structural preconditions.
               </h3>
               <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', margin: '0 0 16px 0', fontFamily: '"Inter", sans-serif' }}>
-                The evidence from South Korea and Chile suggests that no policy package can substitute for structural economic transformation as the primary driver of formalization. Rising formal wages, growing urban employment, and improved education are what ultimately pull workers out of informality — not administrative pressure alone.
+                The evidence from South Korea and Chile suggests that no policy package can substitute for structural economic transformation as the primary driver of formalization. Rising formal wages, growing urban employment, and improved education are what ultimately pull workers out of informality , not administrative pressure alone.
               </p>
               <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.85', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-                What good policy can do is reduce the friction that prevents willing workers and firms from formalizing, and improve the quality of benefits that make formality attractive. Vietnam's 2045 framework is broadly on the right track. The adjustments proposed here are not a critique of the strategy's direction — they are calibrations to improve its effectiveness at the margin where institutional reform has the highest leverage.
+                What good policy can do is reduce the friction that prevents willing workers and firms from formalizing, and improve the quality of benefits that make formality attractive. Vietnam's 2045 framework is broadly on the right track. The adjustments proposed here are not a critique of the strategy's direction , they are calibrations to improve its effectiveness at the margin where institutional reform has the highest leverage.
               </p>
               {onNavigate && (
                 <button onClick={() => onNavigate('fiscal')} style={{
@@ -686,12 +686,12 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             <div style={{ fontSize: '11px', fontWeight: '700', color: '#bbb', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px', fontFamily: '"Inter", sans-serif' }}>Sources</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px 48px' }}>
               {[
-                'World Bank. Viet Nam 2045: Breaking Through — Institutions for a High-Income Future. 2024.',
+                'World Bank. Viet Nam 2045: Breaking Through: Institutions for a High-Income Future. 2024.',
                 'ILO. Informal Employment in Viet Nam: Trends and Determinants. 2021.',
                 'ILO Recommendation No. 204. Transition from the Informal to the Formal Economy. 2015.',
                 'GSO & ILO. Overall Situation of Workers in Informal Employment in Viet Nam. 2023.',
                 'IMF. Vietnam: Selected Issues. Country Report No. 2024/307.',
-                'World Bank. Brazil Simples Nacional — Impact Assessment. 2019.',
+                'World Bank. Brazil Simples Nacional: Impact Assessment. 2019.',
                 'OECD. Economic Survey of Viet Nam 2025.',
                 'Turner, S. & Schoenberger, L. Street Vendor Livelihoods and Everyday Politics in Hanoi. Urban Studies, 2012.',
               ].map(src => (
@@ -706,7 +706,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
       <div style={{ background: '#1a1a1a', borderTop: '1px solid #2a2a2a', padding: '24px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <button onClick={onBack} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', fontWeight: '600', color: TEAL, fontFamily: '"Inter", sans-serif' }}>← Back to Overview</button>
         <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.25)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-          ECON 62 — Topics in Macroeconomics · Winter 2026
+          ECON 62: Topics in Macroeconomics · Winter 2026
         </p>
         {onNavigate && (
           <button onClick={() => onNavigate('fiscal')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', fontWeight: '600', color: TEAL, fontFamily: '"Inter", sans-serif' }}>
