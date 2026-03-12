@@ -101,7 +101,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             }}>← Back</button>
             <span style={{ color: '#ddd' }}>|</span>
             <span style={{ fontSize: '13px', color: '#999', fontFamily: '"Inter", sans-serif' }}>
-              Chapter III — The Stakes
+              Part III — Vietnam 2045
             </span>
           </div>
           {/* Section jump links */}
@@ -128,10 +128,10 @@ export default function Vietnam2045({ onBack, onNavigate }) {
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: `linear-gradient(90deg, ${TEAL}, #26a69a)` }} />
         <div style={{ maxWidth: '820px' }}>
           <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px', fontFamily: '"Inter", sans-serif' }}>
-            Chapter III · Policy Overview
+            Part III · Policy Overview
           </div>
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 58px)', fontWeight: '400', lineHeight: '1.1', margin: '0 0 24px 0', letterSpacing: '-1.5px' }}>
-            The Stakes:<br />Vietnam 2045 and the<br />Formalization Imperative
+            Vietnam 2045:<br />Vietnam 2045 and the<br />Formalization Imperative
           </h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.75', margin: '0 0 32px 0', maxWidth: '640px', fontFamily: '"Inter", sans-serif' }}>
             Vietnam's high-income ambition is credible but not inevitable. This section examines the structural problems blocking it, the government's current response, what adjustments the evidence suggests, and an honest assessment of what could go right — and wrong.
@@ -513,7 +513,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                   cursor: 'pointer', letterSpacing: '0.8px', textTransform: 'uppercase',
                   fontFamily: '"Inter", sans-serif',
                 }}>
-                  See the Fiscal Model → Chapter IV
+                  See the Fiscal Model → Part IV
                 </button>
               )}
             </div>
@@ -552,7 +552,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
         </p>
         {onNavigate && (
           <button onClick={() => onNavigate('fiscal')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', fontWeight: '600', color: TEAL, fontFamily: '"Inter", sans-serif' }}>
-            Chapter IV: The Model →
+            Part IV: The Model →
           </button>
         )}
       </div>
