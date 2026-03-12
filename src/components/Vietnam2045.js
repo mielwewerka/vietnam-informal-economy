@@ -101,7 +101,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             }}>← Back</button>
             <span style={{ color: '#ddd' }}>|</span>
             <span style={{ fontSize: '13px', color: '#999', fontFamily: '"Inter", sans-serif' }}>
-              Part III — Vietnam 2045
+              Chapter III — The Stakes
             </span>
           </div>
           {/* Section jump links */}
@@ -128,10 +128,10 @@ export default function Vietnam2045({ onBack, onNavigate }) {
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', background: `linear-gradient(90deg, ${TEAL}, #26a69a)` }} />
         <div style={{ maxWidth: '820px' }}>
           <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '8px', fontFamily: '"Inter", sans-serif' }}>
-            Part III · Policy Overview
+            Chapter III · Policy Overview
           </div>
           <h1 style={{ fontSize: 'clamp(32px, 5vw, 58px)', fontWeight: '400', lineHeight: '1.1', margin: '0 0 24px 0', letterSpacing: '-1.5px' }}>
-            Vietnam 2045:<br />Vietnam 2045 and the<br />Formalization Imperative
+            The Stakes:<br />Vietnam 2045 and the<br />Formalization Imperative
           </h1>
           <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.75', margin: '0 0 32px 0', maxWidth: '640px', fontFamily: '"Inter", sans-serif' }}>
             Vietnam's high-income ambition is credible but not inevitable. This section examines the structural problems blocking it, the government's current response, what adjustments the evidence suggests, and an honest assessment of what could go right — and wrong.
@@ -152,6 +152,56 @@ export default function Vietnam2045({ onBack, onNavigate }) {
           </div>
         </div>
       </header>
+
+      {/* ── WHAT IS VIETNAM 2045 ─────────────────── */}
+      <div style={{ background: 'white', borderBottom: '1px solid #e0e0e0' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '72px 48px' }}>
+          <Fade>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'start' }}>
+              <div>
+                <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '16px', fontFamily: '"Inter", sans-serif' }}>
+                  What is Vietnam 2045?
+                </div>
+                <h2 style={{ fontSize: 'clamp(22px, 3vw, 34px)', fontWeight: '400', color: '#1a1a1a', margin: '0 0 24px 0', lineHeight: '1.2', letterSpacing: '-0.5px' }}>
+                  Vietnam's plan to become a high-income country by the centennial of its founding
+                </h2>
+                <p style={{ fontSize: '16px', color: '#444', lineHeight: '1.85', margin: '0 0 18px 0' }}>
+                  In 2021, Vietnam's Communist Party formally adopted Resolution 29/NQ-TW — a long-term development strategy targeting high-income status by 2045, the 100th anniversary of the Socialist Republic of Vietnam. The ambition is real: Vietnam needs to roughly triple its GDP per capita from around $4,300 today to the World Bank's high-income threshold of approximately $14,000.
+                </p>
+                <p style={{ fontSize: '16px', color: '#444', lineHeight: '1.85', margin: 0 }}>
+                  The strategy rests on five pillars: sustained 7–8% annual GDP growth, large-scale public infrastructure investment (7.3% of GDP annually), institutional modernization, human capital development, and expanded social protection. Each pillar requires fiscal capacity — tax revenue — that Vietnam's current informal economy structurally limits.
+                </p>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0', background: '#fafafa', border: '1px solid #e8e4e0' }}>
+                <div style={{ padding: '24px 28px', borderBottom: '1px solid #e8e4e0' }}>
+                  <div style={{ fontSize: '11px', fontWeight: '700', color: TEAL, fontFamily: '"Inter", sans-serif', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>The Five Pillars</div>
+                  {[
+                    ['Sustained Growth', '7–8% annual GDP growth through 2045'],
+                    ['Public Investment', '7.3% of GDP annually in infrastructure'],
+                    ['Institutional Reform', 'Modernize governance and reduce bureaucracy'],
+                    ['Human Capital', 'Education, skills, and workforce quality'],
+                    ['Social Protection', 'Universal health and pension coverage'],
+                  ].map(([title, desc]) => (
+                    <div key={title} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start', padding: '10px 0', borderBottom: '1px solid #f0ece8' }}>
+                      <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: TEAL, marginTop: '6px', flexShrink: 0 }} />
+                      <div>
+                        <div style={{ fontSize: '13px', fontWeight: '600', color: '#1a1a1a', marginBottom: '2px', fontFamily: '"Inter", sans-serif' }}>{title}</div>
+                        <div style={{ fontSize: '12px', color: '#999', fontFamily: '"Inter", sans-serif' }}>{desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div style={{ padding: '20px 28px', background: '#1a1a1a' }}>
+                  <div style={{ fontSize: '11px', fontWeight: '700', color: '#4dd0c4', fontFamily: '"Inter", sans-serif', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '8px' }}>The Constraint</div>
+                  <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', margin: 0, fontFamily: '"Inter", sans-serif' }}>
+                    Every pillar depends on fiscal capacity. Vietnam's tax-to-GDP ratio of 18–19% is roughly four points below the regional average — a gap driven largely by the 64.5% of workers outside the formal tax base. This is the connection between informality and 2045.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Fade>
+        </div>
+      </div>
 
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 48px' }}>
 
@@ -513,7 +563,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                   cursor: 'pointer', letterSpacing: '0.8px', textTransform: 'uppercase',
                   fontFamily: '"Inter", sans-serif',
                 }}>
-                  See the Fiscal Model → Part IV
+                  See the Fiscal Model → Chapter IV
                 </button>
               )}
             </div>
@@ -552,7 +602,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
         </p>
         {onNavigate && (
           <button onClick={() => onNavigate('fiscal')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '13px', fontWeight: '600', color: TEAL, fontFamily: '"Inter", sans-serif' }}>
-            Part IV: The Model →
+            Chapter IV: The Model →
           </button>
         )}
       </div>
