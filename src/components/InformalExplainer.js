@@ -628,7 +628,7 @@ export default function InformalExplainer({ onBack }) {
                 'Huynh, T.N.Q. (2023). Street Vendors in Vietnam: Short Cultural and Economic Insight. International Journal of Culture and Education.',
                 'Turner, S. & Schoenberger, L. (2012). Street Vendor Livelihoods and Everyday Politics in Hanoi, Vietnam. Urban Studies, 49(5).',
                 'Lincoln, M. (2008). Report from the Field: Street Vendors and the Informal Sector in Hanoi. Dialectical Anthropology.',
-                'IMF. (2020). Vietnam's Development Success Story and the Unfinished SDG Agenda. Working Paper WP/20/31.',
+                'IMF. (2020). Vietnam\'s Development Success Story and the Unfinished SDG Agenda. Working Paper WP/20/31.',
                 'World Bank. (2023). Vietnam Country Profile. Open Development Vietnam / World Bank Data.',
                 'GSO. (2024). Labor Force Survey 2023. General Statistics Office of Vietnam.',
               ].map((source) => (
