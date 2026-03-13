@@ -100,39 +100,77 @@ export default function FiscalCalculator({ onBack }) {
   return (
     <div style={{ fontFamily: '"Inter", sans-serif', background: '#0d0d0d', minHeight: '100vh', color: 'white' }}>
 
-      {/* HEADER */}
-      <div ref={headerRef} style={{ background: '#0d0d0d', borderBottom: '1px solid #1f1f1f', padding: '32px 40px' }}>
-        <button onClick={onBack} style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.5)', padding: '6px 14px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', letterSpacing: '0.5px', marginBottom: '28px', borderRadius: '3px' }}>← Back to Overview</button>
-        <div style={{ maxWidth: '860px' }}>
-          <div style={{
-            fontSize: '10px', fontWeight: '700', color: '#4dd0c4',
-            letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '16px',
-            opacity: headerInView ? 1 : 0, transform: headerInView ? 'none' : 'translateY(8px)',
-            transition: 'all 0.6s ease'
-          }}>Fiscal Policy Analysis</div>
-          <h1 style={{
-            fontSize: 'clamp(32px, 4vw, 56px)', fontWeight: '300', margin: '0 0 20px 0',
-            letterSpacing: '-1.5px', lineHeight: 1.05,
-            fontFamily: '"Cormorant Garamond", serif',
-            opacity: headerInView ? 1 : 0, transform: headerInView ? 'none' : 'translateY(16px)',
-            transition: 'all 0.7s ease 0.1s'
-          }}>
-            The Fiscal Gap
-          </h1>
-          <p style={{
-            fontSize: '16px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.75',
-            maxWidth: '640px', margin: 0,
-            opacity: headerInView ? 1 : 0, transform: headerInView ? 'none' : 'translateY(12px)',
-            transition: 'all 0.7s ease 0.2s'
-          }}>
-            Vietnam's informal economy represents a structural gap in the tax base. This model estimates the additional fiscal revenue that would flow from progressive formalization, across social insurance, income tax, and VAT, based on GSO labor force data and World Bank wage estimates.
-          </p>
+      {/* HERO */}
+      <div ref={headerRef} style={{ background: '#0d0d0d', borderBottom: '1px solid #1f1f1f', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: 'linear-gradient(90deg, #c2410c, #f97316)' }} />
+
+        {/* Back nav */}
+        <div style={{ padding: '20px 48px 0', borderBottom: '1px solid #1a1a1a' }}>
+          <button onClick={onBack} style={{ background: 'transparent', border: 'none', color: '#4dd0c4', fontSize: '13px', fontWeight: '600', cursor: 'pointer', fontFamily: '"Inter", sans-serif', letterSpacing: '0.3px', padding: 0 }}>← Back to Overview</button>
+          <span style={{ color: '#333', margin: '0 12px' }}>|</span>
+          <span style={{ fontSize: '13px', color: '#666', fontFamily: '"Inter", sans-serif' }}>Part IV: The Model</span>
+        </div>
+
+        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '56px 48px 64px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center' }}>
+
+          {/* Left: framing */}
+          <div style={{ opacity: headerInView ? 1 : 0, transform: headerInView ? 'none' : 'translateY(20px)', transition: 'all 0.7s ease' }}>
+            <div style={{ fontSize: '11px', fontWeight: '700', color: '#c2410c', letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '16px', fontFamily: '"Inter", sans-serif' }}>
+              Part IV · Fiscal Policy Analysis
+            </div>
+            <h1 style={{ fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: '400', margin: '0 0 24px 0', letterSpacing: '-1.5px', lineHeight: 1.05, fontFamily: '"Georgia", "Times New Roman", serif' }}>
+              The Policy Model:<br />What Formalization<br />Would Actually Mean
+            </h1>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: '0 0 32px 0', fontFamily: '"Inter", sans-serif' }}>
+              Vietnam's informal economy represents a structural gap in the fiscal base. This model estimates the additional revenue that would flow if a share of informal workers entered the formal system, across social insurance, personal income tax, and VAT. The slider below is the argument made quantitative.
+            </p>
+            <div style={{ display: 'flex', gap: '1px', background: '#1a1a1a', maxWidth: '480px' }}>
+              {[
+                ['35.5M', 'workers currently outside the formal tax system'],
+                ['$93.8B', 'Vietnam total tax revenue 2023'],
+              ].map(([val, label]) => (
+                <div key={val} style={{ background: '#111', padding: '18px 20px', flex: 1 }}>
+                  <div style={{ fontSize: '22px', fontWeight: '700', color: '#c2410c', marginBottom: '4px', letterSpacing: '-0.5px' }}>{val}</div>
+                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.35)', fontFamily: '"Inter", sans-serif', lineHeight: '1.4' }}>{label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right: live revenue preview */}
+          <div style={{ opacity: headerInView ? 1 : 0, transform: headerInView ? 'none' : 'translateY(20px)', transition: 'all 0.7s ease 0.15s', textAlign: 'center' }}>
+            <div style={{ fontSize: '11px', fontWeight: '700', color: 'rgba(255,255,255,0.3)', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px', fontFamily: '"Inter", sans-serif' }}>
+              Projected additional revenue at {formalizationPct}% formalization
+            </div>
+            <div style={{ fontSize: 'clamp(56px, 8vw, 96px)', fontWeight: '300', color: 'white', letterSpacing: '-3px', lineHeight: 1, fontFamily: '"Georgia", "Times New Roman", serif', marginBottom: '8px' }}>
+              ${animatedTotal.toFixed(1)}<span style={{ fontSize: '0.4em', color: 'rgba(255,255,255,0.3)', letterSpacing: 0 }}>B</span>
+            </div>
+            <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.3)', marginBottom: '32px', fontFamily: '"Inter", sans-serif' }}>
+              USD billions per year
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1px', background: '#1a1a1a', marginBottom: '20px' }}>
+              {[
+                { label: 'Social Insurance', val: animatedSI, color: '#4dd0c4' },
+                { label: 'Income Tax', val: animatedPIT, color: '#81d4fa' },
+                { label: 'VAT', val: animatedVAT, color: '#b39ddb' },
+              ].map(({ label, val, color }) => (
+                <div key={label} style={{ background: '#0d0d0d', padding: '16px 12px' }}>
+                  <div style={{ fontSize: '18px', fontWeight: '600', color, marginBottom: '4px' }}>${val.toFixed(1)}B</div>
+                  <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.3)', fontFamily: '"Inter", sans-serif', letterSpacing: '0.5px' }}>{label}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.2)', fontFamily: '"Inter", sans-serif' }}>
+              Adjust the slider below to explore different scenarios
+            </div>
+          </div>
+
         </div>
       </div>
 
       {/* ASSUMPTIONS STRIP */}
-      <div style={{ background: '#111', borderBottom: '1px solid #1f1f1f', padding: '16px 40px' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
+      <div style={{ background: '#111', borderBottom: '1px solid #1f1f1f', padding: '14px 48px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', gap: '40px', flexWrap: 'wrap', alignItems: 'center' }}>
           {[
             ['35.5M', 'informal workers'],
             ['$185/mo', 'avg informal wage'],
@@ -141,11 +179,11 @@ export default function FiscalCalculator({ onBack }) {
             ['5%', 'VAT pass-through'],
           ].map(([val, label]) => (
             <div key={label} style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-              <span style={{ fontSize: '15px', fontWeight: '700', color: '#4dd0c4', fontFamily: '"Cormorant Garamond", serif' }}>{val}</span>
-              <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.3px' }}>{label}</span>
+              <span style={{ fontSize: '14px', fontWeight: '700', color: '#4dd0c4' }}>{val}</span>
+              <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.3px' }}>{label}</span>
             </div>
           ))}
-          <div style={{ marginLeft: 'auto', fontSize: '11px', color: 'rgba(255,255,255,0.2)', alignSelf: 'center' }}>Sources: GSO LFS 2023 · World Bank · ILO · IMF</div>
+          <div style={{ marginLeft: 'auto', fontSize: '11px', color: 'rgba(255,255,255,0.2)' }}>Sources: GSO LFS 2023 · World Bank · ILO · IMF</div>
         </div>
       </div>
 
