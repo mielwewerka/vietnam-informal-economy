@@ -484,7 +484,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
             </p>
           </Fade>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: '#e0e0e0', marginBottom: '48px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: '#e0e0e0', marginBottom: '48px', alignItems: 'stretch' }}>
             {[
               {
                 tag: 'Social Insurance Reform',
@@ -497,7 +497,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 tag: 'Tax Administration',
                 color: '#1e6fa8',
                 title: 'Electronic tax filing, simplified business registration',
-                body: 'Vietnam has dramatically expanded e-tax filing, reducing compliance costs for registered businesses. The one-stop business registration portal has cut registration time significantly. Tax threshold reforms have been discussed to bring micro-enterprises into the tax net at low rates before requiring full compliance , a graduated formalization approach consistent with ILO Recommendation No. 204.',
+                body: 'Vietnam has dramatically expanded e-tax filing, reducing compliance costs for registered businesses. The one-stop business registration portal has cut registration time significantly. Tax threshold reforms have been discussed to bring micro-enterprises into the tax net at low rates before requiring full compliance, a graduated formalization approach consistent with ILO Recommendation No. 204.',
                 source: 'Vietnam General Tax Department; World Bank Doing Business',
               },
               {
@@ -505,7 +505,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 color: '#7c3aed',
                 title: 'Revising VAT, CIT, and PIT sharing formulas',
                 body: 'The 2045 plan calls for reforming fiscal sharing arrangements between central and provincial governments and adjusting VAT, corporate income tax, and personal income tax allocations to better match where economic activity and population growth are occurring, particularly in fast-growing metros. New own-source revenue instruments are under discussion, including property taxes and PIT surtaxes at the subnational level.',
-                source: 'Viet Nam 2045: Breaking Through, Chapter 4',
+                source: 'Viet Nam 2045: Breaking Through, Part 4',
               },
               {
                 tag: 'Public Administration',
@@ -515,14 +515,12 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                 source: 'Resolution 18-NQ/TW; World Bank 2045 Report',
               },
             ].map(({ tag, color, title, body, source }) => (
-              <Fade key={title}>
-                <div style={{ background: 'white', padding: '36px', borderTop: `3px solid ${color}` }}>
-                  <div style={{ fontSize: '10px', fontWeight: '700', color, fontFamily: '"Inter", sans-serif', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>{tag}</div>
-                  <h4 style={{ fontSize: '17px', fontWeight: '400', margin: '0 0 14px 0', lineHeight: '1.3' }}>{title}</h4>
-                  <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.75', margin: '0 0 14px 0', fontFamily: '"Inter", sans-serif' }}>{body}</p>
-                  <div style={{ fontSize: '11px', color: '#bbb', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
-                </div>
-              </Fade>
+              <div key={title} style={{ background: 'white', padding: '36px', borderTop: `3px solid ${color}`, display: 'flex', flexDirection: 'column', boxSizing: 'border-box' }}>
+                <div style={{ fontSize: '10px', fontWeight: '700', color, fontFamily: '"Inter", sans-serif', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '10px' }}>{tag}</div>
+                <h4 style={{ fontSize: '17px', fontWeight: '400', margin: '0 0 14px 0', lineHeight: '1.3', fontFamily: '"Georgia", "Times New Roman", serif' }}>{title}</h4>
+                <p style={{ fontSize: '13px', color: '#666', lineHeight: '1.75', margin: '0 0 14px 0', fontFamily: '"Inter", sans-serif', flex: 1 }}>{body}</p>
+                <div style={{ fontSize: '11px', color: '#bbb', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
+              </div>
             ))}
           </div>
 
