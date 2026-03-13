@@ -69,7 +69,7 @@ function PullQuote({ stat, unit = '', label, color = '#00897b', note }) {
         color,
         lineHeight: 1,
         letterSpacing: '-2px',
-        fontFamily: '"Georgia", serif'
+        fontFamily: '"Inter", sans-serif'
       }}>
         <AnimatedStat value={stat} suffix={unit} />
       </div>
@@ -102,7 +102,7 @@ function PhotoBlock({ src, caption, credit, height = '480px', position = 'center
         marginTop: '8px'
       }}>
         {caption}
-        {credit && <span style={{ color: '#bbb' }}> — {credit}</span>}
+        {credit && <span style={{ color: '#bbb' }}> · {credit}</span>}
       </figcaption>
     </figure>
   );
@@ -137,10 +137,6 @@ function TimelineItem({ year, title, body, isLast }) {
 
 // ─── Main component ────────────────────────────────────────────────────────
 export default function InformalExplainer({ onBack }) {
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const TEAL = '#00897b';
   const TEAL_LIGHT = '#e0f7f4';
@@ -328,7 +324,7 @@ export default function InformalExplainer({ onBack }) {
             What does it mean to work outside the economy?
           </h1>
           <p style={styles.heroDeck}>
-            In Vietnam, nearly two in three workers have no contract, no social insurance, and no legal protection. They are not counted in the tax base, not covered by labor law, and not visible to the state. This is the informal economy — and it is not a marginal phenomenon. It is the economy.
+            In Vietnam, nearly two in three workers have no contract, no social insurance, and no legal protection. They are not counted in the tax base, not covered by labor law, and not visible to the state. This is the informal economy. It is not a marginal phenomenon. It is the economy.
           </p>
         </div>
       </header>
@@ -337,8 +333,8 @@ export default function InformalExplainer({ onBack }) {
       <div style={{ background: '#111' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <PhotoBlock
-            src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/market2.avif"
-            caption="Street vendors in Hội An navigate the line between earning a living and avoiding enforcement. Most have operated at the same spot for years — yet hold no license, pay no tax, and receive no social protection."
+            src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1400&q=80"
+            caption="Street vendors in Hội An navigate the line between earning a living and avoiding enforcement. Most have operated at the same spot for years, yet hold no license, pay no tax, and receive no social protection."
             credit="Unsplash"
             height="520px"
             position="center 40%"
@@ -358,7 +354,7 @@ export default function InformalExplainer({ onBack }) {
                     A worker without a contract. A business without a license. A transaction without a receipt.
                   </h2>
                   <p style={styles.body}>
-                    The informal economy is not a place — it's a condition. According to the International Labour Organization, informal employment encompasses all work arrangements that provide no legal or social protection: no employment contract, no social insurance, no occupational health coverage.
+                    The informal economy is not a place. It is a condition. According to the International Labour Organization, informal employment encompasses all work arrangements that provide no legal or social protection: no employment contract, no social insurance, no occupational health coverage.
                   </p>
                   <p style={styles.body}>
                     In Vietnam, the General Statistics Office (GSO) operationalizes this through a single criterion: if a worker is not covered by compulsory social insurance, they are informal. This captures agricultural day laborers, street vendors, construction workers paid in cash, domestic workers, and the vast majority of workers in small family businesses.
@@ -371,7 +367,7 @@ export default function InformalExplainer({ onBack }) {
                     <div style={styles.sourceNote}>Source: ILO, Informal Employment in Viet Nam: Trends and Determinants, 2021</div>
                   </div>
                   <p style={{ ...styles.bodySmall, fontStyle: 'italic', color: '#777' }}>
-                    Importantly, informal work exists inside formal sector firms too. About 13% of workers at formally-registered private enterprises remain informally employed — meaning they work for a legitimate company but with no contract or insurance. Informality is a job characteristic, not just a sector.
+                    Importantly, informal work exists inside formal sector firms too. About 13% of workers at formally-registered private enterprises remain informally employed, meaning they work for a legitimate company but with no contract or insurance. Informality is a job characteristic, not just a sector.
                   </p>
                 </div>
 
@@ -399,13 +395,13 @@ export default function InformalExplainer({ onBack }) {
             }}>
               {[
                 { stat: '97.9', unit: '%', label: 'of agricultural workers are informal', note: 'ILO, 2021' },
-                { stat: '52', unit: '%', label: 'urban informality rate — vs 78% rural', note: 'ILO, 2021' },
-                { stat: '11–13', unit: '%', label: 'estimated sidewalk economy share of GDP in major cities', note: 'Huynh, 2023' },
+                { stat: '52', unit: '%', label: 'urban informality rate, vs 78% rural', note: 'ILO, 2021' },
+                { stat: '11 to 13', unit: '%', label: 'estimated sidewalk economy share of GDP in major cities', note: 'Huynh, 2023' },
               ].map(({ stat, unit, label, note }) => (
                 <div key={label} style={{ background: '#1a1a1a', padding: '40px 36px' }}>
                   <div style={{
                     fontSize: '48px', fontWeight: '800', color: TEAL,
-                    fontFamily: '"Georgia", serif', lineHeight: 1, marginBottom: '12px'
+                    fontFamily: '"Inter", sans-serif', lineHeight: 1, marginBottom: '12px'
                   }}>{stat}{unit}</div>
                   <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)', lineHeight: '1.5', fontFamily: '"Inter", sans-serif' }}>{label}</div>
                   <div style={{ fontSize: '11px', color: '#555', marginTop: '8px', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{note}</div>
@@ -431,13 +427,13 @@ export default function InformalExplainer({ onBack }) {
                     Before 1986, Vietnam operated a fully centrally planned economy. The state assigned jobs, set prices, and controlled all production through agricultural cooperatives and state-owned enterprises. Petty trade was suppressed. Private markets were illegal.
                   </p>
                   <p style={styles.body}>
-                    Then came Doi Moi — "Renovation" — in 1986. Facing a near-collapsed economy, 700% inflation, and dependence on $4 million per day in Soviet aid, the Communist Party chose to open markets while retaining political control. Agricultural collectives were dismantled. Private ownership was permitted. Foreign investment was welcomed.
+                    Then came Doi Moi ("Renovation") in 1986. Facing a near-collapsed economy, 700% inflation, and dependence on $4 million per day in Soviet aid, the Communist Party chose to open markets while retaining political control. Agricultural collectives were dismantled. Private ownership was permitted. Foreign investment was welcomed.
                   </p>
                   <p style={styles.body}>
-                    The results were extraordinary: real per capita GDP tripled between 1990 and 2015, and Vietnam vaulted from one of the world's poorest countries to lower-middle income status. But this transformation produced a paradox. <strong>The same market liberalization that created growth also created informality.</strong> Millions of workers — newly free from state assignment — entered an economy whose formal institutions were not yet built to absorb them.
+                    The results were extraordinary: real per capita GDP tripled between 1990 and 2015, and Vietnam moved from one of the world's poorest countries to lower-middle income status. But this transformation produced a paradox. <strong>The same market liberalization that created growth also created informality.</strong> Millions of workers, newly free from state assignment, entered an economy whose formal institutions were not yet built to absorb them.
                   </p>
                   <p style={{ ...styles.bodySmall, color: '#777' }}>
-                    Almost half of all rural-to-urban migrants end up in informal work. Young female migrants in particular flow into informal urban services — domestic work, street trading, garment factories without contracts. Geography, gender, and education largely determine who escapes.
+                    Almost half of all rural-to-urban migrants end up in informal work. Young female migrants in particular flow into informal urban services: domestic work, street trading, garment factories without contracts. Geography, gender, and education largely determine who escapes.
                   </p>
                 </div>
 
@@ -452,8 +448,8 @@ export default function InformalExplainer({ onBack }) {
                     },
                     {
                       year: '1986',
-                      title: 'Doi Moi — "Renovation"',
-                      body: 'Market liberalization begins. Agricultural collectives dismantled. Household contract system introduced. Rural workers freed from tied labor — and from state protection.',
+                      title: 'Doi Moi: Renovation',
+                      body: 'Market liberalization begins. Agricultural collectives dismantled. Household contract system introduced. Rural workers freed from tied labor, and from state protection.',
                     },
                     {
                       year: '1988–1993',
@@ -468,12 +464,12 @@ export default function InformalExplainer({ onBack }) {
                     {
                       year: '2008',
                       title: 'The Hanoi street vendor ban',
-                      body: 'Authorities ban street vending on 62 streets and 48 public spaces. Vendors — mostly female rural migrants — are driven from their livelihoods. The ban reveals the tension between "civilized" urban development and survival economics.',
+                      body: 'Authorities ban street vending on 62 streets and 48 public spaces. Vendors, mostly female rural migrants, were driven from their livelihoods. The ban reveals the tension between "civilized" urban development and survival economics.',
                     },
                     {
                       year: '2021–present',
                       title: 'COVID and formalization pressure',
-                      body: 'The pandemic exposed the vulnerability of informal workers — no sick pay, no unemployment insurance, no state support. Vietnam accelerates formalization targets: 60% social insurance coverage by 2030.',
+                      body: 'The pandemic exposed the vulnerability of informal workers: no sick pay, no unemployment insurance, no state support. Vietnam accelerates formalization targets: 60% social insurance coverage by 2030.',
                     },
                   ].map((item, i, arr) => (
                     <TimelineItem key={item.year} {...item} isLast={i === arr.length - 1} />
@@ -489,8 +485,8 @@ export default function InformalExplainer({ onBack }) {
       <div style={{ background: '#111', padding: '0' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <PhotoBlock
-            src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/farm.avif"
-            caption="Agriculture remains one of the most informal sectors in Vietnam, with a 97.9% informality rate. Most agricultural workers have no contract, no social insurance, and no safety net beyond the land itself."
+            src="https://images.unsplash.com/photo-1559592413-7cbb5e31f4f0?w=1400&q=80"
+            caption="Rice paddy agriculture remains one of the most informal sectors in Vietnam, with a 97.9% informality rate. Most agricultural workers have no contract, no social insurance, and no safety net beyond the land itself."
             credit="Unsplash"
             height="440px"
             position="center 60%"
@@ -509,30 +505,30 @@ export default function InformalExplainer({ onBack }) {
               </h2>
             </FadeSection>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', marginTop: '40px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', marginTop: '40px', alignItems: 'stretch' }}>
               {[
                 {
                   title: 'Agricultural workers',
                   pct: '97.9%',
-                  body: 'Nearly universal informality. Rice farming, coffee cultivation, aquaculture — all dominated by household production with no contracts and no social insurance. This is the single largest informal category in Vietnam.',
+                  body: 'Nearly universal informality. Rice farming, coffee cultivation, aquaculture, all dominated by household production with no contracts and no social insurance. This is the single largest informal category in Vietnam.',
                   color: '#15803d'
                 },
                 {
                   title: 'Rural informal workers',
                   pct: '78%',
-                  body: 'Out of every 100 rural workers, 78 are informal. Rural workers face a 2.7% chance of transitioning to formal employment in any given quarter — compared to 6.8% in urban areas.',
+                  body: 'Out of every 100 rural workers, 78 are informal. Rural workers face a 2.7% chance of transitioning to formal employment in any given quarter, compared to 6.8% in urban areas.',
                   color: '#1e40af'
                 },
                 {
                   title: 'Female migrant workers',
                   pct: '65%',
-                  body: 'The informality rate for women is slightly lower than for men (65% vs 71.6%), but women dominate the most vulnerable categories: domestic workers, street vendors, and garment workers without contracts.',
+                  body: 'Women\'s informality rate is slightly lower than men\'s (65% vs 71.6%), but women are disproportionately concentrated in the most vulnerable categories: domestic work, street vending, and garment production without contracts.',
                   color: '#9333ea'
                 },
                 {
                   title: 'Urban informal workers',
                   pct: '52%',
-                  body: 'Even in cities — the engines of formalization — over half of workers are informal. Construction workers, motorbike taxi drivers, street vendors, delivery workers. Urban informality is rising as migration outpaces formal job creation.',
+                  body: 'Even in cities, over half of workers are informal. Construction workers, motorbike taxi drivers, street vendors, delivery workers. Urban informality is rising as migration outpaces formal job creation.',
                   color: '#f97316'
                 },
               ].map(({ title, pct, body, color }) => (
@@ -542,11 +538,14 @@ export default function InformalExplainer({ onBack }) {
                     border: '1px solid #e0e0e0',
                     borderTop: `4px solid ${color}`,
                     padding: '32px',
-                    borderRadius: '4px'
+                    height: '100%',
+                    boxSizing: 'border-box',
+                    display: 'flex',
+                    flexDirection: 'column',
                   }}>
-                    <div style={{ fontSize: '36px', fontWeight: '800', color, fontFamily: '"Georgia", serif', marginBottom: '8px' }}>{pct}</div>
+                    <div style={{ fontSize: '36px', fontWeight: '700', color, fontFamily: '"Inter", sans-serif', marginBottom: '8px', letterSpacing: '-1px' }}>{pct}</div>
                     <div style={{ fontSize: '15px', fontWeight: '700', marginBottom: '12px', fontFamily: '"Inter", sans-serif' }}>{title}</div>
-                    <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.7', fontFamily: '"Inter", sans-serif' }}>{body}</div>
+                    <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.7', fontFamily: '"Inter", sans-serif', flex: 1 }}>{body}</div>
                   </div>
                 </FadeSection>
               ))}
@@ -568,22 +567,22 @@ export default function InformalExplainer({ onBack }) {
                     The street vendor is not a relic of underdevelopment. She is its solution.
                   </h2>
                   <p style={styles.body}>
-                    Vietnam's street vendors — the woman selling bánh mì from a shoulder pole, the man grilling corn on a portable charcoal stove, the pho cart at 6am — represent one of the most visible faces of the informal economy.
+                    Vietnam's street vendors, the woman selling bánh mì from a shoulder pole, the man grilling corn on a portable charcoal stove, the pho cart at 6am: these are one of the most visible faces of the informal economy.
                   </p>
                   <p style={styles.body}>
-                    Research by Huynh (2023) estimates the sidewalk economy at approximately 5% of urban employment and 11–13% of GDP in major cities. Over one million workers earn their primary income from street trade. Most are women. Most are migrants from rural areas, who left due to low farm productivity, land fragmentation, and declining agricultural wages.
+                    Research by Huynh (2023) estimates the sidewalk economy at approximately 5% of urban employment and 11 to 13% of GDP in major cities. Over one million workers earn their primary income from street trade. Most are women. Most are migrants from rural areas, who left due to low farm productivity, land fragmentation, and declining agricultural wages.
                   </p>
                   <p style={styles.body}>
-                    Street vending offers what formal employment cannot: flexibility, immediate cash income, low capital entry requirements. A vendor can begin with 200,000 đồng (roughly $8) in stock. For families without savings, without education credentials, without social connections in the city — this is not a choice. It is a lifeline.
+                    Street vending offers what formal employment cannot: flexibility, immediate cash income, low capital entry requirements. A vendor can begin with 200,000 đồng (roughly $8) in stock. For families without savings, without education credentials, without social connections in the city. This is not a choice. It is a lifeline.
                   </p>
                   <p style={{ ...styles.bodySmall, color: '#777' }}>
-                    Yet vendors exist in perpetual legal precarity. The 2008 Hanoi ban — which prohibited vending on 62 streets — demonstrated what happens when "urban modernization" collides with survival economics. Vendors were driven from their spots, incomes fell, and conflicts with enforcement officials became routine. The ban was selectively enforced and widely circumvented. Today, informal vending remains widespread — and contested.
+                    Yet vendors exist in perpetual legal precarity. The 2008 Hanoi ban, which prohibited vending on 62 streets, demonstrated what happens when "urban modernization" collides with survival economics. Vendors were driven from their spots, incomes fell, and conflicts with enforcement officials became routine. The ban was selectively enforced and widely circumvented. Today, informal vending remains widespread and contested.
                   </p>
                 </div>
                 <div style={{ paddingTop: '48px' }}>
                   <PhotoBlock
-                    src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/streetvendor.avif"
-                    caption= "Street vendors in Hanoi. The shoulder baskets - one of the most important and ancient tools in Vietnamese commerce — remains the entry-level capital investment for millions of informal traders."
+                    src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80"
+                    caption="A street food vendor in Hội An. The shoulder pole, one of the most ancient tools in Vietnamese commerce, remains the entry-level capital investment for millions of informal traders."
                     credit="Unsplash"
                     height="380px"
                     position="center"
@@ -608,10 +607,10 @@ export default function InformalExplainer({ onBack }) {
               A country cannot become high-income with two-thirds of its workforce invisible to the state.
             </h2>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.85', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif' }}>
-              "Vietnam's 2045 goal — high-income status by the centennial of the Socialist Republic — requires sustained growth, expanding public investment, and a strong social insurance system. All three depend on a formal economy that currently represents only one-third of the workforce."
+              Vietnam's 2045 goal, high-income status by the centennial of the Socialist Republic, requires sustained growth, expanding public investment, and a strong social insurance system. All three depend on a formal economy that currently represents only one-third of the workforce.
             </p>
             <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.7)', lineHeight: '1.85', margin: '0', fontFamily: '"Inter", sans-serif' }}>
-              Informal workers pay no income tax or social insurance contributions. Their employers — if they have them — often avoid payroll taxes. The fiscal gap is structural. Closing it requires not just enforcement, but the structural transformation of the economy itself: urbanization, education, and the continued shift from agriculture to manufacturing and services.
+              Informal workers pay no income tax or social insurance contributions. Their employers, if they have them, often avoid payroll taxes. The fiscal gap is structural. Closing it requires not just enforcement, but the structural transformation of the economy itself: urbanization, education, and the continued shift from agriculture to manufacturing and services.
             </p>
           </FadeSection>
         </div>
@@ -629,7 +628,7 @@ export default function InformalExplainer({ onBack }) {
                 'Huynh, T.N.Q. (2023). Street Vendors in Vietnam: Short Cultural and Economic Insight. International Journal of Culture and Education.',
                 'Turner, S. & Schoenberger, L. (2012). Street Vendor Livelihoods and Everyday Politics in Hanoi, Vietnam. Urban Studies, 49(5).',
                 'Lincoln, M. (2008). Report from the Field: Street Vendors and the Informal Sector in Hanoi. Dialectical Anthropology.',
-                'IMF. (2020). Vietnam Development Success Story and the Unfinished SDG Agenda. Working Paper WP/20/31.',
+                'IMF. (2020). Vietnam's Development Success Story and the Unfinished SDG Agenda. Working Paper WP/20/31.',
                 'World Bank. (2023). Vietnam Country Profile. Open Development Vietnam / World Bank Data.',
                 'GSO. (2024). Labor Force Survey 2023. General Statistics Office of Vietnam.',
               ].map((source) => (
@@ -654,6 +653,6 @@ export default function InformalExplainer({ onBack }) {
         </div>
       </div>
 
-   </div>
+    </div>
   );
 }
