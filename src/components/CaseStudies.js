@@ -370,9 +370,10 @@ export default function CaseStudies({ onBack, onNavigate }) {
         }}>
           ← Part IV: Fiscal Calculator
         </button>
-        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-          ECON 62 · Topics in Macroeconomics · Winter 2026
-        </p>
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', margin: '0 0 2px 0', fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
+          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.12)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Designed and Built by Miel Wewerka · Dartmouth College</p>
+        </div>
         <button onClick={() => onNavigate('policy')} style={{
           background: '#4dd0c4', color: '#0f0f0f', border: 'none',
           padding: '7px 18px', fontSize: '12px', fontWeight: '700', cursor: 'pointer', fontFamily: '"Inter", sans-serif'
