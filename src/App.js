@@ -108,7 +108,10 @@ function FooterNav({ onBack, prev, next, onNavigate }) {
       <button onClick={prev ? () => onNavigate(prev.page) : onBack} style={{ background: 'none', border: '1px solid #222', color: 'rgba(255,255,255,0.4)', padding: '7px 14px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', fontFamily: '"Inter", sans-serif' }}>
         ← {prev ? prev.label : 'Back to Overview'}
       </button>
-      <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.12)', margin: 0, fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
+      <div style={{ textAlign: 'center' }}>
+        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.12)', margin: '0 0 2px 0', fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
+        <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.07)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Designed and Built by Miel Wewerka · Dartmouth College</p>
+      </div>
       {next && (
         <button onClick={() => onNavigate(next.page)} style={{ background: '#4dd0c4', color: '#0f0f0f', border: 'none', padding: '7px 18px', fontSize: '12px', fontWeight: '700', cursor: 'pointer', fontFamily: '"Inter", sans-serif' }}>
           {next.label} →
@@ -507,54 +510,86 @@ function LandingPage({ onNavigate, savedScrollY }) {
         </div>
       </div>
 
-      {/* ── HERO — tighter, more intentional layout ── */}
-      <div style={{ position: 'relative', height: '100vh', display: 'grid', gridTemplateColumns: '1fr 1fr', overflow: 'hidden' }}>
+      {/* ── HERO — full-bleed photo, text bottom-left ── */}
+      <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
 
-        {/* Left: text content, vertically centered */}
+        {/* Photo fills the entire hero */}
         <div style={{
-          position: 'relative', zIndex: 2,
-          display: 'flex', flexDirection: 'column', justifyContent: 'center',
-          padding: '80px 56px 60px 56px',
-          background: 'linear-gradient(to right, rgba(10,10,10,1) 60%, rgba(10,10,10,0.7) 100%)',
-        }}>
-          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(90deg, ${TEAL}, transparent)` }} />
-          <div style={{ fontSize: '10px', fontWeight: '700', color: 'rgba(255,255,255,0.35)', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif', marginBottom: '28px' }}>
+          position: 'absolute', inset: 0,
+          backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/main/vietnam-street.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 40%',
+        }} />
+
+        {/* Gradient — heavier at bottom-left where text sits, lighter at top-right */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(135deg, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.72) 40%, rgba(8,8,8,0.35) 70%, rgba(8,8,8,0.5) 100%)',
+        }} />
+
+        {/* Teal top accent line */}
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(90deg, ${TEAL}, rgba(0,137,123,0.2))`, zIndex: 2 }} />
+
+        {/* Course label — top left */}
+        <div style={{ position: 'absolute', top: '32px', left: '56px', zIndex: 2 }}>
+          <span style={{ fontSize: '10px', fontWeight: '700', color: 'rgba(255,255,255,0.35)', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
             ECON 62 · Topics in Macroeconomics · Winter 2026
-          </div>
-          <h1 style={{ fontSize: 'clamp(40px, 5.5vw, 72px)', fontWeight: '400', lineHeight: '1.0', margin: '0 0 24px 0', letterSpacing: '-2px' }}>
-            Vietnam's<br />Invisible<br />Workforce
-          </h1>
-          <p style={{ fontSize: 'clamp(15px, 1.5vw, 18px)', color: 'rgba(255,255,255,0.6)', lineHeight: '1.7', margin: '0 0 36px 0', maxWidth: '460px', fontStyle: 'italic', fontWeight: '400' }}>
-            68.5% of its workers operate without social insurance, contracts, or safety nets. They are uncounted in the tax base, unprotected by labor law, and invisible to the state — and their exclusion is the central constraint on Vietnam's 2045 ambition.
-          </p>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-            <button onClick={() => onNavigate('informal-explainer')} style={{ background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none', padding: '12px 28px', fontSize: '13px', fontWeight: '700', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
-              Begin Reading →
-            </button>
-            <button onClick={() => onNavigate('exec-summary')} style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.25)', padding: '11px 20px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
-              Executive Summary
-            </button>
-          </div>
+          </span>
         </div>
 
-        {/* Right: stat column over photo */}
-        <div style={{ position: 'relative' }}>
-          {/* Background photo */}
-          <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/main/vietnam-street.jpg)', backgroundSize: 'cover', backgroundPosition: 'center 40%' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to left, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.6) 100%)' }} />
+        {/* Main text — bottom left, generous padding */}
+        <div style={{
+          position: 'absolute', bottom: 0, left: 0, right: 0,
+          padding: '0 56px 64px',
+          zIndex: 2,
+          display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '48px',
+        }}>
+          {/* Left: title + deck + CTAs */}
+          <div style={{ maxWidth: '640px' }}>
+            <h1 style={{
+              fontSize: 'clamp(52px, 7vw, 96px)',
+              fontWeight: '400',
+              lineHeight: '1.0',
+              margin: '0 0 20px 0',
+              letterSpacing: '-2.5px',
+              color: 'white',
+            }}>
+              Vietnam's<br />Invisible<br />Workforce
+            </h1>
+            <p style={{
+              fontSize: 'clamp(15px, 1.4vw, 18px)',
+              color: 'rgba(255,255,255,0.62)',
+              lineHeight: '1.7',
+              margin: '0 0 28px 0',
+              fontStyle: 'italic',
+              fontWeight: '400',
+              maxWidth: '520px',
+            }}>
+              68.5% of Vietnam's workers operate without social insurance, contracts, or safety nets —
+              and their exclusion is the central constraint on Vietnam's 2045 ambition.
+            </p>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <button onClick={() => onNavigate('informal-explainer')} style={{ background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none', padding: '12px 28px', fontSize: '13px', fontWeight: '700', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
+                Begin Reading →
+              </button>
+              <button onClick={() => onNavigate('exec-summary')} style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.3)', padding: '11px 22px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
+                Executive Summary
+              </button>
+            </div>
+          </div>
 
-          {/* Stat column overlaid on photo */}
-          <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '80px 40px 60px 60px', gap: '0' }}>
+          {/* Right: four key stats, clean and unobtrusive */}
+          <div style={{ display: 'flex', gap: '32px', flexShrink: 0, paddingBottom: '6px' }}>
             {[
-              { stat: '68.5%', label: 'of workers are informally employed', source: 'GSO/ILO, 2021', color: TEAL_BRIGHT },
-              { stat: '33.6M', label: 'workers outside the formal economy', source: 'GSO/ILO, 2021', color: '#f97316' },
-              { stat: '16.8%', label: 'tax-to-GDP ratio, below 19.5% regional avg', source: 'OECD, 2023', color: '#dc2626' },
-              { stat: '2045', label: "Vietnam's target year for high-income status", source: 'Resolution 29/NQ-TW', color: TEAL_BRIGHT },
-            ].map(({ stat, label, source, color }, i) => (
-              <div key={stat} style={{ padding: '20px 0', borderBottom: i < 3 ? '1px solid rgba(255,255,255,0.1)' : 'none' }}>
-                <div style={{ fontSize: 'clamp(28px, 3.5vw, 44px)', fontWeight: '400', color, lineHeight: 1, letterSpacing: '-1px', marginBottom: '6px' }}>{stat}</div>
-                <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.75)', lineHeight: '1.4', fontFamily: '"Inter", sans-serif', marginBottom: '3px' }}>{label}</div>
-                <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.3)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
+              { stat: '68.5%', label: 'informally employed', source: 'GSO/ILO 2021' },
+              { stat: '33.6M', label: 'outside the formal economy', source: 'GSO/ILO 2021' },
+              { stat: '16.8%', label: 'tax-to-GDP ratio', source: 'OECD 2023' },
+              { stat: '2045', label: 'high-income target year', source: 'Res. 29/NQ-TW' },
+            ].map(({ stat, label, source }) => (
+              <div key={stat} style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '10px', minWidth: '90px' }}>
+                <div style={{ fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: '300', color: 'white', lineHeight: 1, letterSpacing: '-0.5px', marginBottom: '5px', fontFamily: '"Georgia", serif' }}>{stat}</div>
+                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.35', fontFamily: '"Inter", sans-serif', marginBottom: '3px' }}>{label}</div>
+                <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
               </div>
             ))}
           </div>
@@ -562,9 +597,8 @@ function LandingPage({ onNavigate, savedScrollY }) {
 
         {/* Scroll indicator */}
         <div style={{ position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', zIndex: 3 }}>
-          <span style={{ fontSize: '9px', fontWeight: '700', color: 'rgba(255,255,255,0.25)', letterSpacing: '2px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>Scroll</span>
           <div style={{ animation: 'bounce 1.8s infinite' }}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 5.5l5.5 5.5 5.5-5.5" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 5.5l5.5 5.5 5.5-5.5" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </div>
         </div>
         <style>{`@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}`}</style>
@@ -595,8 +629,8 @@ function LandingPage({ onNavigate, savedScrollY }) {
       </div>
 
       {/* ── THESIS ── */}
-      <div style={{ background: '#0f0f0f', padding: '80px 56px' }}>
-        <div style={{ maxWidth: '720px', margin: '0 auto' }}>
+      <div style={{ background: '#0f0f0f', padding: '80px 56px 0' }}>
+        <div style={{ maxWidth: '720px', margin: '0 auto', paddingBottom: '72px' }}>
           <div style={{ width: '36px', height: '3px', background: TEAL_BRIGHT, marginBottom: '36px' }} />
           <h2 style={{ fontSize: 'clamp(24px, 3vw, 38px)', fontWeight: '400', lineHeight: '1.3', color: 'white', margin: '0 0 28px 0', letterSpacing: '-0.5px' }}>
             Vietnam's development story is told through GDP growth and poverty reduction. This project tells it through the other number.
@@ -607,6 +641,31 @@ function LandingPage({ onNavigate, savedScrollY }) {
           <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.85', margin: 0, fontFamily: '"Inter", sans-serif' }}>
             The fiscal gap their exclusion creates shapes everything: the roads, the schools, the pensions, the public hospitals. This project maps that reality province by province, quantifies its fiscal consequences, and asks what formalization would actually require — and for whom.
           </p>
+        </div>
+      </div>
+
+      {/* ── SECOND IMAGE — full width, evocative ── */}
+      <div style={{ position: 'relative', height: '480px', overflow: 'hidden' }}>
+        <div style={{
+          position: 'absolute', inset: 0,
+          backgroundImage: 'url(https://images.unsplash.com/photo-1559592413-7cbb5e31f4f0?w=1600&q=80)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 55%',
+        }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(9,9,9,0.85) 0%, rgba(9,9,9,0.4) 50%, rgba(9,9,9,0.7) 100%)' }} />
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', padding: '0 56px' }}>
+          <div style={{ maxWidth: '520px' }}>
+            <p style={{ fontSize: 'clamp(20px, 2.5vw, 30px)', fontWeight: '400', color: 'white', lineHeight: '1.45', margin: '0 0 16px 0', fontStyle: 'italic', letterSpacing: '-0.3px', fontFamily: '"Georgia", serif' }}>
+              "My current job only meets about 50% of life's needs."
+            </p>
+            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Inter", sans-serif', margin: 0, lineHeight: '1.5' }}>
+              Male, 47 years old, selling tofu at Linh Nam market, Hanoi<br />
+              <span style={{ color: 'rgba(255,255,255,0.3)', fontStyle: 'italic' }}>ILO/GSO Survey on Informal Employment, 2021</span>
+            </p>
+          </div>
+        </div>
+        <div style={{ position: 'absolute', bottom: '20px', right: '48px' }}>
+          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.2)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', margin: 0 }}>Rice agriculture, Vietnam · Unsplash</p>
         </div>
       </div>
 
@@ -639,8 +698,9 @@ function LandingPage({ onNavigate, savedScrollY }) {
       </div>
 
       {/* Footer */}
-      <div style={{ background: '#070707', borderTop: '1px solid #141414', padding: '28px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '12px' }}>
-        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.18)', margin: 0, fontFamily: '"Inter", sans-serif' }}>ECON 62: Topics in Macroeconomics · Winter 2026</p>
+      <div style={{ background: '#070707', borderTop: '1px solid #141414', padding: '24px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.18)', margin: 0, fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
+        <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.12)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Designed and Built by Miel Wewerka · Dartmouth College</p>
         <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.14)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Data: GSO/ILO 2021 · OECD 2025 · World Bank · ILO/VIDERI 2024</p>
       </div>
     </div>
