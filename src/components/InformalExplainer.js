@@ -357,7 +357,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
       <div style={{ background: '#111' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <PhotoBlock
-            src="https://github.com/mielwewerka/vietnam-informal-economy/blob/main/farm.jpeg?raw=true"
+            src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/paddypeeps.avif"
             caption="Rice paddy agriculture, Vietnam. Nearly all agricultural workers, 97.9%, are informally employed. No contracts, no social insurance, no safety net beyond the land itself. Source: GSO/ILO 2021."
             credit="Unsplash"
             height="440px"
