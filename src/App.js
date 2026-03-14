@@ -166,6 +166,7 @@ function InteractiveMaps({ onBack, onNavigate }) {
   const [hoveredProvince, setHoveredProvince] = useState(null);
   const [urbanFilter, setUrbanFilter] = useState('all');
   const [showInsights, setShowInsights] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(true);
 
   // Zoom/pan state
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
@@ -258,22 +259,58 @@ function InteractiveMaps({ onBack, onNavigate }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', fontFamily: '"Inter", sans-serif', background: '#0f0f0f' }}>
 
-      {/* Top bar */}
-      <div style={{ background: '#111', borderBottom: '1px solid #1e1e1e', padding: '10px 20px', display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0, flexWrap: 'wrap' }}>
-        <button onClick={onBack} style={{ background: 'transparent', border: '1px solid #2a2a2a', color: 'rgba(255,255,255,0.5)', padding: '5px 12px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', borderRadius: '3px' }}>← Overview</button>
-        <span style={{ fontSize: '10px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '2px', textTransform: 'uppercase' }}>Part II · Provincial Maps</span>
-        <div style={{ marginLeft: 'auto', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+      {/* Onboarding modal */}
+      {showOnboarding && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.75)', zIndex: 500, display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(4px)' }}
+          onClick={() => setShowOnboarding(false)}>
+          <div style={{ background: '#141414', border: '1px solid #2a2a2a', borderTop: '3px solid #4dd0c4', padding: '40px 48px', maxWidth: '540px', width: '90%' }}
+            onClick={e => e.stopPropagation()}>
+            <div style={{ fontSize: '10px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '16px' }}>Part II · Provincial Maps</div>
+            <h2 style={{ fontSize: '28px', fontWeight: '300', color: 'white', margin: '0 0 16px 0', letterSpacing: '-0.5px', fontFamily: '"Cormorant Garamond", serif', lineHeight: 1.2 }}>
+              Explore Vietnam's informal economy across all 63 provinces
+            </h2>
+            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.75', margin: '0 0 24px 0' }}>
+              Seven indicators — informal employment, agricultural share, urbanization, sidewalk economy, non-agricultural informal, rural population, and total employment — mapped and filterable. Three indicators are <span style={{ color: 'rgba(255,255,255,0.35)' }}>derived</span> from primary data rather than directly surveyed.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', marginBottom: '28px' }}>
+              {[
+                { icon: '⊙', text: 'Scroll to zoom in/out' },
+                { icon: '↔', text: 'Drag to pan across the map' },
+                { icon: '◉', text: 'Click any province for detail' },
+                { icon: '≡', text: 'Toggle Insights for analysis' },
+              ].map(({ icon, text }) => (
+                <div key={text} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '10px 12px', background: '#0d0d0d', border: '1px solid #1e1e1e', borderRadius: '3px' }}>
+                  <span style={{ fontSize: '16px', color: '#4dd0c4', flexShrink: 0 }}>{icon}</span>
+                  <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.5)' }}>{text}</span>
+                </div>
+              ))}
+            </div>
+            <button onClick={() => setShowOnboarding(false)}
+              style={{ width: '100%', background: '#4dd0c4', color: '#0f0f0f', border: 'none', padding: '13px', fontSize: '13px', fontWeight: '700', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+              Start Exploring →
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Top bar — improved contrast */}
+      <div style={{ background: '#0d0d0d', borderBottom: '1px solid #252525', padding: '0 20px', display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0, height: '44px' }}>
+        <button onClick={onBack} style={{ background: 'transparent', border: 'none', color: 'rgba(255,255,255,0.65)', padding: '0 10px 0 0', fontSize: '13px', fontWeight: '600', cursor: 'pointer', borderRight: '1px solid #2a2a2a', height: '100%', display: 'flex', alignItems: 'center', gap: '6px' }}>
+          ← Overview
+        </button>
+        <span style={{ fontSize: '11px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '2px', textTransform: 'uppercase' }}>Part II · Provincial Maps</span>
+        <div style={{ marginLeft: 'auto', display: 'flex', gap: '6px', alignItems: 'center' }}>
           <button onClick={() => setUrbanFilter(urbanFilter === 'all' ? '50' : urbanFilter === '50' ? '70' : 'all')}
-            style={{ background: urbanFilter !== 'all' ? '#4dd0c4' : '#1a1a1a', border: '1px solid #2a2a2a', borderRadius: '3px', padding: '5px 12px', cursor: 'pointer', fontSize: '11px', fontWeight: '600', color: urbanFilter !== 'all' ? '#0f0f0f' : 'rgba(255,255,255,0.5)', whiteSpace: 'nowrap' }}>
+            style={{ background: urbanFilter !== 'all' ? 'rgba(77,208,196,0.15)' : 'transparent', border: `1px solid ${urbanFilter !== 'all' ? '#4dd0c4' : '#2a2a2a'}`, borderRadius: '3px', padding: '4px 12px', cursor: 'pointer', fontSize: '11px', fontWeight: '600', color: urbanFilter !== 'all' ? '#4dd0c4' : 'rgba(255,255,255,0.45)' }}>
             {urbanFilter === 'all' ? 'Urban Filter: Off' : urbanFilter === '50' ? 'Urban >50%' : 'Urban >70%'}
           </button>
-          <button onClick={resetZoom} style={{ background: '#1a1a1a', border: '1px solid #2a2a2a', borderRadius: '3px', padding: '5px 12px', cursor: 'pointer', fontSize: '11px', color: 'rgba(255,255,255,0.4)' }}>Reset Zoom</button>
+          <button onClick={resetZoom} style={{ background: 'transparent', border: '1px solid #2a2a2a', borderRadius: '3px', padding: '4px 12px', cursor: 'pointer', fontSize: '11px', color: 'rgba(255,255,255,0.45)' }}>Reset Zoom</button>
           <button onClick={() => setShowInsights(!showInsights)}
-            style={{ background: showInsights ? '#4dd0c4' : '#1a1a1a', border: '1px solid #2a2a2a', borderRadius: '3px', padding: '5px 12px', cursor: 'pointer', fontSize: '11px', fontWeight: '600', color: showInsights ? '#0f0f0f' : 'rgba(255,255,255,0.5)' }}>
-            {showInsights ? 'Hide Insights' : 'Show Insights'}
+            style={{ background: showInsights ? 'rgba(77,208,196,0.15)' : 'transparent', border: `1px solid ${showInsights ? '#4dd0c4' : '#2a2a2a'}`, borderRadius: '3px', padding: '4px 12px', cursor: 'pointer', fontSize: '11px', fontWeight: '600', color: showInsights ? '#4dd0c4' : 'rgba(255,255,255,0.45)' }}>
+            {showInsights ? 'Insights ✕' : 'Show Insights'}
           </button>
-          <button onClick={() => onNavigate('case-studies')} style={{ background: 'rgba(14,116,144,0.2)', border: '1px solid rgba(14,116,144,0.5)', borderRadius: '3px', padding: '5px 12px', cursor: 'pointer', fontSize: '11px', fontWeight: '600', color: '#67e8f9' }}>
-            → Case Studies
+          <button onClick={() => onNavigate('case-studies')} style={{ background: 'transparent', border: '1px solid #2a2a2a', borderRadius: '3px', padding: '4px 12px', cursor: 'pointer', fontSize: '11px', fontWeight: '600', color: 'rgba(255,255,255,0.45)' }}>
+            Case Studies →
           </button>
         </div>
       </div>
@@ -288,9 +325,9 @@ function InteractiveMaps({ onBack, onNavigate }) {
             <div style={{ fontSize: '10px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '1.5px', textTransform: 'uppercase', marginBottom: '8px' }}>Indicator</div>
             {Object.entries(mapConfigs).map(([key, cfg]) => (
               <button key={key} onClick={() => { setActiveTab(key); setSelectedProvince(null); }}
-                style={{ display: 'block', width: '100%', padding: '8px 10px', marginBottom: '4px', border: activeTab === key ? '1px solid #4dd0c4' : '1px solid #1e1e1e', background: activeTab === key ? 'rgba(77,208,196,0.1)' : 'transparent', color: activeTab === key ? '#4dd0c4' : 'rgba(255,255,255,0.5)', fontSize: '12px', fontWeight: activeTab === key ? '600' : '400', cursor: 'pointer', textAlign: 'left', borderRadius: '3px', fontFamily: '"Inter", sans-serif' }}>
-                {cfg.title}
-                {cfg.description.startsWith('DERIVED') && <span style={{ fontSize: '9px', color: '#f97316', marginLeft: '6px' }}>DERIVED</span>}
+                style={{ display: 'block', width: '100%', padding: '8px 10px', marginBottom: '4px', border: activeTab === key ? '1px solid #4dd0c4' : '1px solid #1e1e1e', background: activeTab === key ? 'rgba(77,208,196,0.1)' : 'transparent', color: activeTab === key ? '#4dd0c4' : 'rgba(255,255,255,0.75)', fontSize: '12px', fontWeight: activeTab === key ? '600' : '400', cursor: 'pointer', textAlign: 'left', borderRadius: '3px', fontFamily: '"Inter", sans-serif', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span>{cfg.title}</span>
+                {cfg.description.startsWith('DERIVED') && <span style={{ fontSize: '9px', color: 'rgba(255,255,255,0.28)', letterSpacing: '0.5px', fontStyle: 'italic', flexShrink: 0 }}>derived</span>}
               </button>
             ))}
             <div style={{ marginTop: '10px', padding: '8px', background: '#0d0d0d', border: '1px solid #1e1e1e', borderRadius: '3px' }}>
@@ -511,7 +548,7 @@ function LandingPage({ onNavigate, savedScrollY }) {
       </div>
 
       {/* ── HERO — full-bleed photo, text bottom-left ── */}
-      <div style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', height: '85vh', overflow: 'hidden' }}>
 
         {/* Photo fills the entire hero */}
         <div style={{
@@ -644,28 +681,30 @@ function LandingPage({ onNavigate, savedScrollY }) {
         </div>
       </div>
 
-      {/* ── SECOND IMAGE — full width, evocative ── */}
-      <div style={{ position: 'relative', height: '480px', overflow: 'hidden' }}>
+      {/* ── SECOND IMAGE — centered quote over working photo ── */}
+      <div style={{ position: 'relative', height: '400px', overflow: 'hidden' }}>
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'url(https://images.unsplash.com/photo-1559592413-7cbb5e31f4f0?w=1600&q=80)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600&q=80)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center 55%',
+          backgroundPosition: 'center 45%',
         }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(9,9,9,0.85) 0%, rgba(9,9,9,0.4) 50%, rgba(9,9,9,0.7) 100%)' }} />
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', padding: '0 56px' }}>
-          <div style={{ maxWidth: '520px' }}>
-            <p style={{ fontSize: 'clamp(20px, 2.5vw, 30px)', fontWeight: '400', color: 'white', lineHeight: '1.45', margin: '0 0 16px 0', fontStyle: 'italic', letterSpacing: '-0.3px', fontFamily: '"Georgia", serif' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(8,8,8,0.72)' }} />
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 10%' }}>
+          <div style={{ textAlign: 'center', maxWidth: '680px' }}>
+            <div style={{ fontSize: '13px', fontWeight: '700', color: 'rgba(255,255,255,0.3)', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif', marginBottom: '20px' }}>
+              Field Research · ILO/GSO Survey 2021
+            </div>
+            <p style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: '400', color: 'white', lineHeight: '1.45', margin: '0 0 20px 0', fontStyle: 'italic', letterSpacing: '-0.5px', fontFamily: '"Georgia", serif' }}>
               "My current job only meets about 50% of life's needs."
             </p>
-            <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Inter", sans-serif', margin: 0, lineHeight: '1.5' }}>
-              Male, 47 years old, selling tofu at Linh Nam market, Hanoi<br />
-              <span style={{ color: 'rgba(255,255,255,0.3)', fontStyle: 'italic' }}>ILO/GSO Survey on Informal Employment, 2021</span>
+            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Inter", sans-serif', margin: 0 }}>
+              Male, 47 years old · selling tofu at Linh Nam market, Hanoi
             </p>
           </div>
         </div>
-        <div style={{ position: 'absolute', bottom: '20px', right: '48px' }}>
-          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.2)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', margin: 0 }}>Rice agriculture, Vietnam · Unsplash</p>
+        <div style={{ position: 'absolute', bottom: '14px', right: '32px' }}>
+          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.18)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', margin: 0 }}>Street market, Vietnam · Unsplash</p>
         </div>
       </div>
 
