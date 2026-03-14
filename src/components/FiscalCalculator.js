@@ -430,6 +430,56 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
         </div>
       </div>
 
+      {/* WHY HASN'T VIETNAM CRACKED DOWN? */}
+      <div style={{ background: '#0f0f0f', borderTop: '1px solid #1f1f1f', padding: '56px 40px' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+          <div style={{ fontSize: '11px', fontWeight: '700', color: '#f97316', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px' }}>
+            The Harder Question
+          </div>
+          <h2 style={{ fontSize: 'clamp(22px, 2.8vw, 36px)', fontWeight: '400', color: 'white', margin: '0 0 16px 0', letterSpacing: '-0.5px', fontFamily: '"Georgia", serif', maxWidth: '700px', lineHeight: '1.2' }}>
+            If the fiscal math is so clear, why hasn't Vietnam simply cracked down?
+          </h2>
+          <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.75', margin: '0 0 36px 0', fontFamily: '"Inter", sans-serif', maxWidth: '660px' }}>
+            This is the question the revenue numbers alone don't answer. The informal economy persists not because governments are unaware of it, but because the political, institutional, and economic barriers to enforcement are formidable.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2px', background: '#1a1a1a', marginBottom: '32px' }}>
+            {[
+              {
+                title: 'The enforcement capacity gap',
+                body: "Vietnam's labor inspectorate has approximately one inspector per 50,000 workers — a ratio that makes systematic enforcement of formalization mandates physically impossible. Even if political will were unlimited, the inspectorate cannot audit 35.9M informal workers. Countries that successfully formalized large informal sectors (Brazil, South Korea) first built enforcement infrastructure over decades before deploying it.",
+                color: '#f97316',
+              },
+              {
+                title: 'Enforcement without protection harms workers',
+                body: "When Hanoi banned street vending in 2008, vendors didn't formalize — they relocated. Turner and Schoenberger's fieldwork documented vendors learning which police had fining authority and adapting their movements accordingly. Aggressive enforcement of formalization rules, without adequate alternative livelihoods or visible social protection benefits, simply impoverishes vulnerable workers rather than bringing them into the system.",
+                color: '#dc2626',
+              },
+              {
+                title: 'Informality partially substitutes for missing public goods',
+                body: "Vietnam's informal economy provides employment, income distribution, and economic resilience that the formal sector cannot yet fully supply. A sudden, enforced formalization — without the social protection, formal job creation, and wage premium growth to support it — would contract the economy and increase poverty. The informal economy is not a bug the government can simply patch; it is load-bearing infrastructure.",
+                color: '#7c3aed',
+              },
+              {
+                title: 'The political economy of small businesses',
+                body: "Vietnam has approximately 5.1 million household businesses — unregistered family enterprises that employ nearly 9 million people. These businesses are politically significant and economically essential, particularly in rural provinces. Aggressive enforcement against them carries real political costs. The 2024 Social Insurance Law reflects a more pragmatic approach: extend coverage through incentives and graduated mandates rather than punitive enforcement.",
+                color: '#1e6fa8',
+              },
+            ].map(({ title, body, color }) => (
+              <div key={title} style={{ background: '#111', padding: '28px 32px', borderTop: `2px solid ${color}` }}>
+                <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'white', margin: '0 0 12px 0', lineHeight: '1.3', fontFamily: '"Inter", sans-serif' }}>{title}</h3>
+                <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.75', margin: 0, fontFamily: '"Inter", sans-serif' }}>{body}</p>
+              </div>
+            ))}
+          </div>
+          <div style={{ padding: '20px 24px', background: 'rgba(77,208,196,0.06)', border: '1px solid rgba(77,208,196,0.2)', borderLeft: '3px solid #4dd0c4' }}>
+            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.75', margin: 0, fontFamily: '"Inter", sans-serif' }}>
+              <span style={{ color: '#4dd0c4', fontWeight: '700' }}>The implication: </span>
+              the revenue numbers this model produces are an upper-bound estimate of what formalization <em>could</em> generate — not a prediction of what enforcement <em>would</em> produce. Durable fiscal gains require the structural conditions for formalization: visible social insurance benefits, rising formal wage premiums, simplified compliance, and trust between workers and the state. Those conditions take time to build. The slider above models the destination; Parts V and VI address how to get there.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* CAVEATS AND DATA NOTES */}
       <div style={{ background: '#0d0d0d', borderTop: '1px solid #1f1f1f', padding: '32px 40px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
@@ -448,9 +498,10 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
         <button onClick={() => onNavigate('vietnam2045')} style={{ background: 'none', border: '1px solid #222', color: 'rgba(255,255,255,0.4)', padding: '7px 14px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', fontFamily: '"Inter", sans-serif' }}>
           ← Part III: Vietnam 2045
         </button>
-        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.12)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-          ECON 62 · Topics in Macroeconomics · Winter 2026
-        </p>
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.12)', margin: '0 0 2px 0', fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
+          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.08)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Designed and Built by Miel Wewerka · Dartmouth College</p>
+        </div>
         <button onClick={() => onNavigate('case-studies')} style={{ background: '#4dd0c4', color: '#0f0f0f', border: 'none', padding: '7px 18px', fontSize: '12px', fontWeight: '700', cursor: 'pointer', fontFamily: '"Inter", sans-serif' }}>
           Part V: Case Studies →
         </button>
