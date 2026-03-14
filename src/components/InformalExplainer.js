@@ -1,6 +1,6 @@
 // ========================================
 // PART I — WHAT IS THE INFORMAL ECONOMY?
-// Dark hero (coconut.avif) + light editorial body
+// Dark hero (coconut.) + light editorial body
 // Merges old Growth Lab aesthetic with new hero
 // ========================================
 
@@ -116,7 +116,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
         <span style={{ fontSize: '13px', color: '#999', fontFamily: '"Inter", sans-serif' }}>Part I: What Is the Informal Economy?</span>
       </nav>
 
-      {/* ── HERO — coconut.avif, vertically centered, stats in-view ── */}
+      {/* ── HERO — coconut., vertically centered, stats in-view ── */}
       <div style={{ position: 'relative', height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/coconut.avif)', backgroundSize: 'cover', backgroundPosition: 'center 45%' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(13,13,13,0.5) 0%, rgba(13,13,13,0.7) 55%, rgba(13,13,13,0.95) 100%)' }} />
@@ -260,7 +260,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 statContext: 'of agricultural workers are informal',
                 body: 'Self-employed individuals and contributing family members, predominantly in rice and coffee agriculture. This category has near-universal informality not because of enforcement failure, but because the nature of the work is structurally incompatible with conventional social insurance. Smallholder subsistence farming does not produce a wage. Family fishing operations do not generate payroll records. There is no employer to deduct contributions from. These workers will formalize when structural economic transformation moves them into manufacturing and services — not because a government campaign tells them to register. Policy cannot compel it. This is the category that makes Vietnam\'s aggregate informality rate so high, and it is also the category where registration campaigns are least effective.',
                 note: 'Source: GSO/ILO, 2021',
-                img: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/ag1.avif,
+                img: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/ag1.avif',
                 imgAlt: 'Agricultural workers — rice paddies and smallholder farming',
               },
             ].map(({ num, accent, title, stat, statContext, body: typeBody, note, img, imgAlt }, i) => (
@@ -441,7 +441,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
               </div>
               <div style={{ paddingTop: '48px' }}>
                 <PhotoBlock
-                  src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/pole.avif"
+                  src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/pole."
                   caption="A street food vendor. The shoulder pole remains the entry-level capital investment for millions of informal traders."
                   credit="Unsplash"
                   height="340px"
