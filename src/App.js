@@ -603,7 +603,7 @@ function LandingPage({ onNavigate, savedScrollY }) {
               maxWidth: '520px',
             }}>
               68.5% of Vietnam's workers operate without social insurance, contracts, or safety nets —
-              and their exclusion is the central constraint on Vietnam's 2045 ambition.
+              and their exclusion is the central constraint on Vietnam's fiscal ambitions.
             </p>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
               <button onClick={() => onNavigate('informal-explainer')} style={{ background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none', padding: '12px 28px', fontSize: '13px', fontWeight: '700', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
@@ -685,21 +685,17 @@ function LandingPage({ onNavigate, savedScrollY }) {
       <div style={{ position: 'relative', height: '400px', overflow: 'hidden' }}>
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'url(https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600&q=80)',
+          backgroundImage: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/sprouts.avif',
           backgroundSize: 'cover',
           backgroundPosition: 'center 45%',
         }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(8,8,8,0.72)' }} />
-        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 10%' }}>
-          <div style={{ textAlign: 'center', maxWidth: '680px' }}>
-            <div style={{ fontSize: '13px', fontWeight: '700', color: 'rgba(255,255,255,0.3)', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif', marginBottom: '20px' }}>
-              Field Research · ILO/GSO Survey 2021
+    
             </div>
             <p style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: '400', color: 'white', lineHeight: '1.45', margin: '0 0 20px 0', fontStyle: 'italic', letterSpacing: '-0.5px', fontFamily: '"Georgia", serif' }}>
               "My current job only meets about 50% of life's needs."
             </p>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Inter", sans-serif', margin: 0 }}>
-              Male, 47 years old · selling tofu at Linh Nam market, Hanoi
+              Female, 40 years old · selling at Linh Nam market, Hanoi
             </p>
           </div>
         </div>
