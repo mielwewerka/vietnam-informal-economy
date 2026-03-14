@@ -263,7 +263,7 @@ export default function ExecutiveSummary({ onBack, onNavigate }) {
                 and its consequences for Vietnam's 2045 high-income development agenda.
               </p>
               <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.3)', fontFamily: '"Inter", sans-serif', margin: 0, lineHeight: '1.6' }}>
-                Miel Wewerka · Dartmouth College · Submitted in partial fulfillment of ECON 62
+                Miel Wewerka · Dartmouth College · Culminating Project of ECON 62
               </p>
             </div>
           </header>
@@ -433,7 +433,7 @@ export default function ExecutiveSummary({ onBack, onNavigate }) {
               <Fade>
                 <div style={{ width: '28px', height: '1px', background: `rgba(77,208,196,0.4)`, margin: '0 auto 40px' }} />
                 <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.45)', lineHeight: '2.0', margin: '0 0 40px 0', fontStyle: 'italic' }}>
-                  This project is dedicated with gratitude to the guidance of Professor Levin, the wisdom of Ms. Amy Moore, and the joy in learning of Professor Finkel. Thank you to the Dartmouth department of Economics for an amazing, challenging, and growth-filled four years. Learning enterprise forever.
+                  This project is dedicated with gratitude to the guidance of Professor Levin, the wisdom of Ms. Amy Moore, and the love for learning cultivated by Professor Finkel. Thank you to the Dartmouth department of Economics for an amazing, challenging, and growth-filled four years. We are a learning enterprise forever.
                 </p>
                 <div style={{ width: '28px', height: '1px', background: `rgba(77,208,196,0.4)`, margin: '0 auto' }} />
               </Fade>
