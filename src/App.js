@@ -576,12 +576,12 @@ function LandingPage({ onNavigate, savedScrollY }) {
 
         {/* Centered layout: text left, 2x2 stats right */}
         <div style={{
-          position: 'relative', zIndex: 2, width: '100%', padding: '0 56px',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '48px',
+          position: 'relative', zIndex: 2, width: '100%', padding: '0 80px 0 96px',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '56px',
         }}>
 
           {/* Left: title + deck + CTAs */}
-          <div style={{ maxWidth: '580px' }}>
+          <div style={{ maxWidth: '560px' }}>
             <h1 style={{ fontSize: 'clamp(56px, 7.5vw, 100px)', fontWeight: '400', lineHeight: '1.0', margin: '0 0 24px 0', letterSpacing: '-2.5px', color: 'white' }}>
               Vietnam's<br />Invisible<br />Workforce
             </h1>
@@ -600,18 +600,18 @@ function LandingPage({ onNavigate, savedScrollY }) {
             </div>
           </div>
 
-          {/* Right: 2x2 stat grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'rgba(255,255,255,0.08)', flexShrink: 0, width: '380px' }}>
+          {/* Right: 2x2 stat grid — bigger numbers, pushed in from edge */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'rgba(255,255,255,0.06)', flexShrink: 0, width: '420px', marginRight: '24px' }}>
             {[
               { stat: '68.5%', label: 'informally employed', source: 'GSO/ILO 2021' },
               { stat: '33.6M', label: 'outside the formal economy', source: 'GSO/ILO 2021' },
               { stat: '16.8%', label: 'tax-to-GDP ratio', source: 'OECD 2023' },
               { stat: '2045', label: 'high-income target year', source: 'Res. 29/NQ-TW' },
             ].map(({ stat, label, source }) => (
-              <div key={stat} style={{ background: 'rgba(10,10,10,0.75)', padding: '24px 22px', backdropFilter: 'blur(4px)' }}>
-                <div style={{ fontSize: 'clamp(22px, 2.2vw, 30px)', fontWeight: '300', color: 'white', lineHeight: 1, letterSpacing: '-0.5px', marginBottom: '7px', fontFamily: '"Georgia", serif' }}>{stat}</div>
-                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.35', fontFamily: '"Inter", sans-serif', marginBottom: '3px' }}>{label}</div>
-                <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
+              <div key={stat} style={{ background: 'rgba(10,10,10,0.8)', padding: '28px 24px', backdropFilter: 'blur(4px)' }}>
+                <div style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: '300', color: 'white', lineHeight: 1, letterSpacing: '-1px', marginBottom: '9px', fontFamily: '"Georgia", serif' }}>{stat}</div>
+                <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.35', fontFamily: '"Inter", sans-serif', marginBottom: '4px' }}>{label}</div>
+                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
               </div>
             ))}
           </div>
@@ -631,7 +631,7 @@ function LandingPage({ onNavigate, savedScrollY }) {
       <div style={{ background: '#0a0a0a', padding: '80px 56px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: '#1a1a1a' }}>
           <div style={{ background: '#0f0f0f', padding: '40px' }}>
-            <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
+            <div style={{ fontSize: '12px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
             <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.8', margin: '0 0 16px 0', fontFamily: '"Inter", sans-serif' }}>
               This project examines Vietnam's informal economy — the 68.5% of workers who operate outside formal employment — and what it means for the country's ability to fund its 2045 development ambitions. It is structured as a six-part argument built on GSO/ILO data, ILO household business surveys, OECD fiscal data, and comparative evidence from Chile and South Korea.
             </p>
@@ -640,7 +640,7 @@ function LandingPage({ onNavigate, savedScrollY }) {
             </p>
           </div>
           <div style={{ background: '#111', padding: '40px', borderLeft: `4px solid ${TEAL}` }}>
-            <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '18px', fontFamily: '"Inter", sans-serif' }}>The Central Question</div>
+            <div style={{ fontSize: '12px', fontWeight: '700', color: TEAL, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '18px', fontFamily: '"Inter", sans-serif' }}>The Central Question</div>
             <p style={{ fontSize: 'clamp(18px, 2vw, 24px)', color: 'white', lineHeight: '1.45', margin: '0 0 18px 0', letterSpacing: '-0.3px', fontStyle: 'italic', fontWeight: '400' }}>
               Can Vietnam reach high-income status by 2045 when two-thirds of its workers fall outside the formal tax system?
             </p>
@@ -673,17 +673,17 @@ function LandingPage({ onNavigate, savedScrollY }) {
           position: 'absolute', inset: 0,
           backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/sprouts.avif)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center 50%',
+          backgroundPosition: 'center 25%',
         }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(8,8,8,0.70)' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(8,8,8,0.68)' }} />
         <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 10%' }}>
           <div style={{ textAlign: 'center', maxWidth: '680px' }}>
             <p style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: '400', color: 'white', lineHeight: '1.45', margin: '0 0 20px 0', fontStyle: 'italic', letterSpacing: '-0.5px', fontFamily: '"Georgia", serif' }}>
               "My current job only meets about 50% of life's needs."
             </p>
-            <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Inter", sans-serif', margin: 0 }}>
+            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', fontFamily: '"Inter", sans-serif', margin: 0 }}>
               Female, 40 years old · selling at Linh Nam market, Hanoi
-              <span style={{ display: 'block', fontSize: '11px', color: 'rgba(255,255,255,0.25)', marginTop: '4px', fontStyle: 'italic' }}>ILO/GSO Survey on Informal Employment, 2021</span>
+              <span style={{ display: 'block', fontSize: '12px', color: 'rgba(255,255,255,0.28)', marginTop: '5px', fontStyle: 'italic' }}>ILO/GSO Survey on Informal Employment, 2021</span>
             </p>
           </div>
         </div>
@@ -693,23 +693,23 @@ function LandingPage({ onNavigate, savedScrollY }) {
       <div style={{ background: '#090909', borderTop: '1px solid #1a1a1a', padding: '56px 56px 72px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '16px', marginBottom: '32px' }}>
-            <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>The Argument in Six Parts</div>
+            <div style={{ fontSize: '12px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>The Argument in Six Parts</div>
             <div style={{ flex: 1, height: '1px', background: '#1a1a1a' }} />
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2px', background: '#1a1a1a' }}>
             {chapters.map(c => (
               <div key={c.num} onClick={() => onNavigate(c.page)}
-                style={{ background: '#0f0f0f', padding: '28px 30px', cursor: 'pointer', borderTop: `3px solid ${c.color}`, transition: 'background 0.2s', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '200px' }}
+                style={{ background: '#0f0f0f', padding: '34px 36px', cursor: 'pointer', borderTop: `3px solid ${c.color}`, transition: 'background 0.2s', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '240px' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#141414'}
                 onMouseLeave={e => e.currentTarget.style.background = '#0f0f0f'}>
                 <div>
-                  <span style={{ fontSize: '10px', fontWeight: '700', color: c.color, fontFamily: '"Inter", sans-serif', letterSpacing: '1.5px' }}>PART {c.num}</span>
-                  <h3 style={{ fontSize: '19px', fontWeight: '400', color: 'white', margin: '8px 0 4px', letterSpacing: '-0.3px', lineHeight: '1.2' }}>{c.title}</h3>
-                  <p style={{ fontSize: '12px', color: c.color, fontFamily: '"Inter", sans-serif', fontWeight: '500', margin: '0 0 12px 0', opacity: 0.85 }}>{c.subtitle}</p>
-                  <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.65', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif' }}>{c.body}</p>
+                  <span style={{ fontSize: '11px', fontWeight: '700', color: c.color, fontFamily: '"Inter", sans-serif', letterSpacing: '1.5px' }}>PART {c.num}</span>
+                  <h3 style={{ fontSize: '21px', fontWeight: '400', color: 'white', margin: '10px 0 6px', letterSpacing: '-0.3px', lineHeight: '1.2' }}>{c.title}</h3>
+                  <p style={{ fontSize: '13px', color: c.color, fontFamily: '"Inter", sans-serif', fontWeight: '500', margin: '0 0 14px 0', opacity: 0.85 }}>{c.subtitle}</p>
+                  <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.48)', lineHeight: '1.68', margin: '0 0 22px 0', fontFamily: '"Inter", sans-serif' }}>{c.body}</p>
                 </div>
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '14px' }}>
-                  <span style={{ background: c.color, color: 'white', fontSize: '10px', fontWeight: '700', letterSpacing: '1px', padding: '4px 10px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>Read Part {c.num} →</span>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: '16px' }}>
+                  <span style={{ background: c.color, color: 'white', fontSize: '11px', fontWeight: '700', letterSpacing: '1px', padding: '5px 12px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>Read Part {c.num} →</span>
                 </div>
               </div>
             ))}
@@ -719,9 +719,9 @@ function LandingPage({ onNavigate, savedScrollY }) {
 
       {/* Footer */}
       <div style={{ background: '#070707', borderTop: '1px solid #141414', padding: '24px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
-        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.18)', margin: 0, fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
-        <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.12)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Designed and Built by Miel Wewerka · Dartmouth College</p>
-        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.14)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Data: GSO/ILO 2021 · OECD 2025 · World Bank · ILO/VIDERI 2024</p>
+        <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.25)', margin: 0, fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
+        <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.18)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Designed and Built by Miel Wewerka · Dartmouth College</p>
+        <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.2)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Data: GSO/ILO 2021 · OECD 2025 · World Bank · ILO/VIDERI 2024</p>
       </div>
     </div>
   );
