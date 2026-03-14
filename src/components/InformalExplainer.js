@@ -233,12 +233,12 @@ export default function InformalExplainer({ onBack, onNavigate }) {
               {
                 num: '01',
                 accent: TEAL,
-                title: 'The Informal Sector',
+                title: 'The General Informal Sector',
                 stat: '~49%',
                 statContext: 'of total employment',
                 body: 'Workers in unregistered household businesses: street vendors, market traders, small-scale agriculture, roadside repair shops. These enterprises operate entirely outside the formal business registry. They generate real income and real output. They contribute nothing to the tax base, and receive nothing from the social protection system. The woman selling bun bo Hue from a cart she has pushed to the same corner for fifteen years is in this category. So is the family that harvests rice on land they own but never registered. The 2008 Hanoi street vendor ban was aimed at this group. It drove them to adjacent streets rather than into the formal economy.',
                 note: 'Source: ILO, Informal Employment in Viet Nam, 2021',
-                img: 'IMAGE_01_URL',
+                img: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/fish.avif',
                 imgAlt: 'Informal sector — street vendors and unregistered household businesses',
               },
               {
@@ -249,7 +249,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 statContext: 'of workers at registered enterprises',
                 body: 'Workers employed by registered, taxpaying enterprises — but without a formal employment contract, without social insurance enrollment, or both. This is the most policy-relevant category, because these workers are already inside the formal economy in one sense: they work for a legitimate company. They have been excluded from protections by cost or administrative complexity rather than structural barriers. It includes garment factory piece workers paid per completed unit with no contract, construction subcontractors hired through brokers, and domestic workers employed by households that are formally registered as businesses. The formal sector is larger than it looks. The informal workforce inside it is too.',
                 note: 'Source: ILO, Informal Employment in Viet Nam, 2021',
-                img: 'IMAGE_02_URL',
+                img: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/stool.avif',
                 imgAlt: 'Informal employment in formal firms — factory and construction workers',
               },
               {
@@ -260,7 +260,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 statContext: 'of agricultural workers are informal',
                 body: 'Self-employed individuals and contributing family members, predominantly in rice and coffee agriculture. This category has near-universal informality not because of enforcement failure, but because the nature of the work is structurally incompatible with conventional social insurance. Smallholder subsistence farming does not produce a wage. Family fishing operations do not generate payroll records. There is no employer to deduct contributions from. These workers will formalize when structural economic transformation moves them into manufacturing and services — not because a government campaign tells them to register. Policy cannot compel it. This is the category that makes Vietnam\'s aggregate informality rate so high, and it is also the category where registration campaigns are least effective.',
                 note: 'Source: GSO/ILO, 2021',
-                img: 'IMAGE_03_URL',
+                img: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/water.avif',
                 imgAlt: 'Agricultural workers — rice paddies and smallholder farming',
               },
             ].map(({ num, accent, title, stat, statContext, body: typeBody, note, img, imgAlt }, i) => (
@@ -357,7 +357,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
       <div style={{ background: '#111' }}>
         <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
           <PhotoBlock
-            src="https://images.unsplash.com/photo-1559592413-7cbb5e31f4f0?w=1400&q=80"
+            src="https://github.com/mielwewerka/vietnam-informal-economy/blob/main/farm.jpeg?raw=true"
             caption="Rice paddy agriculture, Vietnam. Nearly all agricultural workers, 97.9%, are informally employed. No contracts, no social insurance, no safety net beyond the land itself. Source: GSO/ILO 2021."
             credit="Unsplash"
             height="440px"
@@ -441,8 +441,8 @@ export default function InformalExplainer({ onBack, onNavigate }) {
               </div>
               <div style={{ paddingTop: '48px' }}>
                 <PhotoBlock
-                  src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80"
-                  caption="A street food vendor. The shoulder pole remains the entry-level capital investment for millions of informal traders. Flexibility, not inefficiency, explains its persistence."
+                  src="https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/pole.avif"
+                  caption="A street food vendor. The shoulder pole remains the entry-level capital investment for millions of informal traders."
                   credit="Unsplash"
                   height="340px"
                   position="center"
