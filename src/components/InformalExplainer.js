@@ -249,7 +249,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 statContext: 'of workers at registered enterprises',
                 body: 'Workers employed by registered, taxpaying enterprises — but without a formal employment contract, without social insurance enrollment, or both. This is the most policy-relevant category, because these workers are already inside the formal economy in one sense: they work for a legitimate company. They have been excluded from protections by cost or administrative complexity rather than structural barriers. It includes garment factory piece workers paid per completed unit with no contract, construction subcontractors hired through brokers, and domestic workers employed by households that are formally registered as businesses. The formal sector is larger than it looks. The informal workforce inside it is too.',
                 note: 'Source: ILO, Informal Employment in Viet Nam, 2021',
-                img: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/jit.avif,
+                img: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/jit.avif',
                 imgAlt: 'Informal employment in formal firms — factory and construction workers',
               },
               {
