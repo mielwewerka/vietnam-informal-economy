@@ -713,6 +713,16 @@ function LandingPage({ onNavigate, savedScrollY }) {
         </div>
       </div>
 
+{/* DEDICATION */}
+      <div style={{ background: '#111', borderTop: '1px solid #1a1a1a', padding: '72px 48px' }}>
+        <div style={{ maxWidth: '620px', margin: '0 auto', textAlign: 'center' }}>
+          <div style={{ width: '28px', height: '1px', background: 'rgba(77,208,196,0.4)', margin: '0 auto 40px' }} />
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.45)', lineHeight: '2.0', margin: '0 0 40px 0', fontStyle: 'italic', fontFamily: '"Georgia", "Times New Roman", serif' }}>
+            This project is dedicated with gratitude to the guidance of Professor Levin, the wisdom of Ms. Amy Moore, and the love for learning cultivated by Professor Finkel. Thank you to the Dartmouth department of Economics for an amazing, challenging, and growth-filled four years. We are a learning enterprise forever.
+          </p>
+          <div style={{ width: '28px', height: '1px', background: 'rgba(77,208,196,0.4)', margin: '0 auto' }} />
+        </div>
+      </div>
       {/* Footer */}
       <div style={{ background: '#070707', borderTop: '1px solid #141414', padding: '24px 56px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
         <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.25)', margin: 0, fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
