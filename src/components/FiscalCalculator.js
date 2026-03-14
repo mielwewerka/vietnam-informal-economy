@@ -140,11 +140,11 @@ function ModelExplainer() {
               <div key={term} style={{ background: '#111', padding: '18px 22px', borderLeft: '2px solid #1f1f1f' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '24px', alignItems: 'start' }}>
                   <div>
-                    <div style={{ fontSize: '13px', fontWeight: '700', color: '#4dd0c4', marginBottom: '4px', fontFamily: '"Inter", sans-serif' }}>{term}</div>
+                    <div style={{ fontSize: '14px', fontWeight: '700', color: '#4dd0c4', marginBottom: '4px', fontFamily: '"Inter", sans-serif' }}>{term}</div>
                     <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', lineHeight: '1.5' }}>{calc}</div>
                   </div>
                   <div>
-                    <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.75', margin: '0 0 6px 0', fontFamily: '"Inter", sans-serif' }}>{plain}</p>
+                    <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.75', margin: '0 0 6px 0', fontFamily: '"Inter", sans-serif' }}>{plain}</p>
                     <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.18)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>Source: {source}</div>
                   </div>
                 </div>
@@ -205,7 +205,7 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
             <h1 style={{ fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: '400', margin: '0 0 24px 0', letterSpacing: '-1.5px', lineHeight: 1.05, fontFamily: '"Georgia", "Times New Roman", serif' }}>
               The Policy Model:<br />What Formalization<br />Would Actually Mean
             </h1>
-            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: '0 0 32px 0' }}>
+            <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.8', margin: '0 0 32px 0' }}>
               Vietnam's informal economy represents a structural gap in the fiscal base. This model estimates the additional revenue that would flow if a share of informal workers entered the formal system, across social insurance, personal income tax, and VAT. The slider below is the argument made quantitative.
             </p>
             <div style={{ display: 'flex', gap: '1px', background: '#1a1a1a', maxWidth: '480px' }}>
@@ -263,7 +263,7 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
           ].map(([val, label]) => (
             <div key={label} style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
               <span style={{ fontSize: '14px', fontWeight: '700', color: '#4dd0c4' }}>{val}</span>
-              <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.3px' }}>{label}</span>
+              <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)', letterSpacing: '0.3px' }}>{label}</span>
             </div>
           ))}
           <div style={{ marginLeft: 'auto', fontSize: '11px', color: 'rgba(255,255,255,0.2)' }}>Sources: GSO/ILO 2021 · World Bank · ILO 2024 · OECD 2025</div>
@@ -278,7 +278,7 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '16px' }}>
             <div>
               <div style={{ fontSize: '11px', fontWeight: '700', color: '#4dd0c4', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px' }}>Formalization Rate</div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)' }}>
+              <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)' }}>
                 What share of informal workers transition to formal employment?
               </div>
             </div>
@@ -365,10 +365,10 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
                 <div key={label}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '8px' }}>
                     <div>
-                      <span style={{ fontSize: '14px', fontWeight: '600', color: 'white' }}>{label}</span>
-                      <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.3)', marginLeft: '12px' }}>{description}</span>
+                      <span style={{ fontSize: '15px', fontWeight: '600', color: 'white' }}>{label}</span>
+                      <span style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', marginLeft: '12px' }}>{description}</span>
                     </div>
-                    <span style={{ fontSize: '18px', fontWeight: '300', color, fontFamily: '"Georgia", "Times New Roman", serif', letterSpacing: '-0.5px' }}>${value.toFixed(1)}B</span>
+                    <span style={{ fontSize: '19px', fontWeight: '300', color, fontFamily: '"Georgia", "Times New Roman", serif', letterSpacing: '-0.5px' }}>${value.toFixed(1)}B</span>
                   </div>
                   <div style={{ height: '6px', background: '#1f1f1f', borderRadius: '3px', overflow: 'hidden' }}>
                     <div style={{ height: '100%', width: `${barPct}%`, background: color, borderRadius: '3px', transition: 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }} />
@@ -414,8 +414,8 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
                 opacity: contextInView ? 1 : 0, transform: contextInView ? 'none' : 'translateY(16px)',
                 transition: 'all 0.6s ease'
               }}>
-                <h3 style={{ fontSize: '16px', fontWeight: '600', color: 'white', margin: '0 0 12px 0', lineHeight: '1.3' }}>{title}</h3>
-                <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.75', margin: '0 0 12px 0' }}>{body}</p>
+                <h3 style={{ fontSize: '17px', fontWeight: '600', color: 'white', margin: '0 0 12px 0', lineHeight: '1.3' }}>{title}</h3>
+                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.75', margin: '0 0 12px 0' }}>{body}</p>
                 {link && (
                   <button
                     onClick={() => onNavigate(link)}
@@ -466,8 +466,8 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
               },
             ].map(({ title, body, color }) => (
               <div key={title} style={{ background: '#111', padding: '28px 32px', borderTop: `2px solid ${color}` }}>
-                <h3 style={{ fontSize: '15px', fontWeight: '700', color: 'white', margin: '0 0 12px 0', lineHeight: '1.3', fontFamily: '"Inter", sans-serif' }}>{title}</h3>
-                <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.75', margin: 0, fontFamily: '"Inter", sans-serif' }}>{body}</p>
+                <h3 style={{ fontSize: '16px', fontWeight: '700', color: 'white', margin: '0 0 12px 0', lineHeight: '1.3', fontFamily: '"Inter", sans-serif' }}>{title}</h3>
+                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', lineHeight: '1.75', margin: 0, fontFamily: '"Inter", sans-serif' }}>{body}</p>
               </div>
             ))}
           </div>
