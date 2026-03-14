@@ -547,10 +547,10 @@ function LandingPage({ onNavigate, savedScrollY }) {
         </div>
       </div>
 
-      {/* ── HERO — full-bleed photo, text bottom-left ── */}
-      <div style={{ position: 'relative', height: '85vh', overflow: 'hidden' }}>
+      {/* ── HERO — full-bleed photo, vertically centered, 2x2 stats right ── */}
+      <div style={{ position: 'relative', height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center' }}>
 
-        {/* Photo fills the entire hero */}
+        {/* Photo */}
         <div style={{
           position: 'absolute', inset: 0,
           backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/main/vietnam-street.jpg)',
@@ -558,85 +558,71 @@ function LandingPage({ onNavigate, savedScrollY }) {
           backgroundPosition: 'center 40%',
         }} />
 
-        {/* Gradient — heavier at bottom-left where text sits, lighter at top-right */}
+        {/* Gradient */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(135deg, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.72) 40%, rgba(8,8,8,0.35) 70%, rgba(8,8,8,0.5) 100%)',
+          background: 'linear-gradient(to right, rgba(8,8,8,0.90) 0%, rgba(8,8,8,0.70) 45%, rgba(8,8,8,0.45) 70%, rgba(8,8,8,0.60) 100%)',
         }} />
 
-        {/* Teal top accent line */}
+        {/* Teal accent top */}
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(90deg, ${TEAL}, rgba(0,137,123,0.2))`, zIndex: 2 }} />
 
-        {/* Course label — top left */}
+        {/* Course label top left */}
         <div style={{ position: 'absolute', top: '32px', left: '56px', zIndex: 2 }}>
-          <span style={{ fontSize: '10px', fontWeight: '700', color: 'rgba(255,255,255,0.35)', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
+          <span style={{ fontSize: '11px', fontWeight: '700', color: 'rgba(255,255,255,0.35)', letterSpacing: '3px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
             ECON 62 · Topics in Macroeconomics · Winter 2026
           </span>
         </div>
 
-        {/* Main text — bottom left, generous padding */}
+        {/* Centered layout: text left, 2x2 stats right */}
         <div style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0,
-          padding: '0 56px 64px',
-          zIndex: 2,
-          display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '48px',
+          position: 'relative', zIndex: 2, width: '100%', padding: '0 56px',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '48px',
         }}>
+
           {/* Left: title + deck + CTAs */}
-          <div style={{ maxWidth: '640px' }}>
-            <h1 style={{
-              fontSize: 'clamp(52px, 7vw, 96px)',
-              fontWeight: '400',
-              lineHeight: '1.0',
-              margin: '0 0 20px 0',
-              letterSpacing: '-2.5px',
-              color: 'white',
-            }}>
+          <div style={{ maxWidth: '580px' }}>
+            <h1 style={{ fontSize: 'clamp(56px, 7.5vw, 100px)', fontWeight: '400', lineHeight: '1.0', margin: '0 0 24px 0', letterSpacing: '-2.5px', color: 'white' }}>
               Vietnam's<br />Invisible<br />Workforce
             </h1>
-            <p style={{
-              fontSize: 'clamp(15px, 1.4vw, 18px)',
-              color: 'rgba(255,255,255,0.62)',
-              lineHeight: '1.7',
-              margin: '0 0 28px 0',
-              fontStyle: 'italic',
-              fontWeight: '400',
-              maxWidth: '520px',
-            }}>
-              68.5% of Vietnam's workers operate without social insurance, contracts, or safety nets —
-              and their exclusion is the central constraint on Vietnam's fiscal ambitions.
+            <p style={{ fontSize: 'clamp(16px, 1.6vw, 21px)', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7', margin: '0 0 32px 0', fontStyle: 'italic', fontWeight: '400', maxWidth: '500px' }}>
+              Vietnam is racing toward high-income status by 2045. It has the growth rate,
+              the political will, and the manufacturing base. What it does not have is a tax
+              base. 68.5% of its workers operate without social insurance, contracts, or safety nets.
             </p>
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <button onClick={() => onNavigate('informal-explainer')} style={{ background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none', padding: '12px 28px', fontSize: '13px', fontWeight: '700', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
-                Begin Reading →
+              <button onClick={() => onNavigate('informal-explainer')} style={{ background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none', padding: '13px 30px', fontSize: '14px', fontWeight: '700', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
+                Begin Reading
               </button>
-              <button onClick={() => onNavigate('exec-summary')} style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.3)', padding: '11px 22px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
+              <button onClick={() => onNavigate('exec-summary')} style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.3)', padding: '12px 22px', fontSize: '13px', fontWeight: '600', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
                 Executive Summary
               </button>
             </div>
           </div>
 
-          {/* Right: four key stats, clean and unobtrusive */}
-          <div style={{ display: 'flex', gap: '32px', flexShrink: 0, paddingBottom: '6px' }}>
+          {/* Right: 2x2 stat grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'rgba(255,255,255,0.08)', flexShrink: 0, width: '380px' }}>
             {[
               { stat: '68.5%', label: 'informally employed', source: 'GSO/ILO 2021' },
               { stat: '33.6M', label: 'outside the formal economy', source: 'GSO/ILO 2021' },
               { stat: '16.8%', label: 'tax-to-GDP ratio', source: 'OECD 2023' },
               { stat: '2045', label: 'high-income target year', source: 'Res. 29/NQ-TW' },
             ].map(({ stat, label, source }) => (
-              <div key={stat} style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '10px', minWidth: '90px' }}>
-                <div style={{ fontSize: 'clamp(18px, 2vw, 26px)', fontWeight: '300', color: 'white', lineHeight: 1, letterSpacing: '-0.5px', marginBottom: '5px', fontFamily: '"Georgia", serif' }}>{stat}</div>
-                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.35', fontFamily: '"Inter", sans-serif', marginBottom: '3px' }}>{label}</div>
-                <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
+              <div key={stat} style={{ background: 'rgba(10,10,10,0.75)', padding: '24px 22px', backdropFilter: 'blur(4px)' }}>
+                <div style={{ fontSize: 'clamp(22px, 2.2vw, 30px)', fontWeight: '300', color: 'white', lineHeight: 1, letterSpacing: '-0.5px', marginBottom: '7px', fontFamily: '"Georgia", serif' }}>{stat}</div>
+                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.35', fontFamily: '"Inter", sans-serif', marginBottom: '3px' }}>{label}</div>
+                <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Scroll indicator */}
-        <div style={{ position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '5px', zIndex: 3 }}>
+        <div style={{ position: 'absolute', bottom: '28px', left: '56px', display: 'flex', alignItems: 'center', gap: '8px', zIndex: 2 }}>
           <div style={{ animation: 'bounce 1.8s infinite' }}>
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 5.5l5.5 5.5 5.5-5.5" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2.5 5.5l5.5 5.5 5.5-5.5" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </div>
+          <span style={{ fontSize: '10px', color: 'rgba(255,255,255,0.18)', fontFamily: '"Inter", sans-serif', letterSpacing: '1.5px', textTransform: 'uppercase' }}>Scroll</span>
         </div>
         <style>{`@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}`}</style>
       </div>
@@ -646,7 +632,7 @@ function LandingPage({ onNavigate, savedScrollY }) {
         <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: '#1a1a1a' }}>
           <div style={{ background: '#0f0f0f', padding: '40px' }}>
             <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>About This Project</div>
-            <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.8', margin: '0 0 16px 0', fontFamily: '"Inter", sans-serif' }}>
+            <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.8', margin: '0 0 16px 0', fontFamily: '"Inter", sans-serif' }}>
               This project examines Vietnam's informal economy — the 68.5% of workers who operate outside formal employment — and what it means for the country's ability to fund its 2045 development ambitions. It is structured as a six-part argument built on GSO/ILO data, ILO household business surveys, OECD fiscal data, and comparative evidence from Chile and South Korea.
             </p>
             <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.8', margin: 0, fontFamily: '"Inter", sans-serif' }}>
@@ -681,26 +667,25 @@ function LandingPage({ onNavigate, savedScrollY }) {
         </div>
       </div>
 
-      {/* ── SECOND IMAGE — centered quote over working photo ── */}
+      {/* ── QUOTE IMAGE — sprouts background ── */}
       <div style={{ position: 'relative', height: '400px', overflow: 'hidden' }}>
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: 'https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/sprouts.avif',
+          backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/sprouts.avif)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center 45%',
+          backgroundPosition: 'center 50%',
         }} />
-    
-            </div>
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(8,8,8,0.70)' }} />
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0 10%' }}>
+          <div style={{ textAlign: 'center', maxWidth: '680px' }}>
             <p style={{ fontSize: 'clamp(22px, 3vw, 36px)', fontWeight: '400', color: 'white', lineHeight: '1.45', margin: '0 0 20px 0', fontStyle: 'italic', letterSpacing: '-0.5px', fontFamily: '"Georgia", serif' }}>
               "My current job only meets about 50% of life's needs."
             </p>
             <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.5)', fontFamily: '"Inter", sans-serif', margin: 0 }}>
               Female, 40 years old · selling at Linh Nam market, Hanoi
+              <span style={{ display: 'block', fontSize: '11px', color: 'rgba(255,255,255,0.25)', marginTop: '4px', fontStyle: 'italic' }}>ILO/GSO Survey on Informal Employment, 2021</span>
             </p>
           </div>
-        </div>
-        <div style={{ position: 'absolute', bottom: '14px', right: '32px' }}>
-          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.18)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', margin: 0 }}>Street market, Vietnam · Unsplash</p>
         </div>
       </div>
 
