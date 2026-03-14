@@ -79,6 +79,84 @@ function useInView(threshold = 0.2) {
   return [ref, inView];
 }
 
+// ── Model explainer — plain-English definitions ───────────────────────────
+function ModelExplainer() {
+  const [open, setOpen] = useState(false);
+
+  const terms = [
+    {
+      term: '~35.9M informal workers',
+      calc: '68.5% × 52.4M employed (GSO LFS 2023)',
+      plain: "This is the estimated number of workers outside the formal tax and social insurance system. It applies Vietnam's 2021 informality rate (68.5%, GSO/ILO ILO-aligned methodology including agriculture) to the 2023 total employed workforce of 52.4M. Because the two figures are from different years, this is an approximation. The 2021 rate is the most recent published figure under the current methodology.",
+      source: 'GSO/ILO 2021; GSO LFS 2023',
+    },
+    {
+      term: '$185/month avg informal wage',
+      calc: 'VND 4,454,700 ÷ ~24,000 VND/USD (2021 exchange rate)',
+      plain: "Average monthly earnings of informal workers in 2021 was VND 4.45M — roughly $185 at 2021 exchange rates. This is likely a conservative underestimate for 2023 given subsequent wage growth, so the model's revenue figures are on the low end. Note that 47% of informal workers earn below the regional minimum wage — the distribution is skewed upward by higher earners in construction and services.",
+      source: 'GSO/ILO 2021 Labor Force Survey',
+    },
+    {
+      term: '25% SI rate (2024 law, HHB owners)',
+      calc: '22% pension + 3% sickness and maternity = 25% self-financed',
+      plain: "Vietnam's 2024 Social Insurance Law requires household business owners to pay 25% of insurable earnings to cover pension (22%) and sickness/maternity (3%). This is the self-financed rate — HHB owners pay both the employer and employee share. The combined rate for wage employees is approximately 28% (employer + employee shares combined). The pre-2024 combined rate was approximately 32% and is no longer applicable. The model uses 25% as the relevant rate for the population most likely to formalize under current policy.",
+      source: 'Law on Social Insurance No. 41/2024/QH15; ILO/VIDERI 2024',
+    },
+    {
+      term: '3% effective PIT rate',
+      calc: 'Effective rate after personal exemptions and low-income thresholds',
+      plain: "Vietnam's personal income tax starts at 5% on taxable income above VND 11M/month. Most informal workers earn below this threshold — average informal wages (~VND 4.5M/month) fall below the personal deduction floor. The 3% figure is an estimate of actual revenue collected per dollar of informal wages if those workers became formally employed, accounting for family deductions and the large share with incomes below the filing threshold.",
+      source: 'GSO/ILO 2021; Vietnam PIT Law; World Bank Vietnam fiscal analysis',
+    },
+    {
+      term: '5% VAT pass-through',
+      calc: 'Estimated share of informal income generating collectible VAT',
+      plain: "This is not the VAT rate (10%) — it estimates how much of an informal worker's income, once formalized, generates actual VAT revenue. Much informal consumption falls in VAT-exempt categories (food, basic goods, smallholder agricultural products). The supply chain capture is also partial. The 5% figure is a conservative estimate consistent with World Bank models of informal economy fiscal integration in lower-middle-income economies.",
+      source: 'World Bank SEA informal economy fiscal analysis; IMF Vietnam Article IV 2024',
+    },
+  ];
+
+  return (
+    <div style={{ borderTop: '1px solid #1f1f1f', background: '#0a0a0a' }}>
+      <button onClick={() => setOpen(!open)} style={{ width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '16px 40px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4dd0c4', flexShrink: 0 }} />
+          <span style={{ fontSize: '11px', fontWeight: '700', color: 'rgba(255,255,255,0.45)', letterSpacing: '1.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
+            About This Model — What the assumptions mean in plain language
+          </span>
+        </div>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s', flexShrink: 0 }}>
+          <path d="M2.5 5l4.5 4.5L11.5 5" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+
+      {open && (
+        <div style={{ padding: '4px 40px 28px' }}>
+          <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.3)', lineHeight: '1.65', margin: '0 0 20px 0', fontFamily: '"Inter", sans-serif', maxWidth: '700px' }}>
+            Each figure in the assumptions strip corresponds to a specific methodological choice. Here is what each means, how it was derived, and where it comes from.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+            {terms.map(({ term, calc, plain, source }) => (
+              <div key={term} style={{ background: '#111', padding: '18px 22px', borderLeft: '2px solid #1f1f1f' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '24px', alignItems: 'start' }}>
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: '700', color: '#4dd0c4', marginBottom: '4px', fontFamily: '"Inter", sans-serif' }}>{term}</div>
+                    <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', lineHeight: '1.5' }}>{calc}</div>
+                  </div>
+                  <div>
+                    <p style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.75', margin: '0 0 6px 0', fontFamily: '"Inter", sans-serif' }}>{plain}</p>
+                    <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.18)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>Source: {source}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function FiscalCalculator({ onBack, onNavigate }) {
   const [formalizationPct, setFormalizationPct] = useState(25);
   const [headerRef, headerInView] = useInView(0.1);
@@ -301,6 +379,9 @@ export default function FiscalCalculator({ onBack, onNavigate }) {
           </div>
         </div>
       </div>
+
+      {/* MODEL EXPLAINER */}
+      <ModelExplainer />
 
       {/* CONTEXT SECTION */}
       <div ref={contextRef} style={{ background: '#111', borderTop: '1px solid #1f1f1f', padding: '60px 40px' }}>
