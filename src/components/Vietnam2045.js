@@ -362,7 +362,7 @@ export default function Vietnam2045({ onBack, onNavigate }) {
           </Fade>
 
           <Fade>
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '48px', marginBottom: '48px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '48px', marginBottom: '40px' }}>
               <div>
                 <p style={{ fontSize: '17px', color: '#333', lineHeight: '1.85', margin: '0 0 20px 0' }}>
                   The government has set an explicit formalization target: 60% social insurance coverage by 2030, up from approximately 38% today. This target, embedded in Resolution 28-NQ/TW, is the most direct and measurable formalization commitment in current policy. The 2024 Social Insurance Law provides the legal architecture to pursue it.
@@ -398,6 +398,41 @@ export default function Vietnam2045({ onBack, onNavigate }) {
                   </p>
                 </div>
               </div>
+            </div>
+          </Fade>
+
+          {/* ── EXHIBIT: Social insurance coverage gap ── */}
+          <Fade>
+            <div style={{ background: '#f5f3f0', border: '1px solid #e8e4e0', borderTop: `3px solid ${TEAL}`, padding: '32px 36px', marginBottom: '40px' }}>
+              <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '6px', fontFamily: '"Inter", sans-serif' }}>
+                Exhibit — Social Insurance Coverage Gap
+              </div>
+              <h4 style={{ fontSize: '17px', fontWeight: '400', margin: '0 0 24px 0', lineHeight: '1.3', letterSpacing: '-0.2px' }}>
+                Vietnam's 2030 target is ambitious — current enrollment among household businesses is nearly zero
+              </h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '2px', background: '#e8e4e0', marginBottom: '16px' }}>
+                {[
+                  { label: 'Vietnam HHB owners', value: 4, color: '#dc2626', note: 'ILO/VIDERI 2024' },
+                  { label: 'Vietnam all workers', value: 38, color: '#f97316', note: 'World Bank 2024' },
+                  { label: 'Vietnam 2030 target', value: 60, color: TEAL, note: 'Resolution 28' },
+                  { label: 'Chile (2021)', value: 72, color: '#1e6fa8', note: 'ILOSTAT' },
+                  { label: 'Korea (2019)', value: 73, color: '#7c3aed', note: 'ILOSTAT' },
+                ].map(({ label, value, color, note }) => (
+                  <div key={label} style={{ background: 'white', padding: '20px 16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'center', minHeight: '100px' }}>
+                      <div style={{ width: '100%', background: color + '18', position: 'relative', height: `${value * 1.3}px`, maxHeight: '110px', display: 'flex', alignItems: 'flex-end' }}>
+                        <div style={{ width: '100%', background: color, height: `${Math.min(value * 1.3, 110)}px` }} />
+                      </div>
+                    </div>
+                    <div style={{ fontSize: '24px', fontWeight: '300', color, lineHeight: 1, letterSpacing: '-0.5px', fontFamily: '"Georgia", serif', textAlign: 'center' }}>{value}%</div>
+                    <div style={{ fontSize: '11px', fontWeight: '600', color: '#333', lineHeight: '1.3', textAlign: 'center', fontFamily: '"Inter", sans-serif' }}>{label}</div>
+                    <div style={{ fontSize: '9px', color: '#bbb', textAlign: 'center', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{note}</div>
+                  </div>
+                ))}
+              </div>
+              <p style={{ fontSize: '12px', color: '#888', margin: 0, fontFamily: '"Inter", sans-serif', lineHeight: '1.6' }}>
+                The coverage gap between Vietnam's household businesses (4%) and its 2030 target (60%) is the operational challenge of the formalization agenda. Chile and Korea — the comparative cases in Part V — achieved 70%+ coverage. Vietnam's path there will require the legal framework, trust-building, and contribution rate reform analyzed in Parts IV and VI.
+              </p>
             </div>
           </Fade>
 
@@ -655,9 +690,10 @@ export default function Vietnam2045({ onBack, onNavigate }) {
         <button onClick={() => onNavigate('maps')} style={{ background: 'none', border: '1px solid #333', color: 'rgba(255,255,255,0.4)', padding: '7px 14px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', fontFamily: '"Inter", sans-serif' }}>
           ← Part II: Interactive Maps
         </button>
-        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-          ECON 62 · Topics in Macroeconomics · Winter 2026
-        </p>
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.2)', margin: '0 0 2px 0', fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
+          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.12)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Designed and Built by Miel Wewerka · Dartmouth College</p>
+        </div>
         <button onClick={() => onNavigate('fiscal')} style={{ background: '#4dd0c4', color: '#0f0f0f', border: 'none', padding: '7px 18px', fontSize: '12px', fontWeight: '700', cursor: 'pointer', fontFamily: '"Inter", sans-serif' }}>
           Part IV: Fiscal Calculator →
         </button>
