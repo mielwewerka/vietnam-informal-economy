@@ -421,9 +421,10 @@ export default function PolicyRecommendations({ onBack, onNavigate }) {
         <button onClick={() => onNavigate('case-studies')} style={{ background: 'none', border: '1px solid #222', color: 'rgba(255,255,255,0.4)', padding: '7px 14px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', fontFamily: '"Inter", sans-serif' }}>
           ← Part V: Case Studies
         </button>
-        <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.12)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-          ECON 62 · Topics in Macroeconomics · Winter 2026
-        </p>
+        <div style={{ textAlign: 'center' }}>
+          <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.12)', margin: '0 0 2px 0', fontFamily: '"Inter", sans-serif' }}>ECON 62 · Topics in Macroeconomics · Winter 2026</p>
+          <p style={{ fontSize: '10px', color: 'rgba(255,255,255,0.08)', margin: 0, fontFamily: '"Inter", sans-serif' }}>Designed and Built by Miel Wewerka · Dartmouth College</p>
+        </div>
         <button onClick={() => onNavigate('exec-summary')} style={{ background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none', padding: '7px 18px', fontSize: '12px', fontWeight: '700', cursor: 'pointer', fontFamily: '"Inter", sans-serif' }}>
           Executive Summary →
         </button>
