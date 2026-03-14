@@ -123,50 +123,50 @@ export default function InformalExplainer({ onBack, onNavigate }) {
         <span style={{ fontSize: '12px', color: 'rgba(255,255,255,0.4)', fontFamily: '"Inter", sans-serif' }}>Part I — What Is the Informal Economy?</span>
       </nav>
 
-      {/* ── HERO — full-bleed ── */}
-      <div style={{ position: 'relative', height: '92vh', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=1600&q=80)', backgroundSize: 'cover', backgroundPosition: 'center 45%' }} />
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,13,13,1) 0%, rgba(13,13,13,0.6) 40%, rgba(13,13,13,0.2) 100%)' }} />
+      {/* ── HERO — coconut.avif, vertically centered, stats visible ── */}
+      <div style={{ position: 'relative', height: '100vh', overflow: 'hidden', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(https://raw.githubusercontent.com/mielwewerka/vietnam-informal-economy/refs/heads/main/coconut.avif)', backgroundSize: 'cover', backgroundPosition: 'center 45%' }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(13,13,13,0.55) 0%, rgba(13,13,13,0.72) 50%, rgba(13,13,13,0.92) 100%)' }} />
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '3px', background: `linear-gradient(90deg, ${TEAL}, transparent)` }} />
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '0 56px 60px' }}>
+
+        {/* Vertically centered content */}
+        <div style={{ position: 'relative', padding: '0 56px', maxWidth: '860px' }}>
           <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '3px', textTransform: 'uppercase', marginBottom: '20px', fontFamily: '"Inter", sans-serif' }}>
             Part I · Vietnam Informal Economy
           </div>
-          <h1 style={{ fontSize: 'clamp(44px, 6vw, 80px)', fontWeight: '400', lineHeight: '1.0', margin: '0 0 20px 0', letterSpacing: '-2px', maxWidth: '800px' }}>
+          <h1 style={{ fontSize: 'clamp(44px, 6vw, 80px)', fontWeight: '400', lineHeight: '1.0', margin: '0 0 20px 0', letterSpacing: '-2px' }}>
             What does it mean<br />to work outside<br />the economy?
           </h1>
-          <p style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', color: 'rgba(255,255,255,0.65)', lineHeight: '1.65', margin: '0 0 36px 0', maxWidth: '540px', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', fontWeight: '400' }}>
-            68.5% of Vietnam's workers — 33.6 million people — operate without a contract,
+          <p style={{ fontSize: 'clamp(16px, 1.6vw, 20px)', color: 'rgba(255,255,255,0.65)', lineHeight: '1.65', margin: '0 0 32px 0', maxWidth: '540px', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', fontWeight: '400' }}>
+            68.5% of Vietnam's workers operate without a contract,
             without social insurance, and without legal protection. This is the informal economy.
           </p>
-          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginBottom: '48px' }}>
             <button onClick={() => onNavigate('maps')} style={{ background: TEAL_BRIGHT, color: '#0d0d0d', border: 'none', padding: '11px 24px', fontSize: '12px', fontWeight: '700', cursor: 'pointer', fontFamily: '"Inter", sans-serif', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              See it on the map →
+              See it on the map
             </button>
             <button onClick={() => onNavigate('fiscal')} style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.8)', border: '1px solid rgba(255,255,255,0.25)', padding: '10px 22px', fontSize: '12px', fontWeight: '600', cursor: 'pointer', fontFamily: '"Inter", sans-serif', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Model the fiscal gap
             </button>
           </div>
-        </div>
-      </div>
 
-      {/* ── STAT BANNER ── */}
-      <div style={{ background: '#111', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1px', background: 'rgba(255,255,255,0.05)' }}>
-          {[
-            { stat: '68.5', unit: '%', label: 'of workers informally employed', sub: 'GSO/ILO, 2021' },
-            { stat: '33.6', unit: 'M', label: 'informal workers nationwide', sub: 'GSO/ILO, 2021' },
-            { stat: '97.9', unit: '%', label: 'of agricultural workers informal', sub: 'GSO/ILO, 2021' },
-            { stat: '4', unit: '%', label: 'of HHB owners have social insurance', sub: 'ILO/VIDERI, 2024' },
-          ].map(({ stat, unit, label, sub }) => (
-            <div key={label} style={{ background: '#0d0d0d', padding: '28px 32px' }}>
-              <div style={{ fontSize: 'clamp(32px, 3.5vw, 48px)', fontWeight: '300', color: TEAL_BRIGHT, lineHeight: 1, marginBottom: '10px', letterSpacing: '-1px', fontFamily: '"Georgia", serif' }}>
-                <AnimatedStat value={stat} suffix={unit} />
+          {/* Stats visible in hero, 2x2 grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, auto)', gap: '32px' }}>
+            {[
+              { stat: '68.5', unit: '%', label: 'informally employed', sub: 'GSO/ILO, 2021' },
+              { stat: '33.6', unit: 'M', label: 'workers outside formal system', sub: 'GSO/ILO, 2021' },
+              { stat: '97.9', unit: '%', label: 'of agricultural workers informal', sub: 'GSO/ILO, 2021' },
+              { stat: '4', unit: '%', label: 'of HHB owners with insurance', sub: 'ILO/VIDERI, 2024' },
+            ].map(({ stat, unit, label, sub }) => (
+              <div key={label} style={{ borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: '10px' }}>
+                <div style={{ fontSize: 'clamp(22px, 2.8vw, 36px)', fontWeight: '300', color: TEAL_BRIGHT, lineHeight: 1, marginBottom: '6px', letterSpacing: '-0.5px', fontFamily: '"Georgia", serif' }}>
+                  <AnimatedStat value={stat} suffix={unit} />
+                </div>
+                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.35', fontFamily: '"Inter", sans-serif', marginBottom: '3px' }}>{label}</div>
+                <div style={{ fontSize: '9px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{sub}</div>
               </div>
-              <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.65)', lineHeight: '1.4', fontFamily: '"Inter", sans-serif', marginBottom: '4px' }}>{label}</div>
-              <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.22)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{sub}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
@@ -177,21 +177,21 @@ export default function InformalExplainer({ onBack, onNavigate }) {
             <div>
               <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '16px', fontFamily: '"Inter", sans-serif' }}>The Definition</div>
               <h2 style={{ fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: '400', lineHeight: '1.15', margin: '0 0 28px 0', letterSpacing: '-0.8px', color: 'white' }}>
-                Informal employment is a job characteristic — not just a type of business.
+                Informal employment is a job characteristic, not just a type of business.
               </h2>
               <div style={{ borderLeft: `3px solid ${TEAL}`, paddingLeft: '20px', marginBottom: '28px', background: 'rgba(0,137,123,0.06)', padding: '20px 24px', borderTop: '1px solid rgba(0,137,123,0.15)', borderRight: '1px solid rgba(0,137,123,0.1)', borderBottom: '1px solid rgba(0,137,123,0.1)' }}>
                 <p style={{ fontSize: '16px', fontWeight: '600', color: 'rgba(255,255,255,0.9)', margin: '0 0 10px 0', lineHeight: '1.45' }}>
                   An informally employed worker is one whose employment relationship is not legally recognized or protected.
                 </p>
                 <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.5)', margin: 0, fontFamily: '"Inter", sans-serif', lineHeight: '1.65' }}>
-                  This includes workers at unregistered businesses — but also workers at <em>registered</em> enterprises who have no contract, no social insurance, and no labor law protections.
+                  This includes workers at unregistered businesses, but also workers at <em>registered</em> enterprises who have no contract, no social insurance, and no labor law protections.
                 </p>
               </div>
               <p style={{ fontSize: '16px', lineHeight: '1.85', color: 'rgba(255,255,255,0.65)', margin: '0 0 16px 0', fontFamily: '"Inter", sans-serif' }}>
                 The ILO's definition, adopted by Vietnam in 2021, covers own-account workers, contributing family workers, employees without contracts, and workers in unregistered household enterprises.
               </p>
               <p style={{ fontSize: '16px', lineHeight: '1.85', color: 'rgba(255,255,255,0.65)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
-                Even workers at formally registered companies can be informally employed — approximately 13% of employees at registered private enterprises work without a contract or insurance. The gig economy is the clearest modern example: a Grab driver works for a registered platform but has no sick pay, no pension, no unemployment insurance. Under ILO definitions, they are informally employed.
+                Even workers at formally registered companies can be informally employed. Approximately 13% of employees at registered private enterprises work without a contract or insurance. The gig economy is the clearest modern example: a Grab driver works for a registered platform but has no sick pay, no pension, no unemployment insurance. Under ILO definitions, they are informally employed.
               </p>
             </div>
             {/* What it means in practice */}
@@ -202,7 +202,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 { yes: false, label: 'Social insurance contributions', detail: 'No pension, no maternity leave, no sick pay accumulating' },
                 { yes: false, label: 'Unemployment protection', detail: 'Loss of work means loss of income, immediately' },
                 { yes: false, label: 'Visibility to the tax authority', detail: 'Income earned, taxes uncollected' },
-                { yes: true, label: 'Daily income', detail: 'Earnings are real — sometimes more flexible than formal work' },
+                { yes: true, label: 'Daily income', detail: 'Earnings are real, sometimes more flexible than formal work' },
                 { yes: true, label: 'Contribution to GDP', detail: "Informal output is economically real, just unmeasured and untaxed" },
               ].map(({ yes, label, detail }) => (
                 <div key={label} style={{ display: 'flex', alignItems: 'flex-start', gap: '14px', padding: '14px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
@@ -221,50 +221,63 @@ export default function InformalExplainer({ onBack, onNavigate }) {
       </div>
 
       {/* ── THREE SECTOR TYPES ── */}
-      <div style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '72px 56px' }}>
+      <div style={{ background: '#f5f3f0', borderTop: '1px solid #e8e4e0', padding: '72px 56px' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <Fade>
-            <div style={{ marginBottom: '40px' }}>
-              <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>Three Types of Informal Employment</div>
-              <h2 style={{ fontSize: 'clamp(24px, 2.8vw, 38px)', fontWeight: '400', lineHeight: '1.2', margin: '0 0 14px 0', letterSpacing: '-0.8px', maxWidth: '680px' }}>
-                "Informal" is not one thing. It covers three structurally different situations — and each requires different policy.
+            <div style={{ marginBottom: '48px' }}>
+              <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>Three Types of Informal Employment</div>
+              <h2 style={{ fontSize: 'clamp(24px, 2.8vw, 38px)', fontWeight: '400', lineHeight: '1.2', margin: '0 0 14px 0', letterSpacing: '-0.8px', maxWidth: '680px', color: '#1a1a1a' }}>
+                "Informal" is not one thing. It covers three structurally different situations, and each requires different policy.
               </h2>
-              <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.7', margin: 0, fontFamily: '"Inter", sans-serif', maxWidth: '620px' }}>
+              <p style={{ fontSize: '15px', color: '#666', lineHeight: '1.7', margin: 0, fontFamily: '"Inter", sans-serif', maxWidth: '620px' }}>
                 Understanding this distinction matters enormously for policy. The street vendor and the contract-free factory worker are both "informal" under ILO definitions, but the interventions that might reach them are entirely different.
               </p>
             </div>
           </Fade>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2px' }}>
-            <SectorCard
-              number="01"
-              title="The Informal Sector"
-              pct="~49%"
-              pctLabel="of total employment"
-              accent={TEAL_BRIGHT}
-              photo="https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80"
-              photoPosition="center 30%"
-              body="Workers in unregistered household businesses: street vendors, market traders, small-scale agriculture, roadside repair shops. These enterprises operate entirely outside the formal business registry. They generate real income and real output — but contribute nothing to the tax base and receive nothing from the social protection system. The 2008 Hanoi street vendor ban was aimed at this category."
-            />
-            <SectorCard
-              number="02"
-              title="Informal Employment in Formal Firms"
-              pct="~13%"
-              pctLabel="of registered-firm employees"
-              accent="#f97316"
-              photo="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
-              photoPosition="center 40%"
-              body="Workers employed by registered, taxpaying enterprises — but without a formal employment contract, without social insurance enrollment, or both. This is the most policy-relevant category because these workers are in reach of the formal system but have been excluded by cost or complexity. It includes garment factory piece workers, construction subcontractors, and domestic workers employed by formal households."
-            />
-            <SectorCard
-              number="03"
-              title="Own-Account & Agricultural Workers"
-              pct="97.9%"
-              pctLabel="of agricultural workers informal"
-              accent="#7c3aed"
-              photo="https://images.unsplash.com/photo-1559592413-7cbb5e31f4f0?w=800&q=80"
-              photoPosition="center 50%"
-              body="Self-employed individuals and contributing family workers, predominantly in rice and coffee agriculture. This category has near-universal informality because the nature of the work — smallholder subsistence farming, family fishing operations — is incompatible with conventional social insurance structures. These workers will formalize when structural transformation moves them out of agriculture. Policy cannot compel it."
-            />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2px', background: '#e0dbd6' }}>
+            {[
+              {
+                num: '01', accent: TEAL,
+                photo: 'https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80',
+                photoPos: 'center 30%',
+                title: 'The Informal Sector',
+                stat: '~49%', statLabel: 'of total employment',
+                body: 'Workers in unregistered household businesses: street vendors, market traders, small-scale agriculture, roadside repair shops. These enterprises operate entirely outside the formal business registry. They generate real income and real output but contribute nothing to the tax base and receive nothing from the social protection system. The 2008 Hanoi street vendor ban was aimed at this category.',
+              },
+              {
+                num: '02', accent: '#f97316',
+                photo: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
+                photoPos: 'center 40%',
+                title: 'Informal Employment in Formal Firms',
+                stat: '~13%', statLabel: 'of registered-firm employees',
+                body: 'Workers employed by registered, taxpaying enterprises but without a formal employment contract, without social insurance enrollment, or both. This is the most policy-relevant category because these workers are within reach of the formal system but have been excluded by cost or complexity. It includes garment factory piece workers, construction subcontractors, and domestic workers.',
+              },
+              {
+                num: '03', accent: '#7c3aed',
+                photo: 'https://images.unsplash.com/photo-1559592413-7cbb5e31f4f0?w=800&q=80',
+                photoPos: 'center 50%',
+                title: 'Own-Account and Agricultural Workers',
+                stat: '97.9%', statLabel: 'of agricultural workers informal',
+                body: 'Self-employed individuals and contributing family workers, predominantly in rice and coffee agriculture. This category has near-universal informality because the nature of the work, smallholder subsistence farming and family fishing operations, is incompatible with conventional social insurance structures. These workers will formalize when structural transformation moves them out of agriculture. Policy cannot compel it.',
+              },
+            ].map(({ num, accent, photo, photoPos, title, stat, statLabel, body }) => (
+              <div key={num} style={{ background: 'white', overflow: 'hidden' }}>
+                <div style={{ height: '180px', backgroundImage: `url(${photo})`, backgroundSize: 'cover', backgroundPosition: photoPos, position: 'relative' }}>
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(255,255,255,0.9) 0%, transparent 50%)' }} />
+                  <div style={{ position: 'absolute', bottom: '12px', left: '20px' }}>
+                    <div style={{ fontSize: '10px', fontWeight: '700', color: accent, letterSpacing: '2px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif', marginBottom: '3px' }}>Type {num}</div>
+                    <div style={{ fontSize: '20px', fontWeight: '400', color: '#1a1a1a', letterSpacing: '-0.3px', fontFamily: '"Georgia", serif', lineHeight: 1.1 }}>{title}</div>
+                  </div>
+                </div>
+                <div style={{ padding: '20px 24px 28px', borderTop: `3px solid ${accent}` }}>
+                  <div style={{ marginBottom: '14px' }}>
+                    <span style={{ fontSize: '28px', fontWeight: '300', color: accent, fontFamily: '"Georgia", serif', letterSpacing: '-0.5px', lineHeight: 1 }}>{stat}</span>
+                    <span style={{ fontSize: '12px', color: '#999', fontFamily: '"Inter", sans-serif', marginLeft: '8px' }}>{statLabel}</span>
+                  </div>
+                  <p style={{ fontSize: '13px', color: '#555', lineHeight: '1.75', margin: 0, fontFamily: '"Inter", sans-serif' }}>{body}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -272,7 +285,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
       {/* ── PHOTO DIVIDER — rice ── */}
       <PhotoDivider
         src="https://images.unsplash.com/photo-1559592413-7cbb5e31f4f0?w=1600&q=80"
-        caption="Northern Vietnam rice paddy. Agricultural informality is near-universal — 97.9% — and structural. It will not be resolved by registration campaigns. Source: GSO/ILO 2021."
+        caption="Northern Vietnam rice paddy. Agricultural informality is near-universal at 97.9% and structural. It will not be resolved by registration campaigns. Source: GSO/ILO 2021."
         height="420px"
         position="center 55%"
         overlay="linear-gradient(to top, rgba(13,13,13,0.8) 0%, rgba(13,13,13,0.2) 60%)"
@@ -288,10 +301,10 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 Vietnam's informal economy wasn't a failure of development. It was produced by it.
               </h2>
               <p style={{ fontSize: '16px', lineHeight: '1.85', color: 'rgba(255,255,255,0.62)', margin: '0 0 18px 0', fontFamily: '"Inter", sans-serif' }}>
-                Before 1986, Vietnam was a centrally planned economy. Jobs were state-assigned. Prices were state-set. Petty trade was suppressed. <strong style={{ color: 'white' }}>Then came Doi Moi</strong> — "Renovation" — the 1986 decision to open markets while retaining political control.
+                Before 1986, Vietnam was a centrally planned economy. Jobs were state-assigned. Prices were state-set. Petty trade was suppressed. <strong style={{ color: 'white' }}>Then came Doi Moi</strong>, "Renovation," the 1986 decision to open markets while retaining political control.
               </p>
               <p style={{ fontSize: '16px', lineHeight: '1.85', color: 'rgba(255,255,255,0.62)', margin: '0 0 18px 0', fontFamily: '"Inter", sans-serif' }}>
-                Real per capita GDP grew nearly tenfold between 1990 and 2023. Poverty fell from 58% to under 5%. By any measure, Doi Moi worked. But formal institutions for social protection, taxation, and labor registration weren't built at the same pace as market liberalization — and the informal economy rushed in to fill the gap.
+                Real per capita GDP grew nearly tenfold between 1990 and 2023. Poverty fell from 58% to under 5%. By any measure, Doi Moi worked. But formal institutions for social protection, taxation, and labor registration weren't built at the same pace as market liberalization, and the informal economy rushed in to fill the gap.
               </p>
               <p style={{ fontSize: '16px', lineHeight: '1.85', color: 'rgba(255,255,255,0.62)', margin: 0, fontFamily: '"Inter", sans-serif' }}>
                 Almost half of all rural-to-urban migrants end up in informal work. Young women in particular flow into domestic work, street trading, and garment factories without contracts. Geography, gender, and education largely determine who escapes.
@@ -301,10 +314,10 @@ export default function InformalExplainer({ onBack, onNavigate }) {
             <div>
               {[
                 { year: 'Pre-1986', title: 'Centrally planned economy', body: 'State-assigned jobs. Petty trade illegal. Poverty endemic, but informality in the modern sense didn\'t exist — just state-controlled scarcity.' },
-                { year: '1986', title: 'Doi Moi begins', body: 'Agricultural collectives dismantled. Household contract system introduced. Millions of workers freed from state assignment — and from state protection.' },
+                { year: '1986', title: 'Doi Moi begins', body: 'Agricultural collectives dismantled. Household contract system introduced. Millions of workers freed from state assignment, and from state protection.' },
                 { year: '1988–95', title: 'Land reform and migration', body: 'Land use rights granted to households. Rural labor surplus builds. Mass migration to cities begins. Street vending becomes the first rung of the economic ladder.' },
                 { year: '1990s–2000s', title: 'The informality paradox', body: 'GDP grows 6–8% annually. Formal sector expands but cannot absorb the labor force. The informal economy grows alongside the formal one.' },
-                { year: '2008', title: 'The Hanoi street vendor ban', body: 'Authorities ban vending on 62 streets and 48 spaces. Vendors relocate rather than formalize — demonstrating that enforcement without incentives doesn\'t work.', extra: (
+                { year: '2008', title: 'The Hanoi street vendor ban', body: 'Authorities ban vending on 62 streets and 48 spaces. Vendors relocate rather than formalize, demonstrating that enforcement without incentives doesn\'t work.', extra: (
                   <button onClick={() => onNavigate('case-studies')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: '600', color: TEAL_BRIGHT, fontFamily: '"Inter", sans-serif', padding: 0, textDecoration: 'underline', opacity: 0.8 }}>
                     → How Chile and Korea handled this differently
                   </button>
@@ -325,7 +338,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
             <div style={{ marginBottom: '40px' }}>
               <div style={{ fontSize: '10px', fontWeight: '700', color: TEAL_BRIGHT, letterSpacing: '2.5px', textTransform: 'uppercase', marginBottom: '14px', fontFamily: '"Inter", sans-serif' }}>Who Is Informal?</div>
               <h2 style={{ fontSize: 'clamp(24px, 2.8vw, 38px)', fontWeight: '400', lineHeight: '1.2', margin: '0 0 14px 0', letterSpacing: '-0.8px', maxWidth: '600px' }}>
-                Informality follows geography, gender, and education — not individual choice.
+                Informality follows geography, gender, and education, not individual choice.
               </h2>
             </div>
           </Fade>
@@ -335,7 +348,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 { title: 'Agricultural workers', pct: '97.9%', body: 'Near-universal informality across rice farming, coffee cultivation, and aquaculture. These workers will not be reached by registration campaigns. They formalize when structural transformation moves them into manufacturing and services.', color: '#16a34a', sub: 'GSO/ILO, 2021' },
                 { title: 'Rural workers', pct: '77.9%', body: 'Rural workers have a drastically lower probability of transitioning to formal employment than urban workers. The rural-urban gap in informality mirrors the gap between subsistence and integration into the modern economy.', color: '#1e40af', sub: 'GSO/ILO, 2021' },
                 { title: 'Women in vulnerable roles', pct: '~65%', body: 'Women\'s overall informality rate is slightly lower than men\'s, but women are disproportionately concentrated in the most precarious categories: domestic work, street vending, and uncontracted garment work. Over 61% of female informal workers earn below regional minimum wage.', color: '#9333ea', sub: 'GSO/ILO, 2021' },
-                { title: 'Urban informal workers', pct: '52%', body: 'Even in cities, more than half of workers are informal — construction workers, motorbike taxi drivers, delivery workers, food vendors. Urban informality is rising as migration consistently outpaces formal job creation.', color: '#c2410c', sub: 'GSO/ILO, 2021' },
+                { title: 'Urban informal workers', pct: '52%', body: 'Even in cities, more than half of workers are informal: construction workers, motorbike taxi drivers, delivery workers, food vendors. Urban informality is rising as migration consistently outpaces formal job creation.', color: '#c2410c', sub: 'GSO/ILO, 2021' },
               ].map(({ title, pct, body, color, sub }) => (
                 <div key={title} style={{ background: '#111', padding: '28px 32px', borderLeft: `3px solid ${color}` }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px', gap: '12px' }}>
@@ -358,7 +371,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 "Informal workers are not failing to understand the system. They are navigating it rationally — responding correctly to the incentives they face."
               </p>
               <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.75', margin: 0, fontFamily: '"Inter", sans-serif', maxWidth: '620px' }}>
-                When social insurance contributions total 25–28% of wages, when benefits are opaque and arrive decades away, when registration requires navigating three separate government databases — the informal economy is a rational response to a system not designed for the workers it's supposed to protect.
+                When social insurance contributions total 25–28% of wages, when benefits are opaque and arrive decades away, when registration requires navigating three separate government databases. The informal economy is a rational response to a system not designed for the workers it's supposed to protect.
               </p>
             </div>
           </Fade>
@@ -368,7 +381,7 @@ export default function InformalExplainer({ onBack, onNavigate }) {
       {/* ── PHOTO DIVIDER — urban market ── */}
       <PhotoDivider
         src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80"
-        caption="Ho Chi Minh City food stalls. Urban informality accounts for 52% of city employment — it is not a residual category but the economy's foundation. Unsplash."
+        caption="Ho Chi Minh City food stalls. Urban informality accounts for 52% of city employment. It is not a residual category but the economy's foundation. Unsplash."
         height="380px"
         position="center 50%"
         overlay="linear-gradient(to top, rgba(13,13,13,0.7) 0%, rgba(13,13,13,0.15) 60%)"
