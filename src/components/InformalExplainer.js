@@ -238,6 +238,8 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 statContext: 'of total employment',
                 body: 'Workers in unregistered household businesses: street vendors, market traders, small-scale agriculture, roadside repair shops. These enterprises operate entirely outside the formal business registry. They generate real income and real output. They contribute nothing to the tax base, and receive nothing from the social protection system. The woman selling bun bo Hue from a cart she has pushed to the same corner for fifteen years is in this category. So is the family that harvests rice on land they own but never registered. The 2008 Hanoi street vendor ban was aimed at this group. It drove them to adjacent streets rather than into the formal economy.',
                 note: 'Source: ILO, Informal Employment in Viet Nam, 2021',
+                img: 'IMAGE_01_URL',
+                imgAlt: 'Informal sector — street vendors and unregistered household businesses',
               },
               {
                 num: '02',
@@ -247,6 +249,8 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 statContext: 'of workers at registered enterprises',
                 body: 'Workers employed by registered, taxpaying enterprises — but without a formal employment contract, without social insurance enrollment, or both. This is the most policy-relevant category, because these workers are already inside the formal economy in one sense: they work for a legitimate company. They have been excluded from protections by cost or administrative complexity rather than structural barriers. It includes garment factory piece workers paid per completed unit with no contract, construction subcontractors hired through brokers, and domestic workers employed by households that are formally registered as businesses. The formal sector is larger than it looks. The informal workforce inside it is too.',
                 note: 'Source: ILO, Informal Employment in Viet Nam, 2021',
+                img: 'IMAGE_02_URL',
+                imgAlt: 'Informal employment in formal firms — factory and construction workers',
               },
               {
                 num: '03',
@@ -256,10 +260,12 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                 statContext: 'of agricultural workers are informal',
                 body: 'Self-employed individuals and contributing family members, predominantly in rice and coffee agriculture. This category has near-universal informality not because of enforcement failure, but because the nature of the work is structurally incompatible with conventional social insurance. Smallholder subsistence farming does not produce a wage. Family fishing operations do not generate payroll records. There is no employer to deduct contributions from. These workers will formalize when structural economic transformation moves them into manufacturing and services — not because a government campaign tells them to register. Policy cannot compel it. This is the category that makes Vietnam\'s aggregate informality rate so high, and it is also the category where registration campaigns are least effective.',
                 note: 'Source: GSO/ILO, 2021',
+                img: 'IMAGE_03_URL',
+                imgAlt: 'Agricultural workers — rice paddies and smallholder farming',
               },
-            ].map(({ num, accent, title, stat, statContext, body: typeBody, note }, i) => (
+            ].map(({ num, accent, title, stat, statContext, body: typeBody, note, img, imgAlt }, i) => (
               <FadeSection key={num} delay={i * 0.08}>
-                <div style={{ display: 'grid', gridTemplateColumns: '80px 1fr', gap: '40px', padding: '48px 0', borderTop: '1px solid #e8e4e0', alignItems: 'start' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: '80px 1fr 320px', gap: '40px', padding: '48px 0', borderTop: '1px solid #e8e4e0', alignItems: 'start' }}>
                   {/* Number + stat column */}
                   <div style={{ paddingTop: '4px' }}>
                     <div style={{ fontSize: '11px', fontWeight: '700', color: accent, fontFamily: '"Inter", sans-serif', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px' }}>TYPE {num}</div>
@@ -269,8 +275,28 @@ export default function InformalExplainer({ onBack, onNavigate }) {
                   {/* Text column */}
                   <div>
                     <h3 style={{ fontSize: 'clamp(20px, 2.2vw, 26px)', fontWeight: '400', color: '#1a1a1a', margin: '0 0 20px 0', letterSpacing: '-0.3px', lineHeight: '1.2', borderLeft: `3px solid ${accent}`, paddingLeft: '18px' }}>{title}</h3>
-                    <p style={{ ...body, maxWidth: '680px' }}>{typeBody}</p>
+                    <p style={{ ...body, maxWidth: '580px' }}>{typeBody}</p>
                     <div style={{ fontSize: '12px', color: '#bbb', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{note}</div>
+                  </div>
+                  {/* Image column — equal size for all three */}
+                  <div style={{ position: 'sticky', top: '80px' }}>
+                    <div style={{
+                      width: '100%',
+                      height: '260px',
+                      backgroundImage: img !== 'IMAGE_01_URL' && img !== 'IMAGE_02_URL' && img !== 'IMAGE_03_URL' ? `url(${img})` : 'none',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundColor: '#e8e4e0',
+                      borderTop: `3px solid ${accent}`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}>
+                      {(img === 'IMAGE_01_URL' || img === 'IMAGE_02_URL' || img === 'IMAGE_03_URL') && (
+                        <span style={{ fontSize: '11px', color: '#bbb', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>Image pending</span>
+                      )}
+                    </div>
+                    <div style={{ fontSize: '11px', color: '#aaa', fontFamily: '"Inter", sans-serif', fontStyle: 'italic', marginTop: '8px', lineHeight: '1.5' }}>{imgAlt}</div>
                   </div>
                 </div>
               </FadeSection>
