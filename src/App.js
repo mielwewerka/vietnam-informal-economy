@@ -574,51 +574,47 @@ function LandingPage({ onNavigate, savedScrollY }) {
           </span>
         </div>
 
-        {/* Centered layout: text left, 2x2 stats right */}
+        {/* Centered layout — title + subtitle + buttons, all centered */}
         <div style={{
-          position: 'relative', zIndex: 2, width: '100%', padding: '0 80px 0 96px',
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '56px',
+          position: 'relative', zIndex: 2, width: '100%', padding: '0 56px',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center',
         }}>
-
-          {/* Left: title + deck + CTAs */}
-          <div style={{ maxWidth: '560px' }}>
-            <h1 style={{ fontSize: 'clamp(56px, 7.5vw, 100px)', fontWeight: '400', lineHeight: '1.0', margin: '0 0 24px 0', letterSpacing: '-2.5px', color: 'white' }}>
-              Vietnam's<br />Invisible<br />Workforce
-            </h1>
-            <p style={{ fontSize: 'clamp(16px, 1.6vw, 21px)', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7', margin: '0 0 32px 0', fontStyle: 'italic', fontWeight: '400', maxWidth: '500px' }}>
-              Vietnam is racing toward high-income status by 2045. It has the growth rate,
-              the political will, and the manufacturing base. What it does not have is a tax
-              base. 68.5% of its workers operate without social insurance, contracts, or safety nets.
-            </p>
-            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <button onClick={() => onNavigate('informal-explainer')} style={{ background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none', padding: '13px 30px', fontSize: '14px', fontWeight: '700', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
-                Begin Reading
-              </button>
-              <button onClick={() => onNavigate('exec-summary')} style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.3)', padding: '12px 22px', fontSize: '13px', fontWeight: '600', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
-                Executive Summary
-              </button>
-            </div>
-          </div>
-
-          {/* Right: 2x2 stat grid — bigger numbers, pushed in from edge */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px', background: 'rgba(255,255,255,0.06)', flexShrink: 0, width: '420px', marginRight: '24px' }}>
-            {[
-              { stat: '68.5%', label: 'informally employed', source: 'GSO/ILO 2021' },
-              { stat: '33.6M', label: 'outside the formal economy', source: 'GSO/ILO 2021' },
-              { stat: '16.8%', label: 'tax-to-GDP ratio', source: 'OECD 2023' },
-              { stat: '2045', label: 'high-income target year', source: 'Res. 29/NQ-TW' },
-            ].map(({ stat, label, source }) => (
-              <div key={stat} style={{ background: 'rgba(10,10,10,0.8)', padding: '28px 24px', backdropFilter: 'blur(4px)' }}>
-                <div style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: '300', color: 'white', lineHeight: 1, letterSpacing: '-1px', marginBottom: '9px', fontFamily: '"Georgia", serif' }}>{stat}</div>
-                <div style={{ fontSize: '13px', color: 'rgba(255,255,255,0.6)', lineHeight: '1.35', fontFamily: '"Inter", sans-serif', marginBottom: '4px' }}>{label}</div>
-                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
-              </div>
-            ))}
+          <h1 style={{ fontSize: 'clamp(56px, 7.5vw, 100px)', fontWeight: '400', lineHeight: '1.0', margin: '0 0 24px 0', letterSpacing: '-2.5px', color: 'white' }}>
+            Vietnam's<br />Invisible<br />Workforce
+          </h1>
+          <p style={{ fontSize: 'clamp(16px, 1.6vw, 21px)', color: 'rgba(255,255,255,0.65)', lineHeight: '1.7', margin: '0 0 40px 0', fontStyle: 'italic', fontWeight: '400', maxWidth: '520px' }}>
+            Vietnam is racing toward high-income status by 2045. It has the growth rate,
+            the political will, and the manufacturing base. What it does not have is a tax
+            base. 68.5% of its workers operate without social insurance, contracts, or safety nets.
+          </p>
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <button onClick={() => onNavigate('informal-explainer')} style={{ background: TEAL_BRIGHT, color: '#0f0f0f', border: 'none', padding: '13px 30px', fontSize: '14px', fontWeight: '700', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
+              Begin Reading
+            </button>
+            <button onClick={() => onNavigate('exec-summary')} style={{ background: 'rgba(255,255,255,0.1)', color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.3)', padding: '12px 22px', fontSize: '13px', fontWeight: '600', cursor: 'pointer', letterSpacing: '0.5px', textTransform: 'uppercase', fontFamily: '"Inter", sans-serif' }}>
+              Executive Summary
+            </button>
           </div>
         </div>
 
+        {/* Stats row — bottom of hero, white text, no background */}
+        <div style={{ position: 'absolute', bottom: '72px', left: 0, right: 0, zIndex: 2, display: 'flex', justifyContent: 'center', gap: '64px', padding: '0 56px' }}>
+          {[
+            { stat: '68.5%', label: 'informally employed', source: 'GSO/ILO 2021' },
+            { stat: '33.6M', label: 'outside the formal economy', source: 'GSO/ILO 2021' },
+            { stat: '16.8%', label: 'tax-to-GDP ratio', source: 'OECD 2023' },
+            { stat: '2045', label: 'high-income target year', source: 'Res. 29/NQ-TW' },
+          ].map(({ stat, label, source }) => (
+            <div key={stat} style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: 'clamp(22px, 2.5vw, 32px)', fontWeight: '300', color: 'white', lineHeight: 1, letterSpacing: '-0.5px', marginBottom: '6px', fontFamily: '"Georgia", serif' }}>{stat}</div>
+              <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.55)', lineHeight: '1.35', fontFamily: '"Inter", sans-serif', marginBottom: '2px' }}>{label}</div>
+              <div style={{ fontSize: '10px', color: 'rgba(255,255,255,0.25)', fontFamily: '"Inter", sans-serif', fontStyle: 'italic' }}>{source}</div>
+            </div>
+          ))}
+        </div>
+
         {/* Scroll indicator */}
-        <div style={{ position: 'absolute', bottom: '28px', left: '56px', display: 'flex', alignItems: 'center', gap: '8px', zIndex: 2 }}>
+        <div style={{ position: 'absolute', bottom: '28px', left: '50%', transform: 'translateX(-50%)', display: 'flex', alignItems: 'center', gap: '8px', zIndex: 2 }}>
           <div style={{ animation: 'bounce 1.8s infinite' }}>
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2.5 5.5l5.5 5.5 5.5-5.5" stroke="rgba(255,255,255,0.25)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
           </div>
